@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Form with Global Data</title>
+    <!-- 1. Include Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 2. Include Vue.js (v3) -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+      /* A little extra styling for a nicer look */
+      body {
+        background-color: #f7fafc;
+      }
+      .form-card,
+      .display-card {
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="antialiased text-slate-700 bg-black">
+    <div id="app" class="container mx-auto p-4 md:p-8 max-w-4xl">
+      <h1 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-8">
+        Employee Registration
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- The Form Component -->
+        <form-component></form-component>
+
+        <!-- The Display Component for showing all submissions -->
+        <display-component></display-component>
+      </div>
+    </div>
+
+    <script>
+      // 3. Create a simple reactive "store"
+      // This object is created outside any component, making it globally accessible.
+      // Vue.reactive() makes it so any changes to this object will trigger updates
+      // in components that use it.
+      const store = Vue.reactive({
+        submissions: [],
+      })
+
+      // ===================================
+      //  FORM COMPONENT DEFINITION
+      // ===================================
+      const FormComponent = {
+        template: `
+                <div class="form-card bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-5 border-b pb-3">Enter Details</h2>
+                    <!-- 
+                      - @submit.prevent calls our 'handleSubmit' method.
+                      - '.prevent' stops the page from reloading.
+                    -->
+                    <form @submit.prevent="handleSubmit" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <!-- v-model creates a two-way binding with our data -->
+                            <input type="text" id="name" v-model="formValues.name" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" v-model="formValues.email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                        </div>
+
+                        <div>
+                            <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
+                            <select id="department" v-model="formValues.department" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                                <option>Engineering</option>
+                                <option>Marketing</option>
+                                <option>Sales</option>
+                                <option>Human Resources</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input id="terms" type="checkbox" v-model="formValues.agreedToTerms" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="terms" class="ml-2 block text-sm text-gray-900">
+                              I agree to the terms and conditions
+                            </label>
+                        </div>
+
+                        <div>
+                            <button type="submit" :disabled="!formValues.agreedToTerms" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                                Add Employee
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `,
+        // data() holds the *local* state for this component (the form inputs)
+        data() {
+          return {
+            formValues: {
+              name: '',
+              email: '',
+              department: 'Engineering', // Default value
+              agreedToTerms: false,
+            },
+          }
+        },
+        methods: {
+          handleSubmit() {
+            // Create a new object with a unique ID and a copy of the form data
+            const newSubmission = {
+              id: Date.now(),
+              ...this.formValues,
+            }
+
+            // Push the new submission into our GLOBAL store's array
+            store.submissions.push(newSubmission)
+
+            // Reset the form for the next entry
+            this.resetForm()
+          },
+          resetForm() {
+            this.formValues.name = ''
+            this.formValues.email = ''
+            this.formValues.department = 'Engineering'
+            this.formValues.agreedToTerms = false
+          },
+        },
+      }
+
+      // ===================================
+      //  DISPLAY COMPONENT DEFINITION
+      // ===================================
+      const DisplayComponent = {
+        template: `
+                <div class="display-card bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-5 border-b pb-3">All Submissions</h2>
+                    <!-- We use the computed property 'sharedSubmissions' to get the data -->
+                    <div v-if="sharedSubmissions.length === 0" class="text-center text-gray-500 pt-8">
+                        <p>No submissions yet.</p>
+                    </div>
+                    <ul v-else class="space-y-4 max-h-96 overflow-y-auto pr-2">
+                        <!-- Loop through the array and display each submission -->
+                        <li v-for="submission in sharedSubmissions" :key="submission.id" class="p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm">
+                            <p class="font-bold text-indigo-700">{{ submission.name }}</p>
+                            <p class="text-sm text-gray-600">{{ submission.email }}</p>
+                            <p class="text-sm text-gray-500 mt-1 inline-block bg-gray-200 px-2 py-1 rounded-full">{{ submission.department }}</p>
+                        </li>
+                    </ul>
+                </div>
+            `,
+        // Computed properties are the recommended way to use state in a template.
+        // It will automatically update when the original source (store.submissions) changes.
+        computed: {
+          sharedSubmissions() {
+            // This component directly accesses the global store's data!
+            return store.submissions
+          },
+        },
+      }
+
+      // 4. Create and mount the main Vue application
+      const app = Vue.createApp({})
+      // Register our components so we can use them in the HTML
+      app.component('form-component', FormComponent)
+      app.component('display-component', DisplayComponent)
+      app.mount('#app')
+    </script>
+  </body>
+</html>
