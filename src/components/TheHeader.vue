@@ -72,13 +72,14 @@ export default {
 header {
   display: flex;
   width: 100%;
+  margin-top: 10px;
   justify-content: center;
 }
 
 .header-container {
-  z-index: 100;
+  z-index: 1000;
   position: sticky;
-  top: 10px;
+  top: 0px;
   background-color: transparent;
   backdrop-filter: blur(20px);
   display: flex;
@@ -118,6 +119,7 @@ img:hover {
 .form-button,
 .table-button {
   display: flex;
+  color: #2a2826;
   border: 1.5px solid bisque;
   border-bottom: 3px solid bisque;
   border-top: 1px solid bisque;

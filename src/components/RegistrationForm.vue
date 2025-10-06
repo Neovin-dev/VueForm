@@ -2,10 +2,9 @@
   <div class="page-container">
     <div class="main-container">
       <div class="info-panel">
-        <!-- Using a valid placeholder for the image -->
         <img
-          src="https://placehold.co/300x200/2a2826/wheat?text=ANIMATION"
-          alt="Decorative Animation"
+          src="../assets/electron.gif"
+          alt="Spiral"
           class="info-gif"
         />
         <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat">
@@ -39,7 +38,7 @@
                 <label for="fname"
                   >First Name
                   <span class="error-message" v-if="formErrors.fname"
-                    ><em>*{{ formErrors.fname }}</em></span
+                    ><br><span>*{{ formErrors.fname }}</span></span
                   ></label
                 >
                 <input
@@ -55,7 +54,7 @@
                 <label for="lname"
                   >Last Name
                   <span class="error-message" v-if="formErrors.lname"
-                    ><em>*{{ formErrors.lname }}</em></span
+                    ><br><span>*{{ formErrors.lname }}</span></span
                   ></label
                 >
                 <input
@@ -74,7 +73,7 @@
                 <label for="dob"
                   >Date of Birth
                   <span class="error-message" v-if="formErrors.dob"
-                    ><em>*{{ formErrors.dob }}</em></span
+                    ><br><span>*{{ formErrors.dob }}</span></span
                   ></label
                 >
                 <input type="date" id="dob" name="dob" v-model="formData.dob" required />
@@ -83,7 +82,7 @@
                 <label for="email"
                   >Email Address
                   <span class="error-message" v-if="formErrors.email"
-                    ><em>*{{ formErrors.email }}</em></span
+                    ><br><span>*{{ formErrors.email }}</span></span
                   ></label
                 >
                 <input
@@ -120,7 +119,7 @@
                 <label for="telenum"
                   >Phone number
                   <span class="error-message" v-if="formErrors.telenum"
-                    ><em>*{{ formErrors.telenum }}</em></span
+                    ><br><span>*{{ formErrors.telenum }}</span></span
                   ></label
                 >
                 <input
@@ -139,7 +138,7 @@
                 <h4>
                   Subjects
                   <span class="error-message" v-if="formErrors.subjects"
-                    ><em>*{{ formErrors.subjects }}</em></span
+                    ><br><span>*{{ formErrors.subjects }}</span></span
                   >
                 </h4>
                 <!-- Refactored Checkbox Group -->
@@ -194,8 +193,15 @@
 <script>
 export default {
   name: 'RegistrationForm',
+  props: {
+    formDataEdit: {
+      type: Object,
+    }
+  },
   data() {
     return {
+
+      // Form Object
       formData: {
         fname: '',
         lname: '',
@@ -207,6 +213,7 @@ export default {
         exam: '',
       },
 
+      // Error object
       formErrors: {
         fname: '',
         lname: '',
@@ -218,6 +225,7 @@ export default {
   },
   methods: {
     handleSubmit() {
+
       this.formErrors = {
         fname: '',
         lname: '',
@@ -260,8 +268,12 @@ export default {
       }
 
       const submissionData = { ...this.formData }
-      console.log('Form data submitted:', submissionData)
-      this.$emit('form-submitted')
+      console.log('Form data submitted:', submissionData);
+      // this.formDataToEdit = ({});
+
+      if(!submissionData.id){
+        submissionData.id = Date.now();
+      }
 
       this.formData = {
         fname: '',
@@ -273,7 +285,23 @@ export default {
         subjects: [],
         exam: '',
       }
+
+
+
+      this.$emit('form-submitted', submissionData);
+      this.$emit('edit-registration', submissionData);
     },
+  },
+  watch: {
+    formDataEdit: {
+      handler(newVal){
+      if(newVal && Object.keys(newVal).length > 0){
+        this.formData = { ...newVal };
+        // newVal is the value of the formEditData
+      }
+    },
+    immediate: true
+    }
   },
 }
 </script>
@@ -303,11 +331,20 @@ export default {
   background-color: var(--bg-color);
   min-height: 100vh;
 }
+
+h4 {
+  font-size: 14px;
+}
+
+label {
+  font-size: 14px;
+}
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
+  max-height: 700px;
   padding: 20px;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -319,14 +356,9 @@ export default {
   border-right: 3px solid rgba(245, 245, 220, 0.436);
 }
 
-@media (min-width: 992px) {
-  .main-container {
-    flex-direction: row;
-  }
-}
 
 .info-panel {
-  flex: 1;
+  flex: 0.5;
   background-color: #2a2826;
   padding: 40px;
   display: flex;
@@ -447,7 +479,7 @@ select:focus {
 .subject-row-category {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   margin-top: 8px;
 }
 
@@ -498,7 +530,7 @@ select:focus {
   width: 20px;
   height: 20px;
   background-color: #131213;
-  border: 1px solid var(--accent-color);
+  border: 1px solid #d8b03c;
   position: relative;
   transition: background-color 0.2s;
 }
@@ -543,13 +575,13 @@ select:focus {
   top: 2px; */
   width: 15px;
   height: 15px;
-  border: solid var(--accent-color);
+  border: solid #d8b03c;
   border-width: 0 3px 3px 0;
 }
 
 .submit-button {
   padding: 12px 20px;
-  background-color: var(--accent-color);
+  background-color: #d8b03c;
   color: #131213;
   border: none;
   border-radius: 5px;
@@ -561,7 +593,7 @@ select:focus {
 }
 
 .submit-button:hover {
-  background-color: #d8b03c;
+  background-color: #eab414;
 }
 
 .error-message {
@@ -571,7 +603,8 @@ select:focus {
   font-size: 13px;
   margin-left: 8px;
 }
-.error-message em {
+.error-message span {
   color: #ff0000;
+  font-weight: 700;
 }
 </style>
