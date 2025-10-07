@@ -473,7 +473,7 @@ select:focus {
 }
 
 .ele-container > label {
-  font-size: 13px;
+  font-size: 14px;
   display: block;
   margin-bottom: 6px;
   font-weight: 600;

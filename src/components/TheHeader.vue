@@ -206,4 +206,8 @@ img {
   transition: trasform 0.4 ease-in-out;
   transform: translate(7px) scale(1.1);
 }
+
+.activeCardView, .activeTableView {
+  background-color: rgba(255, 63, 63, 0.279);
+}
 </style>
