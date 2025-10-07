@@ -123,21 +123,21 @@ export default {
 }
 
 .filters-container {
-  background: #2a282675;
+  background: var(--panel-bg-color);
   backdrop-filter: blur(10px);
   padding: 2px;
   margin: 2% 1%;
   width: 30%;
   flex-basis: 30%;
   border-radius: 10px;
-  border: 1px solid beige;
-  border-bottom: 3px solid beige;
-  border-right: 3px solid beige;
-  color: whitesmoke;
+  border: 1px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+  color: var(--text-color);
 }
 
 .table-view-container {
-  background: #2a282675;
+  background: var(--panel-bg-color);
   backdrop-filter: blur(10px);
   padding: 10px 40px;
   /* margin: 10px; */
@@ -145,10 +145,10 @@ export default {
   width: 70%;
   border-radius: 10px;
   max-width: 900px;
-  border: 1px solid beige;
-  border-bottom: 3px solid beige;
-  border-right: 3px solid beige;
-  color: whitesmoke;
+  border: 1px solid solid var(--border-color);
+  border-bottom: 3px solid solid var(--border-color);
+  border-right: 3px solid solid var(--border-color);
+  color: var(--text-color);
 }
 
 .table-header {
@@ -164,11 +164,11 @@ export default {
   font-weight: 900;
   font-style: italic;
   font-size: 28px;
-  color: wheat;
+  color: var(--accent-color);
 }
 
 .table-header h3 span {
-  color: whitesmoke;
+  color: var(--text-color);
   font-weight: 500;
   font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
@@ -191,7 +191,7 @@ td {
 }
 
 thead {
-  background-color: #1a1a1c;
+  background-color: #e9ecef;
 }
 
 th {
@@ -200,7 +200,7 @@ th {
 }
 
 tbody tr:hover {
-  background-color: #333230;
+  background-color: #f0f0f0;
 }
 
 .capitalize {
@@ -257,7 +257,7 @@ tbody tr:hover {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #2a2826;
+  background-color: var(--panel-bg-color);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -271,13 +271,13 @@ tbody tr:hover {
   display: block;
 }
 .dropdown-menu li {
-  color: whitesmoke;
+  color: var(--text-color);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   cursor: pointer;
 }
 .dropdown-menu li:hover {
-  background-color: #333;
+  background-color: #f0f0f0;
 }
 </style>

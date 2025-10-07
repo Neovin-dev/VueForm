@@ -161,6 +161,21 @@ export default {
 </script>
 
 <style scoped>
+:root {
+  --bg-color: #f4f4f9;
+  --panel-bg-color: #ffffff;
+  --form-bg-color: rgba(255, 255, 255, 0.85);
+  --text-color: #333333;
+  --placeholder-color: #888888;
+  --accent-color: #0056b3;
+  --input-bg-color: #ffffff;
+  --border-color: #dddddd;
+}
+
+* {
+  color: var(--text-color);
+}
+
 .main-content {
   display: flex;
   justify-content: center;

@@ -18,7 +18,7 @@
             Registration
             <span
               style="
-                color: whitesmoke;
+                color: #333333;
                 font-weight: 500;
                 font-size: 20px;
                 font-family: 'Courier New', Courier, monospace;
@@ -300,19 +300,19 @@ export default {
 
 <style scoped>
 :root {
-  --bg-color: #131213;
-  --panel-bg-color: #1a1a1c;
-  --form-bg-color: rgba(50, 55, 68, 0.75);
-  --text-color: #e0e0e0;
-  --placeholder-color: #a0a0a0;
-  --accent-color: #f4c644;
-  --input-bg-color: #2c2c2e;
-  --border-color: #444;
+  --bg-color: #f4f4f9;
+  --panel-bg-color: #ffffff;
+  --form-bg-color: rgba(255, 255, 255, 0.85);
+  --text-color: #333333;
+  --placeholder-color: rgba(245, 245, 220, 0.378);
+  --accent-color: #0056b3;
+  --input-bg-color: #ffffff;
+  --border-color: #dddddd;
 }
 
 * {
   font-family: 'Courier New', Courier, monospace;
-  color: whitesmoke;
+  color: var(--text-color);
   box-sizing: border-box;
 }
 
@@ -345,14 +345,14 @@ label {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(245, 245, 220, 0.436);
-  border-bottom: 3px solid rgba(245, 245, 220, 0.436);
-  border-right: 3px solid rgba(245, 245, 220, 0.436);
+  border: 1px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
 }
 
 .info-panel {
   flex: 0.5;
-  background-color: #2a2826;
+  background-color: var(--panel-bg-color);
   padding: 40px;
   display: flex;
   margin: 10px;
@@ -361,9 +361,13 @@ label {
   align-items: center;
   text-align: center;
   border-radius: 10px;
-  border: 1px solid beige;
-  border-bottom: 3px solid beige;
-  border-right: 3px solid beige;
+  border: 1px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
+}
+
+.info-panel img {
+  border-radius: 50%;
 }
 
 .info-gif {
@@ -401,7 +405,7 @@ label {
 .form-container-Mform h3 {
   text-align: center;
   margin-bottom: 20px;
-  color: wheat;
+  color: var(--text-color);
 }
 
 #Mform {
@@ -411,8 +415,8 @@ label {
 }
 
 select {
-  background-color: beige;
-  color: #2a2826;
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
   border: 2px solid transparent;
   padding: 8px;
   border-radius: 4px;
@@ -442,7 +446,6 @@ select {
 
 .ele-container input,
 select {
-  background-color: beige;
   color: #2a2826;
   border: 2px solid transparent;
   padding: 8px 12px;
@@ -493,7 +496,7 @@ select:focus {
 }
 
 .ele-container input::placeholder {
-  color: #2a28268f;
+  color: var(--placeholder-color);
   font-size: 12px;
   font-weight: 500;
 }
@@ -523,8 +526,8 @@ select:focus {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-color: #131213;
-  border: 1px solid #d8b03c;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
   position: relative;
   transition: background-color 0.2s;
 }
@@ -552,7 +555,8 @@ select:focus {
 .custom-input-group input:checked + label .custom-radio::after,
 .custom-input-group input:checked + label .custom-checkbox::after {
   display: block;
-  background-color: #d8b03c;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .custom-radio::after {
@@ -575,8 +579,8 @@ select:focus {
 
 .submit-button {
   padding: 12px 20px;
-  background-color: #d8b03c;
-  color: #131213;
+  background-color: var(--accent-color);
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
