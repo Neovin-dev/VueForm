@@ -18,6 +18,7 @@
         @clear-filters="clearAllFilters"
       />
     </main>
+    <ProductCard />
   </div>
 </template>
 
@@ -25,6 +26,7 @@
 import TheHeader from './components/TheHeader.vue'
 import RegistrationForm from './components/RegistrationForm.vue'
 import RegistrationData from './components/RegistrationData.vue'
+import ProductCard from './components/ProductCard.vue'
 
 export default {
   name: 'App',
@@ -32,12 +34,14 @@ export default {
     TheHeader,
     RegistrationForm,
     RegistrationData,
+    ProductCard,
   },
   data() {
     return {
       activeView: 'form', // default form view
       registrationsList: [],
       formDataToEdit: null, // placeholder for the form data to send which is stored in userToEdit
+      tableView: false,
 
       // activeFilters and activeSort to track state
       activeFilters: {
@@ -136,7 +140,7 @@ export default {
       this.formDataToEdit = { ...userToEdit }
 
       // clear the registration data entry
-      // this.registrationsList = this.registrationsList.filter((user) => user.id != idToEdit)
+      this.registrationsList = this.registrationsList.filter((user) => user.id != idToEdit)
 
       this.activeView = 'form'
     },
@@ -180,5 +184,6 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
+  /* height: 100vh; */
 }
 </style>

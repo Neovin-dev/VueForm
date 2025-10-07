@@ -13,7 +13,7 @@
         <h3>Registration <span>Data</span></h3>
         <div class="controls">
           <div v-if="registrations.length > 1" class="dropdown">
-            <label for="my-dropdown" class="dropdown-label">Sort</label>
+            <label for="my-dropdown" class="dropdown-label">Sort By</label>
             <ul class="dropdown-menu">
               <li @click="sortData('A-Z')">Name (A-Z)</li>
               <li @click="sortData('Z-A')">Name (Z-A)</li>
@@ -115,15 +115,29 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .data-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 75%;
+  width: 100%;
+  max-width: 1280px;
+  background: #833ab448;
+  background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
+  backdrop-filter: blur(20px);
+  margin-top: 2%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
 }
 
 .filters-container {
-  background: var(--panel-bg-color);
+  background: whitesmoke;
   backdrop-filter: blur(10px);
   padding: 2px;
   margin: 2% 1%;
@@ -137,7 +151,7 @@ export default {
 }
 
 .table-view-container {
-  background: var(--panel-bg-color);
+  background: whitesmoke;
   backdrop-filter: blur(10px);
   padding: 10px 40px;
   /* margin: 10px; */
@@ -249,10 +263,11 @@ tbody tr:hover {
 }
 .dropdown-label {
   padding: 8px 16px;
-  background-color: #1a1a1c;
+  background-color: wheat;
   border: 1px solid var(--accent-color);
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 800;
 }
 .dropdown-menu {
   display: none;

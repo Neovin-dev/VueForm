@@ -42,3 +42,7 @@ npm run build
 ```sh
 npm run lint
 ```
+
+
+
+1:0 - 7:0

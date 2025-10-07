@@ -6,18 +6,13 @@
         font-style: italic;
         font-size: 25px;
         padding-left: 20px;
-        font-family:
-          Bitcount Single Ink,
-          system-ui;
       "
     >
       Filter
       <span
         style="
-          color: whitesmoke;
           font-weight: 500;
           font-size: 18px;
-          font-family: Poppins, system-ui;
         "
         >Menu</span
       >
@@ -239,6 +234,8 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
 }
 
 body {
@@ -270,7 +267,7 @@ h3 {
   font-size: 28px;
   padding: 15px 10px 10px 10px;
   font-weight: 800;
-  color: wheat;
+  /* color: wheat; */
   /* Note: The component HTML has inline styles that will override these. */
 }
 

@@ -21,7 +21,10 @@
         </div>
       </div>
       <div class="toggle-container" v-if="activeView === 'table'">
-        <!-- <img alt="electron logo" class="logo" src="../assets/minecraft.png" /> -->
+        <img alt="electron logo" class="logo" src="../assets/id-card.png" />
+      </div>
+      <div class="toggle-container" v-if="activeView === 'table'">
+        <img alt="electron logo" class="logo" src="../assets/table-icon.png" />
       </div>
     </div>
   </header>
@@ -46,8 +49,7 @@ export default {
 </script>
 
 <style scoped>
-.logo-container,
-.toggle-container {
+.logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,8 +63,23 @@ export default {
 }
 
 .toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffffb7;
+  border-radius: 25px;
+  right: 1.5%;
+}
+
+.toggle-container {
   right: 0;
   left: 1.5%;
+  padding: 2px;
+  margin: 2px
 }
 
 .logo-container:hover {
@@ -90,7 +107,7 @@ header {
   align-items: center;
   height: 40px;
   /* margin-left: 10%; */
-  width: 70%;
+  width: 80%;
   justify-content: space-between;
   padding: 10px 2%;
   box-shadow: 0px 0.5px 40px #ff7b7bb7;

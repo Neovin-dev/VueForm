@@ -2,9 +2,9 @@
   <div class="page-container">
     <div class="main-container">
       <div class="info-panel">
-        <img src="../assets/electron.gif" alt="Spiral" class="info-gif" />
+        <img src="../assets/searchtap.webp" alt="Spiral" class="info-gif" />
         <h2 style="font-weight: 900; font-style: italic; font-size: 32px; color: black">
-          Search Tap
+          <!-- Search Tap -->
         </h2>
         <p>
           Fast and relevant search solution for small, medium or enterprise level e-commerce
@@ -321,7 +321,7 @@ export default {
   justify-content: center;
   padding: 2rem 1rem;
   background-color: var(--bg-color);
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h4 {
@@ -337,13 +337,12 @@ label {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1280px;
   max-height: 620px;
   padding: 20px;
   /* background-color: transparent; */
   background: #833ab448;
   background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
-  backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: 10px;
   overflow: hidden;
@@ -370,7 +369,12 @@ label {
 }
 
 .info-panel img {
-  border-radius: 50%;
+  width: 100%;
+  /* border-radius: 50%; */
+  margin: 0;
+  /* border-bottom: 10px solid #3333337d ;
+  border-right: 10px solid #3333337d ; */
+  /* box-shadow: 8px 15px 15px hsl(0deg 0% 0% / 0.31); */
 }
 
 .info-gif {
@@ -583,7 +587,7 @@ select:focus {
 
 .submit-button {
   padding: 12px 20px;
-  background-color: rgba(137, 43, 226, 0.558);
+  background-color: rgba(226, 174, 43, 0.558);
   color: #ffffff;
   border: none;
   border-radius: 5px;
