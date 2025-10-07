@@ -2,7 +2,7 @@
   <header>
     <div class="header-container">
       <div @click="refreshPage" class="logo-container">
-        <!-- <img alt="electron logo" class="logo" src="../assets/minecraft.png" /> -->
+        <!-- <img alt="electron logo" class="logo" src="../assets/searchtap_logo.png" /> -->
       </div>
       <div class="swap-view-container">
         <div
@@ -20,11 +20,23 @@
           Table
         </div>
       </div>
-      <div class="toggle-container" v-if="activeView === 'table'">
-        <img alt="electron logo" class="logo" src="../assets/id-card.png" />
+      <div
+        class="toggle-container"
+        v-if="activeView === 'table'"
+        :class="{ activeCardView: activeData === 'productCard' }"
+        @click="$emit('change-data-view', 'productCard')"
+        >
+        <img alt="table view" class="logo" src="../assets/id-card-large.png" />
       </div>
-      <div class="toggle-container" v-if="activeView === 'table'">
-        <img alt="electron logo" class="logo" src="../assets/table-icon.png" />
+      <div
+        class="toggle-container"
+        v-if="activeView === 'table'"
+        :class="{ activeTableView: activeData === 'tabular' }"
+        @click="$emit('change-data-view', 'tabular')"
+        >
+        <img alt="table view" class="logo" src="../assets/table-large.png"
+
+        />
       </div>
     </div>
   </header>
@@ -35,6 +47,7 @@ export default {
   // define props
   props: {
     activeView: String,
+    activeData: String,
   },
   data() {
     return {}
@@ -55,12 +68,19 @@ export default {
   align-items: center;
   position: relative;
   cursor: pointer;
-  width: 40px;
+  width: 210px;
   height: 40px;
-  background-color: #000000b7;
   border-radius: 25px;
   right: 1.5%;
 }
+
+.logo-container img {
+  width: 100%;
+}
+
+/* .logo-container img:hover {
+  background-color: #2a2826;
+} */
 
 .toggle-container {
   display: flex;
@@ -68,10 +88,12 @@ export default {
   align-items: center;
   position: relative;
   cursor: pointer;
-  width: 40px;
+  width: 50px;
   height: 40px;
-  background-color: #ffffffb7;
-  border-radius: 25px;
+  background-color: wheat;
+  border: 2px solid #000000b7;
+
+  border-radius: 10px;
   right: 1.5%;
 }
 
@@ -82,9 +104,9 @@ export default {
   margin: 2px
 }
 
-.logo-container:hover {
+/* .logo-container:hover {
   transform: scale(0.9);
-}
+} */
 
 header {
   display: flex;
@@ -131,11 +153,6 @@ img {
   height: 35px;
   width: 35px;
 }
-
-img:hover {
-  transform: scale(1.2);
-}
-
 .form-button,
 .table-button {
   display: flex;
@@ -176,6 +193,10 @@ img:hover {
   border-color: #2a2826;
   transition: trasform 0.4 ease-in-out;
   transform: translate(-7px) scale(1.1);
+}
+
+.activeDataView {
+  background-color: #2a2826;
 }
 
 .activeTable {

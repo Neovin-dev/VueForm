@@ -244,6 +244,10 @@ body {
   color: var(--text-color);
 }
 
+/* #filters-containers {
+  max-width: 205px;
+} */
+
 /* #filter-containers.deactive-style {
     display: none;
 } */

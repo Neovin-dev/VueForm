@@ -5,10 +5,10 @@
         <div class="top-container">
             <div class="name-container">
             <div class="first-name-container">
-              {{ user.fname }}
+              Naveen
             </div>
             <div class="last-name-container">
-              {{ user.lname }}
+              Singh
             </div>
           </div>
           <div class="image-container">
@@ -20,25 +20,24 @@
           <div class="contact-details-container">
             <div class="phone-email-container">
               Email:
-              <div class="email-container"> {{ user.email }}
+              <div class="email-container"> naveeinsing@gmail.com
               </div>
               <div class="phone-number-container">
                 <div class="phone-title">Phone No:</div>
-                <div class="phone-no-value">{{ user.telenum }}</div>
+                <div class="phone-no-value">+91 8800952607</div>
 
               </div>
             </div>
 
-            <!-- <div class="gender-main-container">
+            <div class="gender-main-container">
               <div class="gender-container">
-                {{ user.gender.charAt(0).toUpperCase() }}
+                M
               </div>
-              <span>{{ user.gender }}</span>
-            </div> -->
+              <span>Male</span>
+            </div>
           </div>
 
         </div>
-        <!-- TODO: expandable filter -->
         <div class="collapsable-container">
           <div class="center-dob-container">
             <div class="center-container">
@@ -46,7 +45,7 @@
               Center:
             </div>
             <div class="center-choice">
-              {{ user.exam }}
+              Delhi NCR
             </div>
             </div>
             <div class="dob-container">
@@ -54,7 +53,7 @@
                 D.O.B
               </div>
               <div class="dob">
-                {{ user.dob }}
+                20/10/1900
               </div>
             </div>
           </div>
@@ -63,16 +62,16 @@
           <div class="subject-container">
             <div class="subjects-title">Subjects: </div>
           <div class="subjects-choices-container">
-            {{ user.subjects.join(', ') }}
+            Maths, English, French, Magic
           </div>
         </div>
 
       <div class="button-container">
             <div class="edit-button-container">
-              <Button @click="$emit('edit', user.id)" >Edit</Button>
+              <Button>Edit</Button>
             </div>
             <div class="del-button-container">
-              <Button @click="$emit('delete', user.id)" >Delete</Button>
+              <Button>Delete</Button>
             </div>
         </div>
 
@@ -87,17 +86,85 @@
 </div>
 </template>
 
+<template>
+  <div class="whole-card-container">
+    <div class="product-card-container">
+      <div class="card-container">
+        <div class="top-container">
+          <div class="name-container">
+            <div class="first-name-container">
+              {{ user.fname }}
+            </div>
+            <div class="last-name-container">
+              {{ user.lname }}
+            </div>
+          </div>
+          <div class="image-container">
+            <img src="../assets/male-placeholder.jpg" alt="User image" />
+          </div>
+        </div>
+
+        <div class="bottom-container">
+          <div class="contact-details-container">
+            <div class="phone-email-container">
+              Email:
+              <div class="email-container">{{ user.email }}</div>
+              <div class="phone-number-container">
+                <div class="phone-title">Phone No:</div>
+                <div class="phone-no-value">{{ user.telenum }}</div>
+              </div>
+            </div>
+
+            <div class="gender-main-container">
+              <div class="gender-container">
+                {{ user.gender.charAt(0).toUpperCase() }}
+              </div>
+              <span class="capitalize">{{ user.gender }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsable-container">
+          <div class="center-dob-container">
+            <div class="center-container">
+              <div class="center-title">Center:</div>
+              <div class="center-choice">{{ user.exam }}</div>
+            </div>
+            <div class="dob-container">
+              <div class="dob-title">D.O.B</div>
+              <div class="dob">{{ user.dob }}</div>
+            </div>
+          </div>
+
+          <div class="subject-container">
+            <div class="subjects-title">Subjects:</div>
+            <div class="subjects-choices-container">
+              {{ user.subjects.join(', ') }}
+            </div>
+          </div>
+
+          <div class="button-container">
+            <div class="edit-button-container">
+              <Button @click="$emit('edit', user.id)">Edit</Button>
+            </div>
+            <div class="del-button-container">
+              <Button @click="$emit('delete', user.id)">Delete</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="expanding-button">
+      <div class="down-arrow">
+        <div class="Expand-button">Expand</div>
+        <img src="../assets/down-arrow.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
-export default {
-  name: 'ProductCard',
-  props: {
-    user: {
-      type: Object,
-      required: true,
-    },
-  },
-  emit: ['edit',' delete'],
-}
+
 </script>
 
 <style scoped>
@@ -109,14 +176,9 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
-.whole-card-container {
-  flex: 0 0 30%;
-}
-
   .product-card-container {
     width: 100%;
-    max-width: 270px;
-    /* flex: 0 0 30%; */
+    max-width: 380px;
     /* background: #76ff5066; */
     background: #833ab448;
     background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
@@ -135,7 +197,6 @@ export default {
     border-radius: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border: 2px solid black;
   }
 
   .top-container {
@@ -163,7 +224,7 @@ export default {
   }
 
   .first-name-container {
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 700;
 
   }

@@ -1,6 +1,11 @@
 <template>
   <div id="app-container">
-    <TheHeader :active-view="activeView" @change-view="setView" />
+    <TheHeader
+      :active-view="activeView"
+      :active-data="activeData"
+      @change-view="setView"
+      @change-data-view="setViewData"
+    />
     <main class="main-content">
       <RegistrationForm
         :formDataEdit="formDataToEdit"
@@ -10,6 +15,7 @@
 
       <RegistrationData
         v-else-if="activeView === 'table'"
+        :stateDataView="activeData"
         :registrations="displayedRegistration"
         @sort-data="handleSort"
         @delete-registration="deleteRegistration"
@@ -18,7 +24,7 @@
         @clear-filters="clearAllFilters"
       />
     </main>
-    <ProductCard />
+    <!-- <ProductCard /> -->
   </div>
 </template>
 
@@ -26,7 +32,7 @@
 import TheHeader from './components/TheHeader.vue'
 import RegistrationForm from './components/RegistrationForm.vue'
 import RegistrationData from './components/RegistrationData.vue'
-import ProductCard from './components/ProductCard.vue'
+// import ProductCard from './components/ProductCard.vue'
 
 export default {
   name: 'App',
@@ -34,14 +40,14 @@ export default {
     TheHeader,
     RegistrationForm,
     RegistrationData,
-    ProductCard,
+    // ProductCard,
   },
   data() {
     return {
       activeView: 'form', // default form view
+      activeData: 'productCard', // default
       registrationsList: [],
       formDataToEdit: null, // placeholder for the form data to send which is stored in userToEdit
-      tableView: false,
 
       // activeFilters and activeSort to track state
       activeFilters: {
@@ -102,6 +108,9 @@ export default {
   methods: {
     setView(view) {
       this.activeView = view
+    },
+    setViewData(view){
+      this.activeData = view;
     },
 
     handleSort(sortType) {
