@@ -55,8 +55,8 @@ export default {
   cursor: pointer;
   width: 40px;
   height: 40px;
-  background-color: beige;
-  border-radius: 20px;
+  background-color: #000000b7;
+  border-radius: 25px;
   right: 1.5%;
 }
 
@@ -74,13 +74,16 @@ header {
   width: 100%;
   margin-top: 10px;
   justify-content: center;
+
 }
 
 .header-container {
   z-index: 1000;
   position: sticky;
   top: 0px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background: #833ab448;
+  background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: row;
@@ -90,11 +93,11 @@ header {
   width: 70%;
   justify-content: space-between;
   padding: 10px 2%;
-  box-shadow: 0px 0.5px 40px #f4c54414;
-  border-radius: 120px;
-  border: 1px solid rgba(245, 245, 220, 0.436);
-  border-right: 4px solid rgba(245, 245, 220, 0.436);
-  border-bottom: 3px solid rgba(245, 245, 220, 0.436);
+  box-shadow: 0px 0.5px 40px #ff7b7bb7;
+  border-radius: 10px;
+  border: 1px solid #000000b7;
+  border-right: 4px solid  #000000b7;
+  border-bottom: 3px solid #000000b7;
 }
 
 .swap-view-container {
@@ -135,7 +138,7 @@ img:hover {
 .table-button:hover,
 .form-button:focus,
 .table-button:focus {
-  background-color: bisque;
+  background-color: whitesmoke;
   color: #2a2826;
   border-color: #2a2826;
 }

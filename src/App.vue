@@ -162,7 +162,7 @@ export default {
 
 <style scoped>
 :root {
-  --bg-color: #f4f4f9;
+  --bg-color: #ffffff;
   --panel-bg-color: #ffffff;
   --form-bg-color: rgba(255, 255, 255, 0.85);
   --text-color: #333333;

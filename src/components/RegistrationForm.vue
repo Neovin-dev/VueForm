@@ -3,7 +3,7 @@
     <div class="main-container">
       <div class="info-panel">
         <img src="../assets/electron.gif" alt="Spiral" class="info-gif" />
-        <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat">
+        <h2 style="font-weight: 900; font-style: italic; font-size: 32px; color: black">
           Search Tap
         </h2>
         <p>
@@ -340,7 +340,10 @@ label {
   max-width: 1100px;
   max-height: 620px;
   padding: 20px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background: #833ab448;
+  background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
+  backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: 10px;
   overflow: hidden;
@@ -391,7 +394,7 @@ label {
 
 .form-panel {
   flex: 1;
-  background: #2a282675;
+  background: whitesmoke;
   backdrop-filter: blur(10px);
   padding: 40px;
   padding-bottom: 5px;
@@ -415,7 +418,7 @@ label {
 }
 
 select {
-  background-color: var(--input-bg-color);
+  /* background-color: var(--input-bg-color); */
   color: var(--text-color);
   border: 2px solid transparent;
   padding: 8px;
@@ -555,13 +558,13 @@ select:focus {
 .custom-input-group input:checked + label .custom-radio::after,
 .custom-input-group input:checked + label .custom-checkbox::after {
   display: block;
-  background-color: var(--accent-color);
+  background-color: gold;
   border-color: var(--accent-color);
 }
 
 .custom-radio::after {
-  /* top: 4px; */
-  /* left: 4px; */
+  top: -1px;
+  left: -1px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -569,17 +572,18 @@ select:focus {
 }
 
 .custom-checkbox::after {
-  /* left: 6px;
-  top: 2px; */
-  width: 15px;
-  height: 15px;
+  left: -1px;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
   border: solid #d8b03c;
-  border-width: 0 3px 3px 0;
+  border-width: 0 0px 0px 0;
 }
 
 .submit-button {
   padding: 12px 20px;
-  background-color: var(--accent-color);
+  background-color: rgba(137, 43, 226, 0.558);
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -588,6 +592,10 @@ select:focus {
   font-size: 16px;
   transition: background-color 0.3s ease;
   margin-top: 1rem;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  width: 70%;
+  /* border-radius: 30px; */
 }
 
 .submit-button:hover {
