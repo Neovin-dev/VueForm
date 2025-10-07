@@ -2,17 +2,21 @@
   <div id="app-container">
     <TheHeader :active-view="activeView" @change-view="setView" />
     <main class="main-content">
-      <RegistrationForm :formDataEdit="formDataToEdit" v-if="activeView === 'form'" @form-submitted="handleFormSubmit" />
+      <RegistrationForm
+        :formDataEdit="formDataToEdit"
+        v-if="activeView === 'form'"
+        @form-submitted="handleFormSubmit"
+      />
 
       <RegistrationData
         v-else-if="activeView === 'table'"
-        :registrations="registrationsList"
+        :registrations="displayedRegistration"
         @sort-data="handleSort"
         @delete-registration="deleteRegistration"
         @edit-registration="handleEdit"
         @filter-apply="filterApplyer"
+        @clear-filters="clearAllFilters"
       />
-
     </main>
   </div>
 </template>
@@ -33,8 +37,63 @@ export default {
     return {
       activeView: 'form', // default form view
       registrationsList: [],
-      formDataToEdit: null, // placeholder for the form data to send which is stored in refilledData
+      formDataToEdit: null, // placeholder for the form data to send which is stored in userToEdit
+
+      // activeFilters and activeSort to track state
+      activeFilters: {
+        gender: [],
+        subjects: [],
+        exam: [],
+      },
+      activeSort: '',
     }
+  },
+  computed: {
+    // this will handle the displayed data on the registrationForm
+    // this will be passed in the RegistrationData component.
+
+    displayedRegistration() {
+      let filteredRegistrationList = [...this.registrationsList]
+
+      if (this.activeFilters.gender.length > 0) {
+        filteredRegistrationList = filteredRegistrationList.filter((user) =>
+          this.activeFilters.gender.includes(user.gender),
+        )
+      }
+      if (this.activeFilters.exam.length > 0) {
+        filteredRegistrationList = filteredRegistrationList.filter((user) =>
+          this.activeFilters.exam.includes(user.exam),
+        )
+      }
+      if (this.activeFilters.subjects.length > 0) {
+        filteredRegistrationList = filteredRegistrationList.filter((user) => {
+          let foundMatch = false
+
+          for (const subject of user.subjects) {
+            if (this.activeFilters.subjects.includes(subject)) {
+              foundMatch = true
+              break
+            }
+          }
+          return foundMatch
+        })
+      }
+
+      // Sorting on Filteration
+      if (this.activeSort) {
+        if (this.activeSort === 'A-Z') {
+          filteredRegistrationList.sort((a, b) => a.fname.localeCompare(b.fname))
+        } else if (this.activeSort === 'Z-A') {
+          filteredRegistrationList.sort((a, b) => b.fname.localeCompare(a.fname))
+        } else if (this.activeSort === 'O-Y') {
+          filteredRegistrationList.sort((a, b) => new Date(a.dob) - new Date(b.dob))
+        } else if (this.activeSort === 'Y-O') {
+          filteredRegistrationList.sort((a, b) => new Date(b.dob) - new Date(a.dob))
+        }
+      }
+
+      return filteredRegistrationList
+    },
   },
   methods: {
     setView(view) {
@@ -42,55 +101,61 @@ export default {
     },
 
     handleSort(sortType) {
-      if (sortType === 'A-Z') {
-        this.registrationsList.sort((a, b) => a.fname.localeCompare(b.fname));
-      } else if (sortType === 'Z-A') {
-        this.registrationsList.sort((a, b) => b.fname.localeCompare(a.fname));
-      } else if (sortType === 'O-Y') {
-        this.registrationsList.sort((a, b) => new Date(a.dob) - new Date(b.dob));
-      } else if (sortType === 'Y-O') {
-        this.registrationsList.sort((a, b) => new Date(b.dob) - new Date(a.dob));
-      }
+      // if (sortType === 'A-Z') {
+      //   this.registrationsList.sort((a, b) => a.fname.localeCompare(b.fname))
+      // } else if (sortType === 'Z-A') {
+      //   this.registrationsList.sort((a, b) => b.fname.localeCompare(a.fname))
+      // } else if (sortType === 'O-Y') {
+      //   this.registrationsList.sort((a, b) => new Date(a.dob) - new Date(b.dob))
+      // } else if (sortType === 'Y-O') {
+      //   this.registrationsList.sort((a, b) => new Date(b.dob) - new Date(a.dob))
+      // }
+      this.activeSort = sortType
     },
 
     handleFormSubmit(submissionData) {
-
-      this.registrationsList.push(submissionData);
+      this.registrationsList.push(submissionData)
       // to access the data fields this
 
-      this.formDataToEdit = null;
-      console.log("Cleared FormData to Edit", this.formDataToEdit);
+      this.formDataToEdit = null
+      console.log('Cleared FormData to Edit', this.formDataToEdit)
 
-      console.log("handle Registration", submissionData);
+      console.log('handle Registration', submissionData)
       this.activeView = 'table'
     },
 
     deleteRegistration(idToDelete) {
-      this.registrationsList = this.registrationsList.filter(user => user.id !== idToDelete);
-      console.log("DeleteRegistration: ",this.registrationsList);
+      this.registrationsList = this.registrationsList.filter((user) => user.id !== idToDelete)
+      console.log('DeleteRegistration: ', this.registrationsList)
     },
     // todo: add a editing button
     handleEdit(idToEdit) {
       // refill the form using unidirectional binding
-      const refilledData = this.registrationsList.find(user => user.id === idToEdit);
-      console.log("handleEdit: ",this.registrationsList);
-      this.formDataToEdit = { ...refilledData };
+      const userToEdit = this.registrationsList.find((user) => user.id === idToEdit)
+      console.log('handleEdit: ', this.registrationsList)
+      this.formDataToEdit = { ...userToEdit }
 
       // clear the registration data entry
-      this.registrationsList = this.registrationsList.filter(user => user.id != idToEdit);
+      // this.registrationsList = this.registrationsList.filter((user) => user.id != idToEdit)
 
-      console.log("formDataToEdit Data:", this.formDataToEdit);
-      console.log("refilled Data:", refilledData);
-
-      this.activeView = "form"
+      this.activeView = 'form'
     },
-    filterApplyer(filtersData){
-      let selectedGenders =  filtersData.gender;
-      let selectedSubjects = filtersData.subjects;
-      let selectedCenters = filtersData.exam;
-      console.log("selectedCenters",selectedCenters);
-
-    }
+    filterApplyer(filtersData) {
+      this.activeFilters = filtersData
+      // console.log('this.activeFilters(FiltersData):', this.activeFilters)
+      // // let selectedGenders = filtersData.gender
+      // // let selectedSubjects = filtersData.subjects
+      // let selectedCenters = filtersData.exam
+      // console.log('selectedCenters', selectedCenters)
+    },
+    clearAllFilters() {
+      this.activeFilters = {
+        gender: [],
+        subjects: [],
+        exam: [],
+      }
+      this.activeSort = ''
+    },
   },
 }
 </script>

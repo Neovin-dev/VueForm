@@ -1,76 +1,85 @@
 <template>
   <div class="data-container">
-      <div class="filters-container" v-if="registrations.length > 1">
-        <FiltersComponent  />
-      </div>
+    <!-- <div class="filters-container" v-if="registrations.length > 1"> -->
+    <div class="filters-container">
+      <FiltersComponent
+        @filter-apply="$emit('filter-apply', $event)"
+        @clear-filters="$emit('clear-filters')"
+      />
+    </div>
 
-      <div class="table-view-container">
-        <div class="table-header">
-          <h3>
-            Registration <span>Data</span>
-          </h3>
-          <div class="controls">
-
-            <div v-if="registrations.length > 1" class="dropdown">
-              <label for="my-dropdown" class="dropdown-label">Sort</label>
-              <ul class="dropdown-menu">
-                <li @click="sortData('A-Z')">Name (A-Z) </li>
-                <li @click="sortData('Z-A')">Name (Z-A) </li>
-                <li @click="sortData('O-Y')">Age (O-Y) </li>
-                <li @click="sortData('Y-O')">Age (Y-O) </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="table-wrapper">
-          <table v-if="registrations.length > 0">
-            <thead>
-              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>D.O.B</th>
-                <th>Email</th>
-                <th>Mobile No.</th>
-                <th>Exam Center</th>
-                <th>Gender</th>
-                <th>Subjects</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr v-for="user in registrations" :key="user.id">
-                <td>{{ user.fname }}</td>
-                <td>{{ user.lname }}</td>
-                <td>{{ user.dob }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.telenum }}</td>
-                <td>{{ user.exam }}</td>
-                <td class="capitalize">{{ user.gender }}</td>
-                <td>{{ user.subjects.join(', ') }}</td>
-                <td>
-                  <button class="action-button edit-button" @click="$emit('edit-registration', user.id)">Edit</button>
-                </td>
-                <td>
-                  <button class="action-button delete-button" @click="$emit('delete-registration', user.id)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div v-else class="no-data-message">
-            <h2>No Registrations Found</h2>
-            <p>Submit the form to see data here.</p>
+    <div class="table-view-container">
+      <div class="table-header">
+        <h3>Registration <span>Data</span></h3>
+        <div class="controls">
+          <div v-if="registrations.length > 1" class="dropdown">
+            <label for="my-dropdown" class="dropdown-label">Sort</label>
+            <ul class="dropdown-menu">
+              <li @click="sortData('A-Z')">Name (A-Z)</li>
+              <li @click="sortData('Z-A')">Name (Z-A)</li>
+              <li @click="sortData('O-Y')">Age (O-Y)</li>
+              <li @click="sortData('Y-O')">Age (Y-O)</li>
+            </ul>
           </div>
         </div>
       </div>
+
+      <div class="table-wrapper">
+        <table v-if="registrations.length > 0">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>D.O.B</th>
+              <th>Email</th>
+              <th>Mobile No.</th>
+              <th>Exam Center</th>
+              <th>Gender</th>
+              <th>Subjects</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="user in registrations" :key="user.id">
+              <td>{{ user.fname }}</td>
+              <td>{{ user.lname }}</td>
+              <td>{{ user.dob }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.telenum }}</td>
+              <td>{{ user.exam }}</td>
+              <td class="capitalize">{{ user.gender }}</td>
+              <td>{{ user.subjects.join(', ') }}</td>
+              <td>
+                <button
+                  class="action-button edit-button"
+                  @click="$emit('edit-registration', user.id)"
+                >
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button
+                  class="action-button delete-button"
+                  @click="$emit('delete-registration', user.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-else class="no-data-message">
+          <h2>No Registrations Found</h2>
+          <p>Submit the form to see data here.</p>
+        </div>
+      </div>
+    </div>
   </div>
-
 </template>
 
 <script>
-import FiltersComponent from './FiltersComponent.vue';
+import FiltersComponent from './FiltersComponent.vue'
 
 export default {
   name: 'RegistrationData',
@@ -84,8 +93,7 @@ export default {
     },
   },
   data() {
-    return {
-    };
+    return {}
   },
   methods: {
     // sortData(sortType, registrations) {
@@ -99,15 +107,14 @@ export default {
     //     registrations.sort((a, b) => new Date(b.dob) - new Date(a.dob));
     //   }
     // }, THis is an anti pattern parent cannot allow chidl to change the props that are passed to the child so it need to tell parent what to do and parent will do it only
-    sortData(sortType){
-    this.$emit('sort-data', sortType);
+    sortData(sortType) {
+      this.$emit('sort-data', sortType)
     },
   },
-};
+}
 </script>
 
 <style scoped>
-
 .data-container {
   display: flex;
   flex-direction: row;
@@ -177,7 +184,8 @@ table {
   text-align: left;
 }
 
-th, td {
+th,
+td {
   padding: 12px 15px;
   border-bottom: 1px solid var(--border-color);
 }
@@ -251,7 +259,7 @@ tbody tr:hover {
   position: absolute;
   background-color: #2a2826;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   list-style-type: none;
   padding: 0;
@@ -272,5 +280,4 @@ tbody tr:hover {
 .dropdown-menu li:hover {
   background-color: #333;
 }
-
 </style>

@@ -2,11 +2,7 @@
   <div class="page-container">
     <div class="main-container">
       <div class="info-panel">
-        <img
-          src="../assets/electron.gif"
-          alt="Spiral"
-          class="info-gif"
-        />
+        <img src="../assets/electron.gif" alt="Spiral" class="info-gif" />
         <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat">
           Search Tap
         </h2>
@@ -38,7 +34,7 @@
                 <label for="fname"
                   >First Name
                   <span class="error-message" v-if="formErrors.fname"
-                    ><br><span>*{{ formErrors.fname }}</span></span
+                    ><br /><span>*{{ formErrors.fname }}</span></span
                   ></label
                 >
                 <input
@@ -54,7 +50,7 @@
                 <label for="lname"
                   >Last Name
                   <span class="error-message" v-if="formErrors.lname"
-                    ><br><span>*{{ formErrors.lname }}</span></span
+                    ><br /><span>*{{ formErrors.lname }}</span></span
                   ></label
                 >
                 <input
@@ -73,7 +69,7 @@
                 <label for="dob"
                   >Date of Birth
                   <span class="error-message" v-if="formErrors.dob"
-                    ><br><span>*{{ formErrors.dob }}</span></span
+                    ><br /><span>*{{ formErrors.dob }}</span></span
                   ></label
                 >
                 <input type="date" id="dob" name="dob" v-model="formData.dob" required />
@@ -82,7 +78,7 @@
                 <label for="email"
                   >Email Address
                   <span class="error-message" v-if="formErrors.email"
-                    ><br><span>*{{ formErrors.email }}</span></span
+                    ><br /><span>*{{ formErrors.email }}</span></span
                   ></label
                 >
                 <input
@@ -119,7 +115,7 @@
                 <label for="telenum"
                   >Phone number
                   <span class="error-message" v-if="formErrors.telenum"
-                    ><br><span>*{{ formErrors.telenum }}</span></span
+                    ><br /><span>*{{ formErrors.telenum }}</span></span
                   ></label
                 >
                 <input
@@ -138,7 +134,7 @@
                 <h4>
                   Subjects
                   <span class="error-message" v-if="formErrors.subjects"
-                    ><br><span>*{{ formErrors.subjects }}</span></span
+                    ><br /><span>*{{ formErrors.subjects }}</span></span
                   >
                 </h4>
                 <!-- Refactored Checkbox Group -->
@@ -196,11 +192,10 @@ export default {
   props: {
     formDataEdit: {
       type: Object,
-    }
+    },
   },
   data() {
     return {
-
       // Form Object
       formData: {
         fname: '',
@@ -225,7 +220,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-
       this.formErrors = {
         fname: '',
         lname: '',
@@ -268,11 +262,11 @@ export default {
       }
 
       const submissionData = { ...this.formData }
-      console.log('Form data submitted:', submissionData);
+      console.log('Form data submitted:', submissionData)
       // this.formDataToEdit = ({});
 
-      if(!submissionData.id){
-        submissionData.id = Date.now();
+      if (!submissionData.id) {
+        submissionData.id = Date.now()
       }
 
       this.formData = {
@@ -286,22 +280,20 @@ export default {
         exam: '',
       }
 
-
-
-      this.$emit('form-submitted', submissionData);
-      this.$emit('edit-registration', submissionData);
+      this.$emit('form-submitted', submissionData)
+      this.$emit('edit-registration', submissionData)
     },
   },
   watch: {
     formDataEdit: {
-      handler(newVal){
-      if(newVal && Object.keys(newVal).length > 0){
-        this.formData = { ...newVal };
-        // newVal is the value of the formEditData
-      }
+      handler(newVal) {
+        if (newVal && Object.keys(newVal).length > 0) {
+          this.formData = { ...newVal }
+          // newVal is the value of the formEditData
+        }
+      },
+      immediate: true,
     },
-    immediate: true
-    }
   },
 }
 </script>
@@ -334,6 +326,8 @@ export default {
 
 h4 {
   font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 label {
@@ -344,7 +338,7 @@ label {
   flex-direction: row;
   width: 100%;
   max-width: 1100px;
-  max-height: 700px;
+  max-height: 620px;
   padding: 20px;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -355,7 +349,6 @@ label {
   border-bottom: 3px solid rgba(245, 245, 220, 0.436);
   border-right: 3px solid rgba(245, 245, 220, 0.436);
 }
-
 
 .info-panel {
   flex: 0.5;
@@ -397,6 +390,7 @@ label {
   background: #2a282675;
   backdrop-filter: blur(10px);
   padding: 40px;
+  padding-bottom: 5px;
   margin: 10px;
   border-radius: 10px;
   border: 1px solid beige;
@@ -480,7 +474,7 @@ select:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  margin-top: 8px;
+  /* margin-top: 8px; */
 }
 
 .gender-container,
