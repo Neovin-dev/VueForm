@@ -551,7 +551,7 @@ select:focus {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
   border: 1px solid #cccccc;
   position: relative;
   transition: background-color 0.2s;

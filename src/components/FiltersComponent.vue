@@ -311,8 +311,9 @@ h3 {
   right: 10%;
   height: 20px;
   width: 20px;
-  background-color: #131213;
-  border: 1px solid #f4c644;
+  background-color: #f0f0f0;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
   cursor: pointer;
 }
 
@@ -339,22 +340,28 @@ h3 {
 }
 
 .apply-clear-bar {
+  display: flex;
+  justify-content: space-around;
   width: 100%;
+  gap:5px;
 }
 
 .button-register {
   display: inline-block;
   height: 35px;
-  width: 120px;
-  background: rgba(226, 174, 43, 0.558);;
-  color: white;
+  width: 140px;
   font-weight: 600;
   border: 2px solid rgba(255, 255, 255, 0.668);
   cursor: pointer;
-  border-radius: 25px;
   margin-top: 15px;
-  box-shadow: 5px 5px 10px var(--warning-red);
+  background: bisque;
+  border-top: 1px solid #dee2e6;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  border: 0.5px solid rgba(0, 0, 0, 0.34);
 }
+
 
 .button-register:hover {
   background: #eab414;

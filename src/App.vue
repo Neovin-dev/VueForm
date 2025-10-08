@@ -135,6 +135,7 @@ export default {
 
       console.log('handle Registration', submissionData)
       this.activeView = 'table'
+      this.clearAllFilters();
     },
 
     deleteRegistration(idToDelete) {

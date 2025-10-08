@@ -568,6 +568,8 @@ tbody tr:hover {
   padding: 12px;
   font-size: 16px;
   margin: 0;
+  border: 0.5px solid rgba(0, 0, 0, 0.365);
+  background-color: bisque;
 }
 
 .mobile-overlay {

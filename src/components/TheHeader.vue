@@ -168,8 +168,8 @@ header {
 
 img {
   display: block;
-  height: 35px;
-  width: 35px;
+  height: 32px;
+  width: auto;
 }
 .form-button,
 .table-button {
