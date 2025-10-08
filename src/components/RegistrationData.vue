@@ -107,13 +107,16 @@
       >
         <div class="product-card-grid">
           <!-- product card will be visible here -->
-          <ProductCard
-            v-for="user in registrations"
-            :key="user.id"
-            :user="user"
-            @edit="$emit('edit-registration', user.id)"
-            @delete="$emit('delete-registration', user.id)"
-          />
+           <div class="card-list-container">
+            <ProductCard
+              v-for="user in registrations"
+              :key="user.id"
+              :user="user"
+              @edit="$emit('edit-registration', user.id)"
+              @delete="$emit('delete-registration', user.id)"
+            />
+           </div>
+
         </div>
       </div>
       <div v-else-if="registrations.length <= 0" class="no-data-message">
@@ -456,8 +459,7 @@ tbody tr:hover {
 
 .action-button {
   padding: 6px 12px;
-  border: 1px solid var(--accent-color);
-  background-color: transparent;
+  background-color: wheat;
   color: var(--accent-color);
   border-radius: 4px;
   cursor: pointer;
@@ -471,7 +473,8 @@ tbody tr:hover {
 
 .delete-button {
   border-color: #ff6b6b;
-  color: #ff6b6b;
+  color: #000000;
+  background-color: #ff6b6b;
 }
 
 .delete-button:hover {
@@ -538,14 +541,15 @@ tbody tr:hover {
 .product-card-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  width: 100%;
+  /* gap: 20px; */
 }
 
 .mobile-fixed-buttons {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 98vw;
   background: #f8f9fa;
   border-top: 1px solid #dee2e6;
   padding: 10px;
@@ -573,9 +577,7 @@ tbody tr:hover {
 
   visibility: hidden;
   opacity: 0;
-  transition:
-    opacity 0.3s ease-in-out,
-    visibility 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .mobile-overlay.is-active {
@@ -605,8 +607,8 @@ tbody tr:hover {
 
 .filter-panel {
   height: 100%;
-  width: 300px;
-  max-width: 80vw;
+  width: 400px;
+  max-width: 90vw;
   transform: translateX(-100%);
   :deep(.filter-wrapper) {
     height: 100%;
@@ -622,7 +624,7 @@ tbody tr:hover {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 95vw;
   padding: 20px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -659,6 +661,7 @@ tbody tr:hover {
 .sort-panel .close-btn {
   margin-top: 20px;
   width: 100%;
+  height: 40px;
 }
 
 /* Scrollbar */
@@ -685,6 +688,31 @@ tbody tr:hover {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #c7b27d; /* Make it a bit darker on hover */
+}
+
+.card-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 1282px){
+  .data-container  {
+    margin: 2% 2%;
+  }
+}
+
+@media (max-width: 600px){
+  .table-header{
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .table-header h3 {
+    font-size: 26px;
+
+  }
 }
 
 </style>

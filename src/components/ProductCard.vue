@@ -75,13 +75,15 @@
           </div>
         </div>
       </div>
-      <div class="expanding-button" v-if="isMobileView" @click="toggleExpand">
+      <div class="expanding-button" v-if="isMobileView" @click="toggleExpand" >
         <div class="down-arrow">
           <div class="Expand-button">{{ isExpanded ? 'Collapse' : 'Expand' }}</div>
           <img
             src="../assets/down-arrow.svg"
             alt="toggle details"
-            :style="{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }"
+            :style="{
+              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+            }"
           />
         </div>
       </div>
@@ -131,6 +133,7 @@ export default {
   box-sizing: border-box;
 }
 .whole-card-container {
+
   flex: 0 0 30%;
 }
 
@@ -148,8 +151,9 @@ export default {
   );
   backdrop-filter: blur(20px);
   border-radius: 10px;
-  /* padding: px; */
-  margin: 10px;
+  padding: 10px;
+  /* margin: 10px; */
+  margin-bottom: 10px;
 }
 
 .card-container {

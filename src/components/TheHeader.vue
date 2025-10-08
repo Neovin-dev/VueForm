@@ -2,7 +2,7 @@
   <header>
     <div class="header-container">
       <div @click="refreshPage" class="logo-container">
-        <img alt="electron logo" class="logo" src="../assets/searchtap_logo.png" />
+        <img alt="electron logo" class="logo" src="../assets/searchTap.png" />
       </div>
       <div class="swap-view-container">
         <div
@@ -23,7 +23,7 @@
       <div class="toggle-container-view">
         <div
           class="toggle-container"
-          v-if="activeView === 'table'"
+          v-show="activeView === 'table'"
           :class="{ activeCardView: activeData === 'productCard' }"
           @click="$emit('change-data-view', 'productCard')"
         >
@@ -31,7 +31,7 @@
         </div>
         <div
           class="toggle-container"
-          v-if="activeView === 'table'"
+          v-show="activeView === 'table'"
           :class="{ activeTableView: activeData === 'tabular' }"
           @click="$emit('change-data-view', 'tabular')"
         >
@@ -77,7 +77,8 @@ export default {
 }
 
 .logo-container img {
-  width: 100%;
+  width: auto;
+  height: 40px;
 }
 
 /* .logo-container img:hover {
@@ -87,8 +88,8 @@ export default {
 .toggle-container-view {
   display: flex;
   width: 100%;
-  flex: 5%;
-  justify-content: center;
+  flex: 10%;
+  justify-content: flex-end;
   /* flex-direction: row; */
   /* width: 600px; */
 }
@@ -99,10 +100,10 @@ export default {
   align-items: center;
   position: relative;
   cursor: pointer;
-  width: 50px;
-  height: 40px;
-  background-color: wheat;
-  border: 2px solid #000000b7;
+  width: 40%;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  /* border: 2px solid #000000b7; */
 
   border-radius: 10px;
   right: 1.5%;
@@ -128,17 +129,18 @@ header {
 
 .header-container {
   z-index: 1000;
-  position: sticky;
-  top: 0px;
   /* background-color: transparent; */
-  background: #833ab448;
+  /* background: #833ab448;
   background: linear-gradient(
     90deg,
     rgba(131, 58, 180, 0.599) 0%,
     rgba(253, 29, 29, 0.293) 50%,
     rgba(252, 176, 69, 0.178) 100%
   );
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,11 +149,10 @@ header {
   width: 100%;
   justify-content: space-between;
   padding: 10px 2%;
-  box-shadow: 0px 0.5px 40px #ff7b7bb7;
+  /* box-shadow: 0px 0.5px 40px #ff7b7bb7; */
   border-radius: 10px;
   border: 1px solid #000000b7;
   border-right: 4px solid #000000b7;
-  border-bottom: 3px solid #000000b7;
   max-width: 1200px;
 }
 
@@ -162,7 +163,7 @@ header {
   display: flex;
   justify-content: center;
   /* width: 80%; */
-  flex: 60%;
+  flex: 90%;
 }
 
 img {
@@ -178,7 +179,8 @@ img {
   border-bottom: 3px solid bisque;
   border-top: 1px solid bisque;
   flex: 1;
-  max-width: 10%;
+  max-width: 100px;
+  width: 80%;
   height: 30px;
   align-items: center;
   justify-content: center;
@@ -229,5 +231,73 @@ img {
   background-color: rgba(255, 63, 63, 0.568);
   /* border-color: white; */
   /* border: 4px solid; */
+}
+
+
+@media (max-width: 900px){
+  header {
+    margin: 0;
+    border-radius: 0;
+  }
+  .header-container {
+  z-index: 1000;
+  /* background-color: transparent; */
+  /* background: #833ab448;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 0.599) 0%,
+    rgba(253, 29, 29, 0.293) 50%,
+    rgba(252, 176, 69, 0.178) 100%
+  );
+  backdrop-filter: blur(20px); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 25px;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+}
+
+@media (max-width: 450px){
+  .toggle-container {
+    width: 35%;
+    height: auto;
+  }
+
+  .form-button,
+  .table-button {
+    display: flex;
+    color: #2a2826;
+    border: 1.5px solid bisque;
+    border-bottom: 3px solid bisque;
+    border-top: 1px solid bisque;
+    flex: 1;
+    max-width: 70px;
+    width: 50%;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-color: #2a2826;
+  }
+
+  .form-button:hover,
+.table-button:hover,
+.form-button:focus,
+.table-button:focus {
+  background-color: beige;
+  color: #2a2826;
+  border-color: #2a2826;
+}
+
 }
 </style>
