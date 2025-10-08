@@ -405,4 +405,15 @@ button {
 button:hover {
   background-color: rgba(226, 174, 43, 0.785);
 }
+
+@media (max-width: 805px){
+  .product-card-container {
+    max-width: 250px;
+    width: 100%;
+  }
+
+  .expanding-button:hover {
+    background-color: none;
+  }
+}
 </style>

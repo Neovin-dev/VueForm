@@ -567,7 +567,7 @@ select:focus {
 
 .custom-input-group label:hover .custom-radio,
 .custom-input-group label:hover .custom-checkbox {
-  background-color: #333;
+  background-color: rgba(226, 174, 43, 0.558);
 }
 
 .custom-radio::after,
@@ -580,7 +580,7 @@ select:focus {
 .custom-input-group input:checked + label .custom-radio::after,
 .custom-input-group input:checked + label .custom-checkbox::after {
   display: block;
-  background-color: gold;
+  background-color: rgba(226, 174, 43, 0.558);
   border-color: var(--accent-color);
 }
 
@@ -634,5 +634,11 @@ select:focus {
 .error-message span {
   color: #ff0000;
   font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .main-container {
+    padding: 5px;
+  }
 }
 </style>

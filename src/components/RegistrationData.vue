@@ -247,7 +247,10 @@
       <div @click="closeOverlay" class="overlay-backdrop"></div>
 
       <div class="overlay-panel filter-panel">
-        <FiltersComponent @filter-apply="handleFilterApply" @clear-filters="handleClearFilters" />
+        <FiltersComponentMobile
+          @filter-apply="handleFilterApply"
+          @clear-filters="handleClearFilters"
+        />
       </div>
     </div>
 
@@ -269,12 +272,14 @@
 
 <script>
 import FiltersComponent from './FiltersComponent.vue'
+import FiltersComponentMobile from './FiltersComponentMobile.vue';
 import ProductCard from './ProductCard.vue'
 
 export default {
   name: 'RegistrationData',
   components: {
     FiltersComponent,
+    FiltersComponentMobile,
     ProductCard,
   },
   props: {
@@ -405,8 +410,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  /* margin-bottom: 32px; */
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -492,7 +497,6 @@ tbody tr:hover {
   margin-bottom: 0.5rem;
 }
 
-/* Simple Dropdown for Sort */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -577,7 +581,6 @@ tbody tr:hover {
 
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .mobile-overlay.is-active {
@@ -602,18 +605,18 @@ tbody tr:hover {
   z-index: 1001;
   display: flex;
   flex-direction: column;
+  /* height: 100vh; */
+  align-items: center;
   transition: transform 0.3s ease-in-out;
 }
 
 .filter-panel {
+  display: flex;
   height: 100%;
-  width: 400px;
-  max-width: 90vw;
+  justify-content: center;
+  width: 90vw;
+  max-width: 380px;
   transform: translateX(-100%);
-  :deep(.filter-wrapper) {
-    height: 100%;
-    overflow-y: auto;
-  }
 }
 
 .is-active .filter-panel {
@@ -624,10 +627,10 @@ tbody tr:hover {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 95vw;
+  width: 91vw;
   padding: 20px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  /* border-top-left-radius: 16px;
+  border-top-right-radius: 16px; */
   transform: translateY(100%);
 }
 
@@ -649,7 +652,6 @@ tbody tr:hover {
 
 .sort-panel li {
   padding: 15px;
-  border-bottom: 1px solid #eee;
   cursor: pointer;
   text-align: center;
 }
@@ -703,6 +705,12 @@ tbody tr:hover {
   }
 }
 
+@media (max-width: 900px){
+  .table-view-container {
+    width: 85%;
+  }
+}
+
 @media (max-width: 600px){
   .table-header{
     margin-bottom: 0;
@@ -712,6 +720,10 @@ tbody tr:hover {
   .table-header h3 {
     font-size: 26px;
 
+  }
+
+  .data-container {
+    margin-bottom: 50px;
   }
 }
 

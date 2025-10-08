@@ -1,6 +1,6 @@
 <template>
   <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
-    <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px">
+    <h3 style="font-weight: 900; font-style: italic;">
       Filter
       <span style="font-weight: 500; font-size: 18px">Menu</span>
     </h3>
@@ -226,18 +226,8 @@ export default {
 }
 
 body {
-  /* Inherited font styles */
-  font-family: 'Poppins', sans-serif;
   color: var(--text-color);
 }
-
-/* #filters-containers {
-  max-width: 205px;
-} */
-
-/* #filter-containers.deactive-style {
-    display: none;
-} */
 
 .form-container-form-1 {
   background: var(--form-bg-color);
@@ -253,20 +243,17 @@ body {
   /* border: 0.5px solid #f4c644; */
 }
 
-/* ---- Header and Text Styles ---- */
 h3 {
   font-size: 28px;
-  padding: 15px 10px 10px 10px;
+  padding: 15px 0px 10px 0px;
   font-weight: 800;
-  /* color: wheat; */
-  /* Note: The component HTML has inline styles that will override these. */
+
 }
 
 .row-filter-align h4 {
   padding-right: 4px;
 }
 
-/* ---- Layout for Filter Sections ---- */
 .subject-filter-container {
   display: flex;
   flex-direction: row;
@@ -290,9 +277,8 @@ h3 {
   flex-wrap: wrap;
 }
 
-/* ---- Custom Checkbox Styling ---- */
 .categories {
-  width: 140px;
+  width: 100%;
 }
 
 .subject-category {
@@ -352,7 +338,6 @@ h3 {
   background-color: #f4c644;
 }
 
-/* ---- Apply/Clear Buttons ---- */
 .apply-clear-bar {
   width: 100%;
 }
@@ -361,7 +346,7 @@ h3 {
   display: inline-block;
   height: 35px;
   width: 120px;
-  background: rgba(226, 174, 43, 0.558);
+  background: rgba(226, 174, 43, 0.558);;
   color: white;
   font-weight: 600;
   border: 2px solid rgba(255, 255, 255, 0.668);
@@ -372,7 +357,7 @@ h3 {
 }
 
 .button-register:hover {
-  background: #9b7819;
+  background: #eab414;
   transform: scale(1.1);
 }
 
