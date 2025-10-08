@@ -77,7 +77,7 @@
       </div>
       <div class="expanding-button" v-if="isMobileView" @click="toggleExpand" >
         <div class="down-arrow">
-          <div class="Expand-button">{{ isExpanded ? 'Collapse' : 'Expand' }}</div>
+          <div class="Expand-button">{{ isExpanded ? 'Less Info' : 'More Info' }}</div>
           <img
             src="../assets/down-arrow.svg"
             alt="toggle details"
@@ -142,14 +142,16 @@ export default {
   max-width: 270px;
   /* flex: 0 0 30%; */
   /* background: #76ff5066; */
-  background: #833ab448;
+  /* background: #833ab448;
   background: linear-gradient(
     90deg,
     rgba(131, 58, 180, 0.216) 0%,
     rgba(253, 29, 29, 0.293) 50%,
     rgba(252, 176, 69, 0.178) 100%
   );
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
+  background-color: beige;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   padding: 10px;
   /* margin: 10px; */
