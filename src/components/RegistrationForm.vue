@@ -481,7 +481,7 @@ select {
 }
 
 select:focus {
-  background-color: bisque;
+  background-color: #e2ae2b4c;
   color: black;
   font-weight: 500;
 }

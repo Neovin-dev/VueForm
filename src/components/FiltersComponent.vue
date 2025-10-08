@@ -215,7 +215,7 @@ export default {
 :root {
   --form-bg-color: rgba(50, 55, 68, 0.75);
   --text-color: #e0e0e0;
-  --accent-color: #f4c644;
+  --accent-color: #e2ae2b8e;
 }
 
 * {
@@ -338,7 +338,7 @@ h3 {
   width: 20px;
   height: 20px;
   border-radius: 2px;
-  background-color: #f4c644;
+  background-color: #e2ae2b8e;
 }
 
 .apply-clear-bar {

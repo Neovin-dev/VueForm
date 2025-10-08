@@ -217,7 +217,7 @@ export default {
 :root {
   --form-bg-color: rgba(50, 55, 68, 0.75);
   --text-color: #e0e0e0;
-  --accent-color: #f4c644;
+  --accent-color: #e2ae2b8e;
 }
 
 * {
