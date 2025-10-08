@@ -703,8 +703,8 @@ tbody tr:hover {
 .card-list-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  /* gap: 10px; */
+  justify-content: flex-start;
 }
 
 @media (max-width: 1290px){

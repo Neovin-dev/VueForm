@@ -133,45 +133,31 @@ export default {
   box-sizing: border-box;
 }
 .whole-card-container {
-  flex: 0 0 30%;
+  flex: 0 0 33.33%;
   display: flex;
+  max-width: 33.33%;
+  /* margin: -10px; */
+  /* padding: 10px; */
   /* width: 100%; */
+  /* flex: 1; */
 }
 
 .product-card-container {
   width: 100%;
-  max-width: 270px;
-  /* flex: 0 0 30%; */
-  /* background: #76ff5066; */
-  /* background: #833ab448;
-  background: linear-gradient(
-    90deg,
-    rgba(131, 58, 180, 0.216) 0%,
-    rgba(253, 29, 29, 0.293) 50%,
-    rgba(252, 176, 69, 0.178) 100%
-  );
-  backdrop-filter: blur(20px); */
-  background-color: beige;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  padding: 10px;
-  /* margin: 10px; */
-  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  padding: 10px;
+  /* flex-grow: 1; */
+  margin: -10px;
 }
 
 .card-container {
   background-color: whitesmoke;
-  /* backdrop-filter: blur(100px); */
-  margin: 0px;
-  padding: 0 10px 5px 10px;
+  padding: 10px;
+  padding: 0 10px 10px 10px;
   padding-top: 20px;
-  /* border-radius: 10px; */
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border: 2px solid rgba(0, 0, 0, 0.416);
+
+  border: 1px solid rgba(0, 0, 0, 0.416);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -207,7 +193,7 @@ export default {
 }
 
 .last-name-container {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   color: grey;
 }
