@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <div class="main-container">
-      <div class="info-panel">
+      <div v-if="isMobileView" class="info-panel">
         <img src="../assets/searchtap.webp" alt="Spiral" class="info-gif" />
         <h2 style="font-weight: 900; font-style: italic; font-size: 32px; color: black">
           <!-- Search Tap -->
@@ -216,6 +216,8 @@ export default {
         telenum: '',
         subjects: '',
       },
+
+      isMobileView: true,
     }
   },
   methods: {
@@ -283,6 +285,17 @@ export default {
       this.$emit('form-submitted', submissionData)
       this.$emit('edit-registration', submissionData)
     },
+
+    handleResize() {
+    this.isMobileView = window.innerWidth >= 930;
+    },
+  },
+  mounted() {
+  this.handleResize();
+  window.addEventListener('resize', this.handleResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize);
   },
   watch: {
     formDataEdit: {
@@ -338,7 +351,7 @@ label {
   flex-direction: row;
   width: 100%;
   max-width: 1280px;
-  max-height: 620px;
+  /* max-height: 620px; */
   padding: 20px;
   /* background-color: transparent; */
   background: #833ab448;

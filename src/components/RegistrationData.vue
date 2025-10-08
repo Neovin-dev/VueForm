@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div v-if="stateDataView === 'tabular'" class="table-wrapper">
+      <div v-if="stateDataView === 'tabular'" class="table-wrapper custom-scrollbar">
         <table v-if="registrations.length > 0">
           <thead>
             <tr>
@@ -234,7 +234,7 @@
     </div>
   </div>
 
-  <div v-if="'isMobileView'">
+  <div v-if="isMobileView">
     <div class="mobile-fixed-buttons">
       <button @click="toggleOverlay('sort')" class="button-register">Sort</button>
       <button @click="toggleOverlay('filters')" class="button-register">Filter</button>
@@ -304,7 +304,7 @@ export default {
 
     // to handle Responsivness
     handleResize() {
-      this.isMobileView = window.innerWidth <= 1035
+      this.isMobileView = window.innerWidth <= 900
     },
 
     toggleOverlay(overlayName) {
@@ -660,4 +660,31 @@ tbody tr:hover {
   margin-top: 20px;
   width: 100%;
 }
+
+/* Scrollbar */
+
+.custom-scrollbar {
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #e0c98f #f8f8f8;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #e0c98f; /* Color of the scroll thumb */
+  border: 2px solid #f8f8f8; /* padding around the thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #c7b27d; /* Make it a bit darker on hover */
+}
+
 </style>
