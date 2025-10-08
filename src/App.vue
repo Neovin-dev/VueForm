@@ -12,11 +12,13 @@
         v-if="activeView === 'form'"
         @form-submitted="handleFormSubmit"
       />
-
+      <!-- Total registrations count needs to be sended to compare between the absence of data and the no data satisfying the filtered condition -->
       <RegistrationData
         v-else-if="activeView === 'table'"
         :stateDataView="activeData"
         :registrations="displayedRegistration"
+        :totalRegistrationsCount="registrationsList.length"
+
         @sort-data="handleSort"
         @delete-registration="deleteRegistration"
         @edit-registration="handleEdit"
