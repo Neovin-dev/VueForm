@@ -130,12 +130,12 @@
           </div>
           <div class="categories subject-category">
             <label for="center-delhi"
-              >Delhi NCR
+              >Delhi
               <input
                 type="checkbox"
                 name="center"
                 id="center-delhi"
-                value="Delhi NCR"
+                value="Delhi"
                 v-model="filtersData.exam"
               />
               <span class="custom-checkbox"></span>
@@ -318,7 +318,7 @@ h3 {
 }
 
 .subject-category input:checked ~ .custom-checkbox {
-  background-color: #000000aa;
+  background-color: #f0f0f0;
 }
 
 .custom-checkbox::after {
@@ -332,10 +332,11 @@ h3 {
 }
 
 .subject-category .custom-checkbox::after {
-  top: 2.5px;
-  left: 2.5px;
-  width: 14px;
-  height: 14px;
+  top: -1px;
+  left: -1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
   background-color: #f4c644;
 }
 

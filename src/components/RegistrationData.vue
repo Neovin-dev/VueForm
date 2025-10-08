@@ -476,12 +476,6 @@ tbody tr:hover {
   color: #131213;
 }
 
-.delete-button {
-  border-color: #ff6b6b;
-  color: #000000;
-  background-color: #ff6b6b;
-}
-
 .delete-button:hover {
   background-color: #ff6b6b;
   color: #131213;

@@ -172,7 +172,7 @@
                 <select name="exam" id="exam" v-model="formData.exam" required>
                   <option value="" disabled>-- Choose an exam center --</option>
                   <option value="Noida">Noida</option>
-                  <option value="Delhi Ncr">Delhi NCR</option>
+                  <option value="Delhi">Delhi</option>
                   <option value="Mumbai">Mumbai</option>
                 </select>
               </div>

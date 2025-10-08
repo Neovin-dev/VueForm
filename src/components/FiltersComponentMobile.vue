@@ -131,12 +131,12 @@
             </div>
             <div class="categories subject-category">
               <label for="center-delhi"
-                >Delhi NCR
+                >Delhi
                 <input
                   type="checkbox"
                   name="center"
                   id="center-delhi"
-                  value="Delhi NCR"
+                  value="Delhi"
                   v-model="filtersData.exam"
                 />
                 <span class="custom-checkbox"></span>

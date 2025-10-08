@@ -228,9 +228,9 @@ img {
 
 .activeCardView,
 .activeTableView {
-  background-color: rgba(255, 63, 63, 0.568);
-  /* border-color: white; */
-  /* border: 4px solid; */
+  background-color: wheat;
+  border-color: black;
+  border: 0.5px solid;
 }
 
 
