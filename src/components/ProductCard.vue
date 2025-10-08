@@ -162,7 +162,7 @@ export default {
   margin: 0px;
   padding: 0 10px 5px 10px;
   padding-top: 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border: 2px solid black;
@@ -277,11 +277,11 @@ export default {
   /* background-color: white; */
 }
 
-.expanding-button:hover {
-  background-color: #76ff508f;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+/* .expanding-button:hover { */
+  /* background-color: #76ff508f; */
+  /* border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
+/* } */
 
 .down-arrow {
   display: flex;
@@ -406,6 +406,13 @@ button:hover {
   background-color: rgba(226, 174, 43, 0.785);
 }
 
+@media (max-width: 950px){
+  .product-card-container {
+    max-width: 250px;
+    width: 100%;
+  }
+}
+
 @media (max-width: 805px){
   .product-card-container {
     max-width: 250px;
@@ -415,5 +422,18 @@ button:hover {
   .expanding-button:hover {
     background-color: none;
   }
+
+  @media (max-width: 770px){
+  .product-card-container {
+      max-width: 260px;
+    }
+  }
 }
+
+@media (max-width: 640px){
+  .product-card-container {
+      max-width: 500px;
+      min-width: 80vw;
+    }
+  }
 </style>
