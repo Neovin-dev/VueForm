@@ -2,7 +2,7 @@
   <header>
     <div class="header-container">
       <div @click="refreshPage" class="logo-container">
-        <!-- <img alt="electron logo" class="logo" src="../assets/searchtap_logo.png" /> -->
+        <img alt="electron logo" class="logo" src="../assets/searchtap_logo.png" />
       </div>
       <div class="swap-view-container">
         <div
@@ -20,23 +20,23 @@
           Table
         </div>
       </div>
-      <div
-        class="toggle-container"
-        v-if="activeView === 'table'"
-        :class="{ activeCardView: activeData === 'productCard' }"
-        @click="$emit('change-data-view', 'productCard')"
+      <div class="toggle-container-view">
+        <div
+          class="toggle-container"
+          v-if="activeView === 'table'"
+          :class="{ activeCardView: activeData === 'productCard' }"
+          @click="$emit('change-data-view', 'productCard')"
         >
-        <img alt="table view" class="logo" src="../assets/id-card-large.png" />
-      </div>
-      <div
-        class="toggle-container"
-        v-if="activeView === 'table'"
-        :class="{ activeTableView: activeData === 'tabular' }"
-        @click="$emit('change-data-view', 'tabular')"
+          <img alt="table view" class="logo" src="../assets/id-card-large.png" />
+        </div>
+        <div
+          class="toggle-container"
+          v-if="activeView === 'table'"
+          :class="{ activeTableView: activeData === 'tabular' }"
+          @click="$emit('change-data-view', 'tabular')"
         >
-        <img alt="table view" class="logo" src="../assets/table-large.png"
-
-        />
+          <img alt="table view" class="logo" src="../assets/table-large.png" />
+        </div>
       </div>
     </div>
   </header>
@@ -64,14 +64,16 @@ export default {
 <style scoped>
 .logo-container {
   display: flex;
+  /* background-color: black; */
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
-  width: 210px;
+  /* width: 210px; */
   height: 40px;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   right: 1.5%;
+  flex: 5%;
 }
 
 .logo-container img {
@@ -81,6 +83,15 @@ export default {
 /* .logo-container img:hover {
   background-color: #2a2826;
 } */
+
+.toggle-container-view {
+  display: flex;
+  width: 100%;
+  flex: 5%;
+  justify-content: center;
+  /* flex-direction: row; */
+  /* width: 600px; */
+}
 
 .toggle-container {
   display: flex;
@@ -101,7 +112,7 @@ export default {
   right: 0;
   left: 1.5%;
   padding: 2px;
-  margin: 2px
+  margin: 2px;
 }
 
 /* .logo-container:hover {
@@ -113,7 +124,6 @@ header {
   width: 100%;
   margin-top: 10px;
   justify-content: center;
-
 }
 
 .header-container {
@@ -122,21 +132,27 @@ header {
   top: 0px;
   /* background-color: transparent; */
   background: #833ab448;
-  background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 0.599) 0%,
+    rgba(253, 29, 29, 0.293) 50%,
+    rgba(252, 176, 69, 0.178) 100%
+  );
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 40px;
   /* margin-left: 10%; */
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
   padding: 10px 2%;
   box-shadow: 0px 0.5px 40px #ff7b7bb7;
   border-radius: 10px;
   border: 1px solid #000000b7;
-  border-right: 4px solid  #000000b7;
+  border-right: 4px solid #000000b7;
   border-bottom: 3px solid #000000b7;
+  max-width: 1200px;
 }
 
 .swap-view-container {
@@ -145,7 +161,8 @@ header {
   font-weight: 700;
   display: flex;
   justify-content: center;
-  width: 100%;
+  /* width: 80%; */
+  flex: 60%;
 }
 
 img {
@@ -207,7 +224,10 @@ img {
   transform: translate(7px) scale(1.1);
 }
 
-.activeCardView, .activeTableView {
-  background-color: rgba(255, 63, 63, 0.279);
+.activeCardView,
+.activeTableView {
+  background-color: rgba(255, 63, 63, 0.568);
+  /* border-color: white; */
+  /* border: 4px solid; */
 }
 </style>

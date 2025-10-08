@@ -1,21 +1,8 @@
 <template>
   <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
-    <h3
-      style="
-        font-weight: 900;
-        font-style: italic;
-        font-size: 25px;
-        padding-left: 20px;
-      "
-    >
+    <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px">
       Filter
-      <span
-        style="
-          font-weight: 500;
-          font-size: 18px;
-        "
-        >Menu</span
-      >
+      <span style="font-weight: 500; font-size: 18px">Menu</span>
     </h3>
     <div class="subject-filter-container">
       <div class="row-filter-align">
@@ -368,14 +355,13 @@ h3 {
 /* ---- Apply/Clear Buttons ---- */
 .apply-clear-bar {
   width: 100%;
-  /* Note: The component HTML has inline styles for text-align and margin. */
 }
 
 .button-register {
   display: inline-block;
   height: 35px;
   width: 120px;
-  background: var(--button-gradient);
+  background: rgba(226, 174, 43, 0.558);
   color: white;
   font-weight: 600;
   border: 2px solid rgba(255, 255, 255, 0.668);
@@ -387,33 +373,12 @@ h3 {
 
 .button-register:hover {
   background: #9b7819;
-  transform: scale(1.1); /* This rule overrides the transform in the duplicate :hover rule */
+  transform: scale(1.1);
 }
 
 .button-register:active {
   background: var(--bg-color);
   box-shadow: 5px 5px 10px var(--caution-yellow);
-}
-
-/* ---- Responsive Media Queries ---- */
-@media (max-width: 1026px) {
-  .filter-wrapper {
-    position: absolute;
-    bottom: -200px;
-    z-index: 1000;
-  }
-}
-
-@media (max-width: 700px) {
-  .filter-wrapper {
-    bottom: -250px;
-  }
-}
-
-@media (max-width: 600px) {
-  .filter-wrapper {
-    bottom: -400px;
-  }
 }
 
 @media (max-width: 488px) {
@@ -434,12 +399,6 @@ h3 {
   }
   h3 {
     font-size: 20px;
-  }
-}
-
-@media (max-width: 410px) {
-  .filter-wrapper {
-    bottom: -600px;
   }
 }
 

@@ -342,7 +342,12 @@ label {
   padding: 20px;
   /* background-color: transparent; */
   background: #833ab448;
-  background: linear-gradient(90deg,rgba(131, 58, 180, 0.216) 0%, rgba(253, 29, 29, 0.293) 50%, rgba(252, 176, 69, 0.178) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 0.216) 0%,
+    rgba(253, 29, 29, 0.293) 50%,
+    rgba(252, 176, 69, 0.178) 100%
+  );
   backdrop-filter: blur(20px);
   border-radius: 10px;
   overflow: hidden;
@@ -463,8 +468,8 @@ select {
 }
 
 select:focus {
-  background-color: rgba(0, 0, 0, 0.778);
-  color: yellow;
+  background-color: rgba(255, 217, 0, 0.433);
+  color: black;
   font-weight: 500;
 }
 
