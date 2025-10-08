@@ -387,6 +387,9 @@ h3 {
 }
 
 @media (max-width: 488px) {
+    body {
+        pointer-events: none;
+    }
   /* .row-filter-align {
     padding-left: 25px;
   } */
