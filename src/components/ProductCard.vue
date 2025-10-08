@@ -430,7 +430,7 @@ button:hover {
   }
 }
 
-@media (max-width: 640px){
+@media (max-width: 650px){
   .product-card-container {
       max-width: 500px;
       min-width: 80vw;
