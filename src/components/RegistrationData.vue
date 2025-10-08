@@ -701,7 +701,7 @@ tbody tr:hover {
   justify-content: center;
 }
 
-@media (max-width: 1282px){
+@media (max-width: 1290px){
   .data-container  {
     margin: 2% 2%;
   }
