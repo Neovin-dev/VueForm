@@ -393,16 +393,17 @@ export default {
 
 button {
   padding: 10px;
-  background-color: rgba(226, 174, 43, 0.558);
-  color: #ffffff;
+  background-color: wheat;
+  color: black;
   border: none;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   transition: background-color 0.3s ease;
   margin-top: 1rem;
   width: 80%;
+  border: 0.5px solid rgba(0, 0, 0, 0.457);
 }
 button:hover {
   background-color: rgba(226, 174, 43, 0.785);

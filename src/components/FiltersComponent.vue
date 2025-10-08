@@ -196,7 +196,8 @@ export default {
     applyFilters() {
       // console.log('filtersData', this.filtersData.gender)
       // console.log('filtersData', this.filtersData)
-      this.$emit('filter-apply', this.filtersData)
+      this.$emit('filter-apply', { ...this.filtersData})
+      //object reference mutation
     },
     clearFilters() {
       this.filtersData = {

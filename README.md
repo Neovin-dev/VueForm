@@ -46,3 +46,16 @@ npm run lint
 
 
 1:0 - 7:0
+
+ object reference mutation
+
+ The Problem: Object Reference
+Here’s a step-by-step breakdown of what's happening:
+
+Initial State: Your FiltersComponent has its own internal filtersData object.
+
+First "Apply" Click: You click "Apply". The applyFilters method emits the event this.$emit('filter-apply', this.filtersData). This sends a reference (think of it as a direct link) to the filtersData object up to the parent component.
+
+Parent Component: The parent component receives this reference and stores it in its own state to perform the filtering. Now, the parent's state and the child's filtersData are pointing to the exact same object.
+
+Subsequent Clicks: When you now check another checkbox in FiltersComponent, v-model directly mutates the filtersData object. Since the parent is holding a reference to that very same object, Vue's reactivity system detects the change instantly and re-runs the filter logic, completely bypassing the "Apply" button.

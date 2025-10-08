@@ -199,7 +199,7 @@ export default {
     applyFilters() {
       // console.log('filtersData', this.filtersData.gender)
       // console.log('filtersData', this.filtersData)
-      this.$emit('filter-apply', this.filtersData)
+      this.$emit('filter-apply', {... this.filtersData})
     },
     clearFilters() {
       this.filtersData = {

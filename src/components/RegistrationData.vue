@@ -476,10 +476,10 @@ tbody tr:hover {
   color: #131213;
 }
 
-.delete-button:hover {
+/* .delete-button:hover {
   background-color: #ff6b6b;
   color: #131213;
-}
+} */
 
 .no-data-message {
   text-align: center;
