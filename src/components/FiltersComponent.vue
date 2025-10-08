@@ -35,13 +35,13 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="gender-others"
-              >Others
+            <label for="gender-other"
+              >Other
               <input
                 type="checkbox"
                 name="gender"
-                id="gender-others"
-                value="others"
+                id="gender-other"
+                value="other"
                 v-model="filtersData.gender"
               />
               <span class="custom-checkbox"></span>

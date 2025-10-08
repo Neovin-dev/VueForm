@@ -551,9 +551,8 @@ tbody tr:hover {
 
 .product-card-grid {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  /* gap: 20px; */
+  flex-direction: column;
+  height: 100%;
 }
 
 .mobile-fixed-buttons {

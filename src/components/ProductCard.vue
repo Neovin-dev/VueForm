@@ -133,8 +133,9 @@ export default {
   box-sizing: border-box;
 }
 .whole-card-container {
-
   flex: 0 0 30%;
+  display: flex;
+  /* width: 100%; */
 }
 
 .product-card-container {
@@ -156,6 +157,9 @@ export default {
   padding: 10px;
   /* margin: 10px; */
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .card-container {
@@ -167,7 +171,10 @@ export default {
   /* border-radius: 10px; */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.416);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .top-container {
@@ -304,6 +311,12 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  flex-grow: 1;
+
+  /* padding-left: 10px; */
+}
+
+.center-dob-container, .subject-container {
   padding-left: 10px;
 }
 
@@ -371,11 +384,12 @@ export default {
 }
 
 .button-container {
+
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+  justify-content: flex-start;
+  margin-top: auto;
   margin-bottom: 10px;
 }
 
@@ -402,7 +416,7 @@ button {
   font-size: 15px;
   transition: background-color 0.3s ease;
   margin-top: 1rem;
-  width: 80%;
+  width: 90%;
   border: 0.5px solid rgba(0, 0, 0, 0.457);
 }
 button:hover {
@@ -413,6 +427,7 @@ button:hover {
   .product-card-container {
     max-width: 250px;
     width: 100%;
+
   }
 }
 
