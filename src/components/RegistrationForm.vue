@@ -170,7 +170,7 @@
               <div class="ele-container">
                 <label for="exam">Exam Center</label>
                 <select name="exam" id="exam" v-model="formData.exam" required>
-                  <option value="" disabled>-- Choose an exam center --</option>
+                  <option value="" disabled selected hidden>-- Choose an exam center --</option>
                   <option value="Noida">Noida</option>
                   <option value="Delhi">Delhi</option>
                   <option value="Mumbai">Mumbai</option>
