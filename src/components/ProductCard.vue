@@ -1,7 +1,18 @@
 <template>
   <div class="whole-card-container">
     <div class="product-card-container">
+      <div class="header-card-container">
+          <div class="button-container">
+            <div class="edit-button-container">
+                <svg @click="$emit('edit', user.id)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="#000000" stroke-width="0.8160000000000001" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="#000000" stroke-width="0.8160000000000001" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </div>
+            <div class="del-button-container">
+                <svg @click="$emit('delete', user.id)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.0004 9.5L17.0004 14.5M17.0004 9.5L12.0004 14.5M4.50823 13.9546L7.43966 17.7546C7.79218 18.2115 7.96843 18.44 8.18975 18.6047C8.38579 18.7505 8.6069 18.8592 8.84212 18.9253C9.10766 19 9.39623 19 9.97336 19H17.8004C18.9205 19 19.4806 19 19.9084 18.782C20.2847 18.5903 20.5907 18.2843 20.7824 17.908C21.0004 17.4802 21.0004 16.9201 21.0004 15.8V8.2C21.0004 7.0799 21.0004 6.51984 20.7824 6.09202C20.5907 5.71569 20.2847 5.40973 19.9084 5.21799C19.4806 5 18.9205 5 17.8004 5H9.97336C9.39623 5 9.10766 5 8.84212 5.07467C8.6069 5.14081 8.38579 5.2495 8.18975 5.39534C7.96843 5.55998 7.79218 5.78846 7.43966 6.24543L4.50823 10.0454C3.96863 10.7449 3.69883 11.0947 3.59505 11.4804C3.50347 11.8207 3.50347 12.1793 3.59505 12.5196C3.69883 12.9053 3.96863 13.2551 4.50823 13.9546Z" stroke="#000000" stroke-width="0.792" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </div>
+          </div>
+        </div>
       <div class="card-container">
+
         <div class="top-container">
           <div class="name-container">
             <div class="first-name-container">
@@ -64,28 +75,18 @@
               {{ user.subjects.join(', ') }}
             </div>
           </div>
-
-          <div class="button-container">
-            <div class="edit-button-container">
-              <Button @click="$emit('edit', user.id)">Edit</Button>
-            </div>
-            <div class="del-button-container">
-              <Button @click="$emit('delete', user.id)">Delete</Button>
-            </div>
-          </div>
         </div>
       </div>
-      <!-- <div class="expanding-button" v-if="isMobileView" @click="toggleExpand" > -->
-      <div class="expanding-button" @click="toggleExpand" >
+      <div class="expanding-button" v-if="isMobileView" @click="toggleExpand" >
+      <!-- <div class="expanding-button" @click="toggleExpand" > -->
         <div class="down-arrow">
           <div class="Expand-button">{{ isExpanded ? 'Less Info' : 'More Info' }}</div>
-          <img
+          <!-- <img
             src="../assets/down-arrow.svg"
             alt="toggle details"
-            :style="{
-              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-            }"
-          />
+
+          /> -->
+          <svg :style="{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', }" fill="#000000" height="20px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" stroke="#000000" stroke-width="0.00512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M256,5.333C114.88,5.333,0,117.76,0,256s114.88,250.667,256,250.667S512,394.24,512,256S397.12,5.333,256,5.333z M256,485.333C126.613,485.333,21.333,382.4,21.333,256S126.613,26.667,256,26.667S490.667,129.493,490.667,256 S385.387,485.333,256,485.333z"></path> <path d="M401.6,178.453c-4.8-3.733-11.52-3.093-15.253,1.493L256,340.373L125.653,179.947c-3.733-4.587-10.453-5.227-15.04-1.493 s-5.227,10.453-1.493,15.04L247.787,364.16c3.733,4.587,10.453,5.227,15.04,1.6c0.533-0.427,1.067-0.96,1.6-1.6l138.667-170.667 C406.827,188.907,406.08,182.187,401.6,178.453z"></path> </g> </g> </g> </g></svg>
         </div>
       </div>
     </div>
@@ -105,13 +106,13 @@ export default {
   data() {
     return {
       isExpanded: false,
-      // isMobileView: window.innerWidth < 1000,
+      isMobileView: window.innerWidth < 650,
     }
   },
   computed: {
     isCollapsableVisible() {
-      // return !this.isMobileView || this.isExpanded
-      return this.isExpanded
+      return !this.isMobileView || this.isExpanded
+      // return this.isExpanded
     },
   },
   methods: {
@@ -119,7 +120,7 @@ export default {
       this.isExpanded = !this.isExpanded
     },
     handleResize() {
-      // this.isMobileView = window.innerWidth < 1000
+      this.isMobileView = window.innerWidth < 650
     },
   },
   // TODO:
@@ -163,6 +164,31 @@ export default {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+.header-card-container {
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  background-color: rgba(253, 29, 29, 0.15);
+  width: 100%;
+  /* padding: 2px; */
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.421);
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.edit-button-container svg, .del-button-container svg {
+  height: 20px;
+}
+.edit-button-container svg {
+  height: 16px;
+
+}
+.del-button-container, .edit-button-container {
+   padding-right: 5px;
 }
 
 .top-container {
@@ -272,6 +298,8 @@ export default {
   align-items: center;
   /* gap: 10px; */
   background-color: #47b474a1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* .expanding-button:hover { */
@@ -282,7 +310,7 @@ export default {
 
 .down-arrow {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   align-items: center;
   justify-content: center;
   margin: 5px;
@@ -376,40 +404,44 @@ export default {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: flex-start;
-  margin-top: auto;
-  margin-bottom: 10px;
+  justify-content: flex-end;
+  padding-top: auto;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  /* border: 1px solid rgba(0, 0, 0, 0.416); */
 }
 
 .edit-button-container {
   display: flex;
-  flex: 0 0 50%;
-  justify-content: center;
+  /* width: 10%; */
+  /* flex: 0 0 50%;
+  justify-content: center; */
 }
 
 .del-button-container {
   display: flex;
-  flex: 0 0 50%;
-  justify-content: center;
+  /* width: 10%; */
+  /* flex: 0 0 50%;
+  justify-content: center; */
 }
 
 button {
-  padding: 10px;
-  background-color: wheat;
+  /* padding: 10px; */
+  /* background-color: wheat; */
   color: black;
   border: none;
   /* border-radius: 5px; */
   cursor: pointer;
   font-weight: bold;
-  font-size: 15px;
+  /* font-size: 10px; */
   transition: background-color 0.3s ease;
-  margin-top: 1rem;
-  width: 90%;
-  border: 0.5px solid rgba(0, 0, 0, 0.457);
+  /* margin-top: 1rem; */
+  /* border: 0.5px solid rgba(0, 0, 0, 0.457); */
+  width: 30px;
 }
-button:hover {
+/* button:hover {
   background-color: rgba(226, 174, 43, 0.785);
-}
+} */
 
 @media (max-width: 950px){
   .product-card-container {

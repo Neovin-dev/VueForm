@@ -438,6 +438,7 @@ label {
 .info-panel p {
   font-size: 16px;
   color: var(--placeholder-color);
+  font-weight: 600;
   line-height: 1.6;
 }
 
