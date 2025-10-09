@@ -662,7 +662,7 @@ tbody tr:hover {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 91vw;
+  width: calc(100% - 40px) ;
   padding: 20px;
   /* border-top-left-radius: 16px;
   border-top-right-radius: 16px; */

@@ -252,7 +252,7 @@ body {
 .filters-header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.433);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.433); */
 }
 
 .categories-container {

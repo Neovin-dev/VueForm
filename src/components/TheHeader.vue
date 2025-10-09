@@ -100,8 +100,8 @@ export default {
   align-items: center;
   position: relative;
   cursor: pointer;
-  width: 40%;
-  height: auto;
+  width: 40px;
+  height: 40px;
   background-color: rgb(255, 255, 255);
   border: 1px solid #2a2826;
 
@@ -283,8 +283,8 @@ img {
 
 @media (max-width: 450px) {
   .toggle-container {
-    width: 35%;
-    height: auto;
+    width: 30px;
+    height: 30px;
   }
 
   .form-button,

@@ -23,13 +23,13 @@
             </div>
           </div>
           <div class="image-container">
-            <img v-if="user.gender === 'male'" src="../assets/male-placeholder.jpg" alt="" />
+            <img v-if="user.gender === 'male'" src="../assets/male-placeholder-color.png" alt="" />
             <img
               v-else-if="user.gender === 'female'"
-              src="../assets/female-placeholder.jpg"
+              src="../assets/female-placeholder-color.png"
               alt=""
             />
-            <img v-else src="../assets/cube.gif" alt="" />
+            <img v-else src="../assets/other-placeholder-color.png" alt="" />
           </div>
         </div>
 
@@ -106,7 +106,7 @@ export default {
   data() {
     return {
       isExpanded: false,
-      isMobileView: window.innerWidth < 650,
+      isMobileView: window.innerWidth < 768,
     }
   },
   computed: {
@@ -120,7 +120,7 @@ export default {
       this.isExpanded = !this.isExpanded
     },
     handleResize() {
-      this.isMobileView = window.innerWidth < 650
+      this.isMobileView = window.innerWidth < 768
     },
   },
   // TODO:
@@ -199,7 +199,8 @@ export default {
 
 .image-container {
   width: 120px;
-  border: 4px solid white;
+  margin-right: 10px
+  /* border: 4px solid white; */
 }
 
 .image-container img {
@@ -209,7 +210,7 @@ export default {
 .name-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 70%;
   background-color: transparent;
   margin: 0px 2px;
   padding-left: 10px;
@@ -443,35 +444,26 @@ button {
   background-color: rgba(226, 174, 43, 0.785);
 } */
 
-@media (max-width: 950px){
+/* @media (max-width: 950px){
   .product-card-container {
     max-width: 250px;
     width: 100%;
 
   }
-}
+} */
 
-@media (max-width: 805px){
-  .product-card-container {
-    max-width: 250px;
-    width: 100%;
-  }
-
-  .expanding-button:hover {
-    background-color: none;
-  }
-
-  @media (max-width: 770px){
-  .product-card-container {
-      max-width: 260px;
-    }
+@media (max-width: 1024px){
+  .whole-card-container {
+  flex: 0 0 50%;
+  max-width: 50%;
   }
 }
 
-@media (max-width: 650px){
-  .product-card-container {
-      max-width: 500px;
-      min-width: 80vw;
-    }
+@media (max-width: 768px){
+  .whole-card-container {
+  flex: 0 0 100%;
+  max-width: 100%;
   }
+}
+
 </style>
