@@ -386,7 +386,7 @@ label {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
   /* max-height: 620px; */
   padding: 20px;
   /* background-color: transparent; */
@@ -402,7 +402,7 @@ label {
 }
 
 .info-panel {
-  flex: 0.5;
+  flex: 0.6;
   background-color: var(--panel-bg-color);
   padding: 40px;
   display: flex;
@@ -450,7 +450,7 @@ label {
   flex: 1;
   background: whitesmoke;
   backdrop-filter: blur(10px);
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
   padding-bottom: 5px;
   margin: 10px;
   border-radius: 10px;
@@ -461,7 +461,7 @@ label {
 
 .form-container-Mform h3 {
   text-align: center;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   color: var(--text-color);
 }
 

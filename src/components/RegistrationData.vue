@@ -403,7 +403,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
   background: #833ab448;
   background: linear-gradient(90deg, #47b474a1, rgba(253, 29, 29, 0.293) 50%, #f7eb0280);
   backdrop-filter: blur(20px);
@@ -411,8 +411,8 @@ export default {
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid var(--border-color);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.467);
-  border-right: 3px solid rgba(0, 0, 0, 0.467);
+  /* border-bottom: 3px solid rgba(0, 0, 0, 0.467);
+  border-right: 3px solid rgba(0, 0, 0, 0.467); */
 }
 
 .filters-container {
