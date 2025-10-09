@@ -150,12 +150,12 @@ header {
   border-radius: 10px;
   border: 1px solid #000000b7;
   border-right: 4px solid #000000b7;
-  max-width: 1200px;
+  max-width: 1310px;
 }
 
 .swap-view-container {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: bisque;
+  color: rgba(0, 0, 0, 0.511);
   font-weight: 700;
   display: flex;
   justify-content: center;
@@ -172,7 +172,7 @@ img {
 .table-button {
   display: flex;
   color: #2a2826;
-  border: 1.5px solid bisque;
+  border: 1.5px solid rgba(0, 0, 0, 0.511);
   /* border-bottom: 3px solid bisque;
   border-top: 1px solid bisque; */
   flex: 1;

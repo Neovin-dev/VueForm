@@ -246,10 +246,21 @@
   </div>
 
   <div v-if="isMobileView">
+  <div class="mobile-fixed-buttons">
+    <button @click="toggleOverlay('sort')" class="button-register">Sort</button>
+    <button @click="toggleOverlay('filters')" class="button-register filter-button-with-ping">
+      <!-- <div v-if="true" class="ping-indicator-container">
+        <div class="ping-dot"></div>
+      </div> -->
+      <span>Filter </span>
+    </button>
+  </div>
+
+  <!-- <div v-if="isMobileView">
     <div class="mobile-fixed-buttons">
       <button @click="toggleOverlay('sort')" class="button-register">Sort</button>
-      <button @click="toggleOverlay('filters')" class="button-register">Filter</button>
-    </div>
+      <button @click="toggleOverlay('filters')" class="button-register"><span>Filter </span><div class="container"><div class="ping"></div></div></button>
+    </div> -->
 
     <div class="mobile-overlay" :class="{ 'is-active': activeOverlay === 'filters' }">
       <div @click="closeOverlay" class="overlay-backdrop"></div>
@@ -532,7 +543,7 @@ tbody tr:hover {
   border: 1px solid var(--accent-color);
   border-radius: 5px;
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 600;
 }
 .dropdown-menu {
   display: none;
@@ -733,19 +744,11 @@ tbody tr:hover {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #e0c98f; /* Color of the scroll thumb */
-  border: 2px solid #f8f8f8; /* padding around the thumb */
+  border: 2px solid #f8f8f8;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #c7b27d; /* Make it a bit darker on hover */
-}
-
-.card-list-container {
-  display: flex;
-  flex-wrap: wrap;
-  /* gap: 10px; */
-  justify-content: flex-start;
-  margin: 0 -10px;
+  background-color: #c7b27d;
 }
 
 @media (max-width: 1290px) {

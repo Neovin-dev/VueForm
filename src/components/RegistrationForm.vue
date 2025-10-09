@@ -112,13 +112,15 @@
                   </div>
                 </div>
               </div>
-              <div class="ele-container">
+              <div class="ele-container ">
                 <label for="telenum"
                   >Phone number
                   <span class="error-message" v-if="formErrors.telenum"
                     ><br /><span>*{{ formErrors.telenum }}</span></span
                   ></label
                 >
+                <div class="telenum-container">
+                <span>+91</span>
                 <input
                   type="tel"
                   id="telenum"
@@ -127,6 +129,8 @@
                   v-model="formData.telenum"
                   required
                 />
+              </div>
+
               </div>
             </div>
 
@@ -141,30 +145,30 @@
                 <!-- Refactored Checkbox Group -->
                 <div class="subject-row-category">
                   <div class="custom-input-group">
-                    <input type="checkbox" id="maths" value="maths" v-model="formData.subjects" />
-                    <label for="maths"><span class="custom-checkbox"></span>Maths</label>
+                    <input type="checkbox" id="Maths" value="Maths" v-model="formData.subjects" />
+                    <label for="Maths"><span class="custom-checkbox"></span>Maths</label>
                   </div>
                   <div class="custom-input-group">
                     <input
                       type="checkbox"
-                      id="english"
-                      value="english"
+                      id="English"
+                      value="English"
                       v-model="formData.subjects"
                     />
-                    <label for="english"><span class="custom-checkbox"></span>English</label>
+                    <label for="English"><span class="custom-checkbox"></span>English</label>
                   </div>
                   <div class="custom-input-group">
-                    <input type="checkbox" id="french" value="french" v-model="formData.subjects" />
-                    <label for="french"><span class="custom-checkbox"></span>French</label>
+                    <input type="checkbox" id="French" value="French" v-model="formData.subjects" />
+                    <label for="French"><span class="custom-checkbox"></span>French</label>
                   </div>
                   <div class="custom-input-group">
                     <input
                       type="checkbox"
-                      id="history"
-                      value="history"
+                      id="History"
+                      value="History"
                       v-model="formData.subjects"
                     />
-                    <label for="history"><span class="custom-checkbox"></span>History</label>
+                    <label for="History"><span class="custom-checkbox"></span>History</label>
                   </div>
                 </div>
               </div>
@@ -291,9 +295,9 @@ export default {
       this.formData.fname =this.formData.fname.charAt(0).toUpperCase() + this.formData.fname.slice(1).toLowerCase();
       this.formData.lname = this.formData.lname.charAt(0).toUpperCase() + this.formData.lname.slice(1).toLowerCase();
       this.formData.email = this.formData.email.toLowerCase();
-      this.formData.subjects = this.formData.subjects.map((subject) =>
-        subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase()
-      );
+      // this.formData.subjects = this.formData.subjects.map((subject) =>
+      //   subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase()
+      // );
 
       const submissionData = { ...this.formData }
       console.log('Form data submitted:', submissionData)
@@ -484,6 +488,26 @@ select {
   flex-direction: column;
   gap: 1.2rem;
 }
+.telenum-container {
+  display: flex;
+  align-items: center;
+}
+.telenum-container span {
+  background-color: white;
+  display: flex;
+  width: 10%;
+  height: 100%;
+  align-items: center;
+  padding-left: 3px;
+  padding-right: 2px;
+  /* border: 1px solid rgba(0, 0, 0, 0.401); */
+  font-size: 14px;
+  border-radius: 5px;
+  margin: 5px;
+  color: var(--placeholder-color);
+}
+
+
 
 
 .ele-container {
@@ -503,6 +527,11 @@ select {
   width: 100%;
   font-size: 14px;
 }
+
+/* .ele-container input {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+} */
 
 .ele-container select {
   -webkit-appearance: none;
@@ -524,6 +553,11 @@ select {
   font-size: 16px;
   color: #ff0000;
 }
+
+/* .telenum-container input {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+} */
 
 
 @media (min-width: 768px) {
@@ -551,7 +585,7 @@ select {
 }
 
 select:focus {
-  background-color: #e2ae2b4c;
+  background-color: #F5F5F5;
   color: black;
   font-weight: 500;
 }
@@ -637,7 +671,7 @@ select:focus {
 
 .custom-input-group label:hover .custom-radio,
 .custom-input-group label:hover .custom-checkbox {
-  background-color: rgba(226, 174, 43, 0.558);
+  background-color: #f7eb024b;
 }
 
 .custom-radio::after,
@@ -650,7 +684,7 @@ select:focus {
 .custom-input-group input:checked + label .custom-radio::after,
 .custom-input-group input:checked + label .custom-checkbox::after {
   display: block;
-  background-color: rgba(226, 174, 43, 0.558);
+  background-color: #f7eb024b;
   border-color: var(--accent-color);
 }
 

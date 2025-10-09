@@ -29,7 +29,7 @@
               src="../assets/female-placeholder-color.png"
               alt=""
             />
-            <img v-else src="../assets/other-placeholder-color.png" alt="" />
+            <img v-else src="../assets/other-placeholder.png" alt=""  style="border-radius: 100%;"/>
           </div>
         </div>
 
@@ -159,6 +159,7 @@ export default {
   padding: 10px;
   padding: 0 10px 10px 10px;
   padding-top: 20px;
+  padding-bottom: 20px;
 
   border: 1px solid rgba(0, 0, 0, 0.416);
   display: flex;
@@ -198,8 +199,8 @@ export default {
 }
 
 .image-container {
-  width: 120px;
-  margin-right: 10px
+  margin-right: 10px;
+  width: 30%;
   /* border: 4px solid white; */
 }
 
@@ -214,27 +215,34 @@ export default {
   background-color: transparent;
   margin: 0px 2px;
   padding-left: 10px;
+  justify-content: center;
 }
 
 .first-name-container {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .last-name-container {
   font-size: 20px;
   font-weight: 600;
   color: grey;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bottom-container {
   display: flex;
   width: 100%;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .contact-details-container {
-  padding-left: 5px;
+  padding-left: 10px;
   display: flex;
   width: 100%;
 }
@@ -249,7 +257,7 @@ export default {
 .phone-number-container {
   display: flex;
   flex-direction: column;
-  margin: 10px 10px 2px 0px;
+  margin: 20px 10px 0px 0px;
   /* padding-left: 0px; */
   padding-bottom: 5px;
   /* border: 1px dashed black; */
@@ -270,6 +278,7 @@ export default {
   font-weight: 700;
   color: grey;
   flex: 0 0 75%;
+  gap: 10px;
   /* padding-left: 10px; */
 }
 
