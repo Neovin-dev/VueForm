@@ -170,7 +170,7 @@
               <div class="ele-container">
                 <label for="exam">Exam Center</label>
                 <select name="exam" id="exam" v-model="formData.exam" required>
-                  <option value="" disabled selected hidden>-- Choose an exam center --</option>
+                  <option value="" disabled selected hidden>Choose an exam center</option>
                   <option value="Noida">Noida</option>
                   <option value="Delhi">Delhi</option>
                   <option value="Mumbai">Mumbai</option>
@@ -225,6 +225,7 @@ export default {
       this.formErrors = {
         fname: '',
         lname: '',
+        dob: '',
         email: '',
         telenum: '',
         subjects: '',
@@ -233,13 +234,36 @@ export default {
       let isFormValid = true
 
       if (this.formData.fname.trim().length < 2) {
-        this.formErrors.fname = 'it must contain at least 2 letters.'
+        this.formErrors.fname = 'it must contain atleast 2 letters.'
         isFormValid = false
       }
 
       if (this.formData.lname.trim().length < 2) {
-        this.formErrors.lname = 'it must contain at least 2 letters.'
+        this.formErrors.lname = 'it must contain atleast 2 letters.'
         isFormValid = false
+      }
+
+      if (!this.formData.dob){
+        this.formErrors.dob = 'Date of Birth is required';
+        isFormValid = false;
+      } else {
+        let today = new Date();
+        let dob = new Date(this.formData.dob);
+
+        let minimumAge = new Date();
+        minimumAge.setFullYear(today.getFullYear() - 18); // lower limit
+
+        let maximumAge = new Date();
+        maximumAge.setFullYear(today.getFullYear() - 120); // upper limit
+
+        if(dob > minimumAge){
+          this.formErrors.dob = 'You must be atleast 18 years old.';
+          isFormValid = false; // stop
+        }else if(dob < maximumAge){
+          this.formErrors.dob = 'Age must be less than 120 years old'
+          isFormValid = false;
+        }
+
       }
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -255,13 +279,20 @@ export default {
       }
 
       if (this.formData.subjects.length === 0) {
-        this.formErrors.subjects = 'Please select at least one subject.'
+        this.formErrors.subjects = 'Please select atleast one subject.'
         isFormValid = false
       }
 
       if (!isFormValid) {
         return
       }
+
+      this.formData.fname =this.formData.fname.charAt(0).toUpperCase() + this.formData.fname.slice(1).toLowerCase();
+      this.formData.lname = this.formData.lname.charAt(0).toUpperCase() + this.formData.lname.slice(1).toLowerCase();
+      this.formData.email = this.formData.email.toLowerCase();
+      this.formData.subjects = this.formData.subjects.map((subject) =>
+        subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase()
+      );
 
       const submissionData = { ...this.formData }
       console.log('Form data submitted:', submissionData)
@@ -468,7 +499,7 @@ select {
 select {
   color: #2a2826;
   border: 2px solid transparent;
-  padding: 8px 12px;
+  padding: 0px 12px;
   border-radius: 4px;
   height: 40px;
   width: 100%;

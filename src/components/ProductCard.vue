@@ -75,7 +75,8 @@
           </div>
         </div>
       </div>
-      <div class="expanding-button" v-if="isMobileView" @click="toggleExpand" >
+      <!-- <div class="expanding-button" v-if="isMobileView" @click="toggleExpand" > -->
+      <div class="expanding-button" @click="toggleExpand" >
         <div class="down-arrow">
           <div class="Expand-button">{{ isExpanded ? 'Less Info' : 'More Info' }}</div>
           <img
@@ -104,12 +105,13 @@ export default {
   data() {
     return {
       isExpanded: false,
-      isMobileView: window.innerWidth < 1000,
+      // isMobileView: window.innerWidth < 1000,
     }
   },
   computed: {
     isCollapsableVisible() {
-      return !this.isMobileView || this.isExpanded
+      // return !this.isMobileView || this.isExpanded
+      return this.isExpanded
     },
   },
   methods: {
@@ -117,7 +119,7 @@ export default {
       this.isExpanded = !this.isExpanded
     },
     handleResize() {
-      this.isMobileView = window.innerWidth < 1000
+      // this.isMobileView = window.innerWidth < 1000
     },
   },
   // TODO:
@@ -148,7 +150,7 @@ export default {
   flex-direction: column;
   padding: 10px;
   /* flex-grow: 1; */
-  margin: -10px;
+  /* margin: -10px; */
 }
 
 .card-container {
@@ -269,7 +271,7 @@ export default {
   justify-content: flex-end;
   align-items: center;
   /* gap: 10px; */
-  /* background-color: white; */
+  background-color: #47b474a1;
 }
 
 /* .expanding-button:hover { */

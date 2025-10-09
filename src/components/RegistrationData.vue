@@ -721,6 +721,7 @@ tbody tr:hover {
   flex-wrap: wrap;
   /* gap: 10px; */
   justify-content: flex-start;
+  margin: 0 -10px;
 }
 
 @media (max-width: 1290px) {
