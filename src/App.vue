@@ -58,6 +58,8 @@ export default {
         exam: [],
       },
       activeSort: '',
+      isFilterCurrentlyActive: false,
+      isSortCurrentlyActive: false,
     }
   },
   computed: {
@@ -157,7 +159,8 @@ export default {
       this.activeView = 'form'
     },
     filterApplyer(filtersData) {
-      this.activeFilters = filtersData
+      this.activeFilters = filtersData;
+      this.isFilterCurrentlyActive = true;
       // console.log('this.activeFilters(FiltersData):', this.activeFilters)
       // // let selectedGenders = filtersData.gender
       // // let selectedSubjects = filtersData.subjects
@@ -170,7 +173,9 @@ export default {
         subjects: [],
         exam: [],
       }
-      this.activeSort = ''
+      this.activeSort = '';
+      this.isFilterCurrentlyActive = false;
+
     },
   },
 }

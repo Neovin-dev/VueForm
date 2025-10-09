@@ -7,6 +7,7 @@
           <!-- Search Tap -->
         </h2>
         <p>
+          <!-- <img src="../assets/dot-animation.gif" alt=""> -->
           Fast and relevant search solution for small, medium or enterprise level e-commerce
           websites and mobile apps.
         </p>
@@ -631,8 +632,8 @@ select:focus {
 
 .submit-button {
   padding: 12px 20px;
-  background-color: rgba(226, 174, 43, 0.558);
-  color: #ffffff;
+  background-color: #f7eb024b;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -647,7 +648,7 @@ select:focus {
 }
 
 .submit-button:hover {
-  background-color: #eab414;
+  background-color: #f7eb02b6;
 }
 
 .error-message {

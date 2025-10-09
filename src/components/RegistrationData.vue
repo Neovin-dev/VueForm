@@ -13,8 +13,8 @@
         <h3>Registration <span>Data</span></h3>
         <div v-if="!isMobileView && registrations.length > 1" class="controls">
           <div class="dropdown">
-            <label for="my-dropdown" class="dropdown-label">Sort By</label>
-            <ul class="dropdown-menu">
+            <label @click="toggleSortDropdown" for="my-dropdown" class="dropdown-label">Sort By</label>
+            <ul class="dropdown-menu" :class="{ 'is-active': isSortActive }">
               <li @click="sortData('A-Z')">Name (A-Z)</li>
               <li @click="sortData('Z-A')">Name (Z-A)</li>
               <li @click="sortData('O-Y')">Age (O-Y)</li>
@@ -307,11 +307,20 @@ export default {
       type: Number,
       required: true,
     },
+    isFilterFnActive: {
+      type: Boolean,
+      required: true,
+    },
+    isSortFnActive: {
+      type: Boolean,
+      required: true,
+    },
   },
   data() {
     return {
       isMobileView: false,
       activeOverlay: 'none', // to track only one filter is open at a time
+      isSortActive: false,
     }
   },
   watch: {
@@ -326,12 +335,17 @@ export default {
   },
   methods: {
     sortData(sortType) {
-      this.$emit('sort-data', sortType)
+      this.$emit('sort-data', sortType);
+      this.isSortActive = false;
     },
 
     // to handle Responsivness
     handleResize() {
       this.isMobileView = window.innerWidth <= 900
+    },
+
+    toggleSortDropdown(){
+      this.isSortActive = !this.isSortActive
     },
 
     toggleOverlay(overlayName) {
@@ -478,21 +492,23 @@ tbody tr:hover {
 
 .action-button {
   padding: 5px 10px;
-
-  background-color: #f7eb0280;
+  background-color: #f7eb024d;
   color: var(--accent-color);
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
+  border: 1px solid #f7eb0280;
 }
 
 .action-button:hover {
   background-color: var(--accent-color);
   color: #131213;
+  /* transition: transform 0.2s ease-in-out; */
+  /* transform: scale(0.9); */
 }
 
 .delete-button {
-  background-color: #ff6b6b;
+  background-color: #ff6b6b8c;
   color: #131213;
 }
 
@@ -521,9 +537,10 @@ tbody tr:hover {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 28px;
+  top: 32px;
   right: 0;
-  background-color: #f7eb0280;
+  background-color: whitesmoke;
+  /* background-color: #aca40df1; */
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -533,9 +550,15 @@ tbody tr:hover {
   border: 1px solid var(--border-color);
   border-radius: 4px;
 }
-.dropdown:hover .dropdown-menu {
+
+/* Hover behaviour */
+/* .dropdown:hover .dropdown-menu {
+  display: block;
+} */
+.dropdown .dropdown-menu.is-active {
   display: block;
 }
+
 .dropdown-menu li {
   color: var(--text-color);
   padding: 12px 16px;

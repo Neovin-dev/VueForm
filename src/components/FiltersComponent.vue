@@ -10,7 +10,7 @@
         <div class="subject-row-category">
           <div class="categories subject-category">
             <label for="gender-male"
-              >Male
+              >
               <input
                 type="checkbox"
                 name="gender"
@@ -19,11 +19,12 @@
                 v-model="filtersData.gender"
               />
               <span class="custom-checkbox"></span>
+              Male
             </label>
           </div>
           <div class="categories subject-category">
             <label for="gender-female"
-              >Female
+              >
               <input
                 type="checkbox"
                 name="gender"
@@ -32,11 +33,12 @@
                 v-model="filtersData.gender"
               />
               <span class="custom-checkbox"></span>
+              Female
             </label>
           </div>
           <div class="categories subject-category">
             <label for="gender-other"
-              >Other
+              >
               <input
                 type="checkbox"
                 name="gender"
@@ -44,6 +46,7 @@
                 value="other"
                 v-model="filtersData.gender"
               />
+              Other
               <span class="custom-checkbox"></span>
             </label>
           </div>
@@ -57,7 +60,7 @@
         <div class="subject-row-category">
           <div class="categories subject-category">
             <label for="subject-maths"
-              >Maths
+              >
               <input
                 type="checkbox"
                 name="subject"
@@ -66,11 +69,12 @@
                 v-model="filtersData.subjects"
               />
               <span class="custom-checkbox"></span>
+              Maths
             </label>
           </div>
           <div class="categories subject-category">
             <label for="subject-english"
-              >English
+              >
               <input
                 type="checkbox"
                 name="subject"
@@ -79,11 +83,12 @@
                 v-model="filtersData.subjects"
               />
               <span class="custom-checkbox"></span>
+              English
             </label>
           </div>
           <div class="categories subject-category">
             <label for="subject-french"
-              >French
+              >
               <input
                 type="checkbox"
                 name="subject"
@@ -92,11 +97,12 @@
                 v-model="filtersData.subjects"
               />
               <span class="custom-checkbox"></span>
+              French
             </label>
           </div>
           <div class="categories subject-category">
             <label for="subject-history"
-              >History
+              >
               <input
                 type="checkbox"
                 name="subject"
@@ -105,6 +111,7 @@
                 v-model="filtersData.subjects"
               />
               <span class="custom-checkbox"></span>
+              History
             </label>
           </div>
         </div>
@@ -117,7 +124,7 @@
         <div class="subject-row-category">
           <div class="categories subject-category">
             <label for="center-noida"
-              >Noida
+              >
               <input
                 type="checkbox"
                 name="center"
@@ -126,11 +133,12 @@
                 v-model="filtersData.exam"
               />
               <span class="custom-checkbox"></span>
+              Noida
             </label>
           </div>
           <div class="categories subject-category">
             <label for="center-delhi"
-              >Delhi
+              >
               <input
                 type="checkbox"
                 name="center"
@@ -139,11 +147,12 @@
                 v-model="filtersData.exam"
               />
               <span class="custom-checkbox"></span>
+              Delhi
             </label>
           </div>
           <div class="categories subject-category">
             <label for="center-mumbai"
-              >Mumbai
+              >
               <input
                 type="checkbox"
                 name="center"
@@ -152,6 +161,7 @@
                 v-model="filtersData.exam"
               />
               <span class="custom-checkbox"></span>
+              Mumbai
             </label>
           </div>
         </div>
@@ -259,7 +269,8 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .row-filter-align {
@@ -273,7 +284,10 @@ h3 {
   flex-direction: row;
   justify-content: flex-start;
   flex: 1;
-  padding-left: 10px;
+  /* padding-left: 10px; */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  gap: 5px;
   margin: 4px 0px;
   flex-wrap: wrap;
 }
@@ -283,10 +297,14 @@ h3 {
 }
 
 .subject-category {
-  display: block;
+  display: flex;
+  flex-direction: row-reverse;
   position: relative;
-  padding-left: 10px;
-  padding-bottom: 5px;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 30px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -308,8 +326,8 @@ h3 {
 
 .custom-checkbox {
   position: absolute;
-  top: 2px;
-  right: 10%;
+  top: 0px;
+  left: 0px;
   height: 20px;
   width: 20px;
   background-color: #f0f0f0;
@@ -356,18 +374,19 @@ h3 {
   border: 2px solid rgba(255, 255, 255, 0.668);
   cursor: pointer;
   margin-top: 15px;
-  background: bisque;
+  background: #f7eb024b;
   border-top: 1px solid #dee2e6;
   padding: 10px;
   display: flex;
   justify-content: space-around;
-  border: 0.5px solid rgba(0, 0, 0, 0.34);
+  border: 1.5px solid #f7eb0280;
+  border-radius: 10px;
 }
 
 
 .button-register:hover {
-  background: #eab414;
-  transform: scale(1.1);
+  background: #f7eb0280;
+  /* transform: scale(1.1); */
 }
 
 .button-register:active {
