@@ -287,15 +287,15 @@ export default {
     },
 
     handleResize() {
-    this.isMobileView = window.innerWidth >= 930;
+      this.isMobileView = window.innerWidth >= 930
     },
   },
   mounted() {
-  this.handleResize();
-  window.addEventListener('resize', this.handleResize);
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize)
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize)
   },
   watch: {
     formDataEdit: {
@@ -355,12 +355,7 @@ label {
   padding: 20px;
   /* background-color: transparent; */
   background: #833ab448;
-  background: linear-gradient(
-    90deg,
-    rgba(131, 58, 180, 0.216) 0%,
-    rgba(253, 29, 29, 0.293) 50%,
-    rgba(252, 176, 69, 0.178) 100%
-  );
+  background: linear-gradient(90deg, #47b474a1, rgba(253, 29, 29, 0.293) 50%, #f7eb0280);
   backdrop-filter: blur(20px);
   border-radius: 10px;
   overflow: hidden;

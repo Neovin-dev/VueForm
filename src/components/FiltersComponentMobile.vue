@@ -1,17 +1,22 @@
 <template>
   <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
-    <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px">
-      Filter
-      <span style="font-weight: 500; font-size: 18px">Menu</span>
-    </h3>
+    <div class="filters-header">
+      <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px">
+        Filter
+        <span style="font-weight: 500; font-size: 18px">Menu</span>
+      </h3>
+      <button @click="closeOverlayMobile" class="close-btn">
+        <!-- Close -->
+        <img src="../assets/close-button.svg" width="30px" alt="" />
+      </button>
+    </div>
     <div class="categories-container">
       <div class="subject-filter-container">
         <div class="row-filter-align">
           <h4>Gender</h4>
           <div class="subject-row-category">
             <div class="categories subject-category">
-              <label for="gender-male"
-                >Male
+              <label for="gender-male">
                 <input
                   type="checkbox"
                   name="gender"
@@ -20,11 +25,11 @@
                   v-model="filtersData.gender"
                 />
                 <span class="custom-checkbox"></span>
+                Male
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="gender-female"
-                >Female
+              <label for="gender-female">
                 <input
                   type="checkbox"
                   name="gender"
@@ -33,11 +38,11 @@
                   v-model="filtersData.gender"
                 />
                 <span class="custom-checkbox"></span>
+                Female
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="gender-other"
-                >Other
+              <label for="gender-other">
                 <input
                   type="checkbox"
                   name="gender"
@@ -46,6 +51,7 @@
                   v-model="filtersData.gender"
                 />
                 <span class="custom-checkbox"></span>
+                Other
               </label>
             </div>
           </div>
@@ -57,8 +63,7 @@
           <h4>Subjects</h4>
           <div class="subject-row-category">
             <div class="categories subject-category">
-              <label for="subject-maths"
-                >Maths
+              <label for="subject-maths">
                 <input
                   type="checkbox"
                   name="subject"
@@ -67,11 +72,11 @@
                   v-model="filtersData.subjects"
                 />
                 <span class="custom-checkbox"></span>
+                Maths
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="subject-english"
-                >English
+              <label for="subject-english">
                 <input
                   type="checkbox"
                   name="subject"
@@ -80,11 +85,11 @@
                   v-model="filtersData.subjects"
                 />
                 <span class="custom-checkbox"></span>
+                English
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="subject-french"
-                >French
+              <label for="subject-french">
                 <input
                   type="checkbox"
                   name="subject"
@@ -93,11 +98,11 @@
                   v-model="filtersData.subjects"
                 />
                 <span class="custom-checkbox"></span>
+                French
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="subject-history"
-                >History
+              <label for="subject-history">
                 <input
                   type="checkbox"
                   name="subject"
@@ -106,6 +111,7 @@
                   v-model="filtersData.subjects"
                 />
                 <span class="custom-checkbox"></span>
+                History
               </label>
             </div>
           </div>
@@ -117,8 +123,7 @@
           <h4>Exam Center</h4>
           <div class="subject-row-category">
             <div class="categories subject-category">
-              <label for="center-noida"
-                >Noida
+              <label for="center-noida">
                 <input
                   type="checkbox"
                   name="center"
@@ -127,11 +132,11 @@
                   v-model="filtersData.exam"
                 />
                 <span class="custom-checkbox"></span>
+                Noida
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="center-delhi"
-                >Delhi
+              <label for="center-delhi">
                 <input
                   type="checkbox"
                   name="center"
@@ -140,11 +145,11 @@
                   v-model="filtersData.exam"
                 />
                 <span class="custom-checkbox"></span>
+                Delhi
               </label>
             </div>
             <div class="categories subject-category">
-              <label for="center-mumbai"
-                >Mumbai
+              <label for="center-mumbai">
                 <input
                   type="checkbox"
                   name="center"
@@ -153,6 +158,7 @@
                   v-model="filtersData.exam"
                 />
                 <span class="custom-checkbox"></span>
+                Mumbai
               </label>
             </div>
           </div>
@@ -178,7 +184,6 @@
         >
           Clear
         </button>
-
       </div>
     </div>
   </div>
@@ -199,7 +204,7 @@ export default {
     applyFilters() {
       // console.log('filtersData', this.filtersData.gender)
       // console.log('filtersData', this.filtersData)
-      this.$emit('filter-apply', {... this.filtersData})
+      this.$emit('filter-apply', { ...this.filtersData })
     },
     clearFilters() {
       this.filtersData = {
@@ -208,6 +213,9 @@ export default {
         exam: [],
       }
       this.$emit('clear-filters')
+    },
+    closeOverlayMobile() {
+      this.$emit('close-overlay')
     },
   },
 }
@@ -234,10 +242,17 @@ body {
 
 #filter-containers {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   /* border: 1px solid black; */
+  max-width: 300px;
   margin: 10px;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.433);
 }
 
 .categories-container {
@@ -260,9 +275,8 @@ body {
 
 h3 {
   font-size: 28px;
-  padding: 15px 10px 10px 10px;
+  padding: 15px 10px 10px 0px;
   font-weight: 800;
-
 }
 
 .row-filter-align h4 {
@@ -270,6 +284,8 @@ h3 {
   padding-left: 20px;
   padding-right: 4px;
   padding-bottom: 10px;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .subject-filter-container {
@@ -293,6 +309,7 @@ h3 {
   justify-content: flex-start;
   flex: 1;
   padding-left: 10px;
+  padding-top: 20px;
   gap: 20px;
   margin: 4px 0px;
   flex-wrap: wrap;
@@ -308,6 +325,12 @@ h3 {
   -ms-user-select: none;
   user-select: none;
   min-width: 140px;
+}
+
+.close-btn {
+  background-color: white;
+  border: none;
+  padding-top: 10px;
 }
 
 .subject-category {
@@ -327,7 +350,8 @@ h3 {
 .subject-category label {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
   width: 100%;
 }
 
@@ -389,7 +413,9 @@ h3 {
   border: 2px solid rgba(255, 255, 255, 0.668);
   cursor: pointer;
   margin-top: 15px;
-  background: bisque;
+  background: #47b474a1;
+  color: white;
+  font-weight: 600;
   border-top: 1px solid #dee2e6;
   padding: 10px;
   display: flex;
@@ -407,14 +433,13 @@ h3 {
   box-shadow: 5px 5px 10px var(--caution-yellow);
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   body {
-        pointer-events: none;
-    }
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 488px) {
-
   /* .row-filter-align {
     padding-left: 25px;
   } */
@@ -435,19 +460,19 @@ h3 {
   }
 }
 
-@media (max-width: 376px){
-  .subject-filter-container{
+@media (max-width: 376px) {
+  .subject-filter-container {
     width: 100%;
   }
   .subject-row-category {
     width: 100%;
   }
   .subject-category label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 @media (max-width: 362px) {

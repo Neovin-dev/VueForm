@@ -27,7 +27,7 @@
           :class="{ activeCardView: activeData === 'productCard' }"
           @click="$emit('change-data-view', 'productCard')"
         >
-          <img alt="table view" class="logo" src="../assets/id-card-large.png" />
+          <img alt="table view" class="logo" src="../assets/id-card-large.svg" />
         </div>
         <div
           class="toggle-container"
@@ -35,7 +35,7 @@
           :class="{ activeTableView: activeData === 'tabular' }"
           @click="$emit('change-data-view', 'tabular')"
         >
-          <img alt="table view" class="logo" src="../assets/table-large.png" />
+          <img alt="table view" class="logo" src="../assets/table-large.svg" />
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@ export default {
 
 .logo-container img {
   width: auto;
-  height: 40px;
+  height: 50px;
 }
 
 /* .logo-container img:hover {
@@ -233,16 +233,15 @@ img {
   border: 0.5px solid;
 }
 
-
-@media (max-width: 900px){
+@media (max-width: 900px) {
   header {
     margin: 0;
     border-radius: 0;
   }
   .header-container {
-  z-index: 1000;
-  /* background-color: transparent; */
-  /* background: #833ab448;
+    z-index: 1000;
+    /* background-color: transparent; */
+    /* background: #833ab448;
   background: linear-gradient(
     90deg,
     rgba(131, 58, 180, 0.599) 0%,
@@ -250,24 +249,23 @@ img {
     rgba(252, 176, 69, 0.178) 100%
   );
   backdrop-filter: blur(20px); */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 40px;
-  width: 100%;
-  justify-content: space-between;
-  padding: 10px 25px;
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-  background: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 25px;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
-}
-
-@media (max-width: 450px){
+@media (max-width: 450px) {
   .toggle-container {
     width: 35%;
     height: auto;
@@ -291,13 +289,12 @@ img {
   }
 
   .form-button:hover,
-.table-button:hover,
-.form-button:focus,
-.table-button:focus {
-  background-color: beige;
-  color: #2a2826;
-  border-color: #2a2826;
-}
-
+  .table-button:hover,
+  .form-button:focus,
+  .table-button:focus {
+    background-color: beige;
+    color: #2a2826;
+    border-color: #2a2826;
+  }
 }
 </style>

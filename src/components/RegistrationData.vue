@@ -55,7 +55,8 @@
                   class="action-button edit-button"
                   @click="$emit('edit-registration', user.id)"
                 >
-                  Edit
+                  <!-- Edit -->
+                  <img src="../assets/edit-button.svg" alt="" style="height: 20px" />
                 </button>
               </td>
               <td>
@@ -63,7 +64,8 @@
                   class="action-button delete-button"
                   @click="$emit('delete-registration', user.id)"
                 >
-                  Delete
+                  <!-- Delete -->
+                  <img src="../assets/delete-button.svg" alt="" style="height: 20px" />
                 </button>
               </td>
             </tr>
@@ -107,7 +109,7 @@
       >
         <div class="product-card-grid">
           <!-- product card will be visible here -->
-           <div class="card-list-container">
+          <div class="card-list-container">
             <ProductCard
               v-for="user in registrations"
               :key="user.id"
@@ -115,14 +117,12 @@
               @edit="$emit('edit-registration', user.id)"
               @delete="$emit('delete-registration', user.id)"
             />
-           </div>
-
+          </div>
         </div>
       </div>
       <div v-else-if="registrations.length <= 0" class="no-data-message">
-
         <div v-if="totalRegistrationsCount > 0" class="text-container">
-          <img src="../assets/filterations-no-results.png" alt="" style="height: 200px;">
+          <img src="../assets/filterations-no-results.png" alt="" style="height: 200px" />
           <h2>No Matches Found</h2>
           <p>Try adjusting your filter criteria.</p>
         </div>
@@ -241,7 +241,6 @@
           <h2>No Registrations Found</h2>
           <p>Submit the form to see data here.</p>
         </div>
-
       </div>
     </div>
   </div>
@@ -259,6 +258,7 @@
         <FiltersComponentMobile
           @filter-apply="handleFilterApply"
           @clear-filters="handleClearFilters"
+          @close-overlay="closeOverlay"
         />
       </div>
     </div>
@@ -266,14 +266,20 @@
     <div class="mobile-overlay" :class="{ 'is-active': activeOverlay === 'sort' }">
       <div @click="closeOverlay" class="overlay-backdrop"></div>
       <div class="overlay-panel sort-panel">
-        <h3>Sort By</h3>
+        <div class="sort-overlay-header">
+          <h3>Sort By</h3>
+          <button @click="closeOverlay" class="close-btn">
+            <!-- Close -->
+            <img src="../assets/close-button.svg" width="30px" alt="" />
+          </button>
+        </div>
+
         <ul>
           <li @click="handleSortAndClose('A-Z')">Name (A-Z)</li>
           <li @click="handleSortAndClose('Z-A')">Name (Z-A)</li>
           <li @click="handleSortAndClose('O-Y')">Age (Oldest-Youngest)</li>
           <li @click="handleSortAndClose('Y-O')">Age (Youngest-Oldest)</li>
         </ul>
-        <button @click="closeOverlay" class="button-register close-btn">Close</button>
       </div>
     </div>
   </div>
@@ -281,7 +287,7 @@
 
 <script>
 import FiltersComponent from './FiltersComponent.vue'
-import FiltersComponentMobile from './FiltersComponentMobile.vue';
+import FiltersComponentMobile from './FiltersComponentMobile.vue'
 import ProductCard from './ProductCard.vue'
 
 export default {
@@ -372,28 +378,23 @@ export default {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1400px;
   background: #833ab448;
-  background: linear-gradient(
-    90deg,
-    rgba(131, 58, 180, 0.216) 0%,
-    rgba(253, 29, 29, 0.293) 50%,
-    rgba(252, 176, 69, 0.178) 100%
-  );
+  background: linear-gradient(90deg, #47b474a1, rgba(253, 29, 29, 0.293) 50%, #f7eb0280);
   backdrop-filter: blur(20px);
   margin-top: 2%;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid var(--border-color);
-  border-bottom: 3px solid var(--border-color);
-  border-right: 3px solid var(--border-color);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.467);
+  border-right: 3px solid rgba(0, 0, 0, 0.467);
 }
 
 .filters-container {
   background: whitesmoke;
   backdrop-filter: blur(10px);
   padding: 2px;
-  margin: 2% 1%;
+  margin: 20px 20px;
   width: 30%;
   flex-basis: 30%;
   border-radius: 10px;
@@ -409,10 +410,10 @@ export default {
   backdrop-filter: blur(10px);
   padding: 10px 40px;
   /* margin: 10px; */
-  margin: 2% 1%;
-  width: 70%;
+  margin: 20px 10px;
+  width: 72%;
   border-radius: 10px;
-  max-width: 900px;
+  max-width: 1600px;
   border: 1px solid solid var(--border-color);
   border-bottom: 3px solid solid var(--border-color);
   border-right: 3px solid solid var(--border-color);
@@ -454,8 +455,8 @@ table {
 
 th,
 td {
-  padding: 12px 15px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.418);
 }
 
 thead {
@@ -476,8 +477,9 @@ tbody tr:hover {
 }
 
 .action-button {
-  padding: 6px 12px;
-  background-color: wheat;
+  padding: 5px 10px;
+
+  background-color: #f7eb0280;
   color: var(--accent-color);
   border-radius: 4px;
   cursor: pointer;
@@ -489,10 +491,10 @@ tbody tr:hover {
   color: #131213;
 }
 
-/* .delete-button:hover {
+.delete-button {
   background-color: #ff6b6b;
   color: #131213;
-} */
+}
 
 .no-data-message {
   text-align: center;
@@ -510,7 +512,7 @@ tbody tr:hover {
 }
 .dropdown-label {
   padding: 8px 16px;
-  background-color: wheat;
+  background-color: #f7eb0280;
   border: 1px solid var(--accent-color);
   border-radius: 4px;
   cursor: pointer;
@@ -521,7 +523,7 @@ tbody tr:hover {
   position: absolute;
   top: 28px;
   right: 0;
-  background-color: wheat;
+  background-color: #f7eb0280;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -574,8 +576,10 @@ tbody tr:hover {
   padding: 12px;
   font-size: 16px;
   margin: 0;
+  color: white;
+  font-weight: 700;
   border: 0.5px solid rgba(0, 0, 0, 0.365);
-  background-color: bisque;
+  background-color: #47b474a1;
 }
 
 .mobile-overlay {
@@ -621,7 +625,7 @@ tbody tr:hover {
 .filter-panel {
   display: flex;
   height: 100%;
-  justify-content: center;
+  /* justify-content: center; */
   width: 90vw;
   max-width: 380px;
   transform: translateX(-100%);
@@ -646,10 +650,20 @@ tbody tr:hover {
   transform: translateY(0);
 }
 
+.sort-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .sort-panel h3 {
-  text-align: center;
+  display: flex;
   margin-top: 0;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .sort-panel ul {
@@ -669,9 +683,11 @@ tbody tr:hover {
 }
 
 .sort-panel .close-btn {
-  margin-top: 20px;
-  width: 100%;
-  height: 40px;
+  /* margin-top: 20px; */
+  /* width: 100%; */
+  height: 30px;
+  border: none;
+  background-color: white;
 }
 
 /* Scrollbar */
@@ -707,32 +723,30 @@ tbody tr:hover {
   justify-content: flex-start;
 }
 
-@media (max-width: 1290px){
-  .data-container  {
+@media (max-width: 1290px) {
+  .data-container {
     margin: 2% 2%;
   }
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .table-view-container {
     width: 85%;
   }
 }
 
-@media (max-width: 600px){
-  .table-header{
+@media (max-width: 600px) {
+  .table-header {
     margin-bottom: 0;
     padding-bottom: 0;
   }
 
   .table-header h3 {
     font-size: 26px;
-
   }
 
   .data-container {
     margin-bottom: 50px;
   }
 }
-
 </style>
