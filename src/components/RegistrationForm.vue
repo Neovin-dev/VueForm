@@ -22,7 +22,7 @@
                 color: #333333;
                 font-weight: 500;
                 font-size: 20px;
-                font-family: 'Courier New', Courier, monospace;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
               "
               >Form</span
             >
@@ -356,7 +356,7 @@ export default {
 }
 
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--text-color);
   box-sizing: border-box;
 }
@@ -382,7 +382,7 @@ label {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1400px;
   /* max-height: 620px; */
   padding: 20px;
   /* background-color: transparent; */
@@ -426,7 +426,7 @@ label {
   max-width: 80%;
   height: auto;
   margin-bottom: 24px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .info-panel h2 {
@@ -457,7 +457,7 @@ label {
 
 .form-container-Mform h3 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: var(--text-color);
 }
 
@@ -472,10 +472,11 @@ select {
   color: var(--text-color);
   border: 2px solid transparent;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: 5px;
   height: 40px;
   width: 100%;
   font-size: 14px;
+  appearance: none;
 }
 
 .row-view {
@@ -483,6 +484,47 @@ select {
   flex-direction: column;
   gap: 1.2rem;
 }
+
+
+.ele-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.ele-container input,
+select {
+  color: #2a2826;
+  border: 2px solid transparent;
+  padding: 0px 12px;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.ele-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.ele-container select::after {
+  content: 'v';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 16px;
+  color: #ff0000;
+}
+
 
 @media (min-width: 768px) {
   .row-view {
@@ -502,7 +544,7 @@ select {
   color: #2a2826;
   border: 2px solid transparent;
   padding: 0px 12px;
-  border-radius: 4px;
+  border-radius: 5px;
   height: 40px;
   width: 100%;
   font-size: 14px;
@@ -645,11 +687,11 @@ select:focus {
   margin-left: 15%;
   margin-bottom: 5%;
   width: 70%;
-  /* border-radius: 30px; */
+  border-radius: 10px;
 }
 
 .submit-button:hover {
-  background-color: #f7eb02b6;
+  background-color: #f7eb0280;
 }
 
 .error-message {

@@ -232,7 +232,7 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
 }
 
@@ -421,6 +421,7 @@ h3 {
   display: flex;
   justify-content: space-around;
   border: 0.5px solid rgba(0, 0, 0, 0.34);
+  border-radius: 10px;
 }
 
 .button-register:hover {

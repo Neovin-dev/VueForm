@@ -384,7 +384,7 @@ export default {
 
 <style scoped>
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .data-container {
@@ -454,7 +454,7 @@ export default {
   color: var(--text-color);
   font-weight: 500;
   font-size: 20px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .table-wrapper {
@@ -530,7 +530,7 @@ tbody tr:hover {
   padding: 8px 16px;
   background-color: #f7eb0280;
   border: 1px solid var(--accent-color);
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: 800;
 }
@@ -548,7 +548,7 @@ tbody tr:hover {
   padding: 0;
   margin: 0;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 /* Hover behaviour */
@@ -603,6 +603,7 @@ tbody tr:hover {
   font-weight: 700;
   border: 0.5px solid rgba(0, 0, 0, 0.365);
   background-color: #47b474a1;
+  border-radius: 10px;
 }
 
 .mobile-overlay {

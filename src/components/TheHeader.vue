@@ -17,7 +17,7 @@
           :class="{ activeTable: activeView === 'table' }"
           @click="$emit('change-view', 'table')"
         >
-          Table
+          Data
         </div>
       </div>
       <div class="toggle-container-view">
@@ -102,6 +102,7 @@ export default {
   cursor: pointer;
   width: 40px;
   height: 40px;
+  /* padding: 5px; */
   background-color: rgb(255, 255, 255);
   border: 1px solid #2a2826;
 
@@ -153,7 +154,7 @@ header {
 }
 
 .swap-view-container {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: bisque;
   font-weight: 700;
   display: flex;
@@ -183,6 +184,16 @@ img {
   cursor: pointer;
 }
 
+.form-button {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.table-button {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .form-button:hover,
 .table-button:hover,
 .form-button:focus,
@@ -205,7 +216,7 @@ img {
 .activeForm {
   background-color: #47b474a1;
   color: #2a2826;
-  /* border: 1px solid #00000086; */
+  border: 1px solid #00000086;
   transition: trasform 0.4 ease-in-out;
   transform: translate(-7px) scale(1.1);
 }
@@ -230,6 +241,18 @@ img {
   border: 1px solid #47b474a1;
 }
 
+.activeCardView {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 5px;
+}
+
+.activeTableView {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
 .activeCardView svg{
   fill: white;
   stroke-width: 1px;
@@ -249,7 +272,7 @@ img {
 
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   header {
     margin: 0;
     border-radius: 0;

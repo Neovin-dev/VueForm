@@ -232,7 +232,7 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
 }
 
