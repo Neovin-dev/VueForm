@@ -583,6 +583,8 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: white;
+  font-size: 14px;
+  text-align: start;
 }
 
 .ele-container select,
