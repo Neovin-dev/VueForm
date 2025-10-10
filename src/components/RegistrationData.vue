@@ -634,7 +634,7 @@ tbody tr:hover {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 98vw;
+  width: calc(100% - 20px);
   background: #f8f9fa;
   border-top: 1px solid #dee2e6;
   padding: 10px;
