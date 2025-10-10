@@ -579,10 +579,10 @@ select {
   font-size: 14px;
 }
 
-/* .ele-container input {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-} */
+.ele-container input {
+  -webkit-appearance: none;
+  appearance: none;
+}
 
 .ele-container select,
 .ele-container select:focus {
