@@ -107,7 +107,7 @@
       </div> -->
       <div
         v-if="stateDataView === 'productCard' && registrations.length > 0"
-        class="product-card-wrapper"
+        class="product-card-wrapper custom-scrollbar"
       >
         <div class="product-card-grid">
           <!-- product card will be visible here -->
@@ -424,6 +424,8 @@ export default {
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
+
+    box-sizing: border-box;
 }
 
 .data-container {
@@ -439,6 +441,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid var(--border-color);
+  padding: 10px;
   /* border-bottom: 3px solid rgba(0, 0, 0, 0.467);
   border-right: 3px solid rgba(0, 0, 0, 0.467); */
 }
@@ -447,11 +450,11 @@ export default {
   background: whitesmoke;
   backdrop-filter: blur(10px);
   padding: 2px;
-  margin: 20px 20px;
-  width: 30%;
-  flex-basis: 30%;
+  /* margin: 20px 20px; */
+  /* width: 30%; */
+  /* flex: 30%; */
   border-radius: 10px;
-  max-width: 240px;
+  width: 240px;
   border: 1px solid var(--border-color);
   border-bottom: 3px solid var(--border-color);
   border-right: 3px solid var(--border-color);
@@ -463,8 +466,8 @@ export default {
   backdrop-filter: blur(10px);
   padding: 10px 40px 40px 40px;
   /* margin: 10px; */
-  margin: 20px 10px;
-  width: 72%;
+  /* margin: 20px 0px; */
+  width: calc(100% - 240px);
   border-radius: 10px;
   max-width: 1600px;
   border: 1px solid solid var(--border-color);
@@ -508,7 +511,11 @@ export default {
 }
 
 .table-wrapper {
+  max-height: 60vh;
+  max-width: 100%;
   overflow-x: auto;
+  overflow-y: scroll;
+
 }
 
 table {
@@ -622,6 +629,8 @@ tbody tr:hover {
 
 .product-card-wrapper {
   width: 100%;
+  max-height: 65vh;
+  overflow-y: scroll;
 }
 
 .product-card-grid {
@@ -728,7 +737,9 @@ tbody tr:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+  border-bottom: 1px solid rgba(253, 29, 29, 0.15);
 }
 
 .sort-panel h3 {
@@ -750,6 +761,7 @@ tbody tr:hover {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .sort-panel li {
@@ -796,9 +808,9 @@ tbody tr:hover {
   background-color: #c7b27d;
 }
 
-.table-view-container {
+/* .table-view-container {
   margin-right: 20px
-}
+} */
 
 .text-container svg {
   padding-left: 20px;
