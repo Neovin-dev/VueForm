@@ -193,6 +193,8 @@ export default {
 
 * {
   color: var(--text-color);
+  -webkit-tap-highlight-color: transparent;
+  /* remove all blue highlighted borders */
 }
 
 .main-content {
