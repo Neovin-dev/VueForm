@@ -294,7 +294,7 @@ img {
 }
 
 .activeForm {
-  background-color: #47b4741f;
+  background-color: rgba(253, 29, 29, 0.15);
   color: #2a2826;
   border: 1px solid #00000086;
   transition: trasform 0.4 ease-in-out;
@@ -306,7 +306,7 @@ img {
 }
 
 .activeTable {
-  background-color: #47b4741f;
+  background-color: rgba(253, 29, 29, 0.15);
   color: #2a2826;
   border-color: #2a2826;
   transition: trasform 0.4 ease-in-out;
