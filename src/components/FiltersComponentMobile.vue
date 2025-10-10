@@ -117,6 +117,9 @@
           </div>
         </div>
       </div> -->
+      <div class="subject-filter-container">
+        <div class="row-filter-align">
+          <h4>Subjects</h4>
       <div class="subject-row-category">
         <div class="categories subject-category">
           <label for="subject-cpp">
@@ -170,6 +173,8 @@
             Vue
           </label>
         </div>
+      </div>
+      </div>
       </div>
 
       <div class="subject-filter-container">
