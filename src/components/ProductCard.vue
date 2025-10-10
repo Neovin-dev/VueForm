@@ -379,9 +379,13 @@ export default {
 .phone-email-container {
   font-weight: 700;
   color: grey;
-  flex: 0 0 75%;
+  flex: 0 0 60%;
   gap: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   /* padding-left: 10px; */
+  margin-top: 15px;
 }
 
 .gender-main-container {
