@@ -84,7 +84,7 @@
                     ><br /><span>*{{ formErrors.dob }}</span></span
                   ></label
                 >
-                <input type="date" id="dob" name="dob" v-model="formData.dob" required />
+                <input type="date" id="dob" name="dob" v-model="formData.dob" placeholder="dd/mm/yyyy" required />
               </div>
               <div class="ele-container">
                 <label for="email"
@@ -585,6 +585,7 @@ select {
   background-color: white;
   font-size: 14px;
   text-align: start;
+  height: 40px;
 }
 
 .ele-container select,
