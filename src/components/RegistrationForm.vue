@@ -582,6 +582,7 @@ select {
 .ele-container input {
   -webkit-appearance: none;
   appearance: none;
+  background-color: white;
 }
 
 .ele-container select,
