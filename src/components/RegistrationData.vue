@@ -798,7 +798,7 @@ tbody tr:hover {
 
 
 
-@media (max-width: 820px) {
+@media (max-width: 900px) {
 
   .data-container {
     padding: 9px;

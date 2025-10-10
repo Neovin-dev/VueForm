@@ -790,7 +790,7 @@ select:focus {
   font-weight: 700;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 900px) {
 
   .main-container {
     padding: 1px;
