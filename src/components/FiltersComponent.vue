@@ -296,13 +296,13 @@ body {
 }
 
 .form-container-form-1 {
-  background: var(--form-bg-color);
+  background: transparent;
   backdrop-filter: blur(30px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  margin: 5px 2.5px 2.5px 2.5px;
+  margin: 5px 5px 2.5px 2.5px;
   padding: 20px 20px 30px 20px;
   border-radius: 20px;
   box-shadow: 5px 5px 10px var(--warning-red);

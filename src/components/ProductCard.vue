@@ -349,7 +349,7 @@ export default {
 }
 
 .email-container {
-  font-size: 14px;
+  font-size: 16px;
   /* padding-left: 10px; */
   font-weight: 700;
   color: black;
@@ -438,11 +438,13 @@ export default {
   margin: 5px;
   /* color: white; */
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.down-arrow img {
-  width: 25px;
+.down-arrow svg {
+  width: 15px;
+  margin: 0px 10px;
+  /* height: 20px; */
 }
 
 .collapsable-container {
@@ -477,8 +479,8 @@ export default {
 }
 
 .center-choice {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .center-container {
@@ -499,8 +501,8 @@ export default {
 }
 
 .dob {
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .subjects-container {
@@ -518,8 +520,8 @@ export default {
 .subjects-choices-container {
   display: flex;
   flex-wrap: wrap;
-  font-weight: 800;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .button-container {
