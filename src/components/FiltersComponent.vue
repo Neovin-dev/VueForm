@@ -430,7 +430,7 @@ h3 {
   margin-top: 15px;
   background: #f7eb024b;
   border-top: 1px solid #dee2e6;
-  padding: 10px;
+  padding-top: 7px;
   display: flex;
   justify-content: space-around;
   border: 1.5px solid #f7eb0280;
@@ -447,7 +447,7 @@ h3 {
   box-shadow: 5px 5px 10px var(--caution-yellow);
 }
 
-@media (max-width: 488px) {
+@media (max-width: 767px) {
   .row-filter-align {
     padding-left: 25px;
   }
@@ -465,16 +465,6 @@ h3 {
   }
   h3 {
     font-size: 20px;
-  }
-}
-
-@media (max-width: 362px) {
-  h3 {
-    font-size: 12px;
-  }
-  .row-view label,
-  h4 {
-    font-size: 14px;
   }
 }
 </style>

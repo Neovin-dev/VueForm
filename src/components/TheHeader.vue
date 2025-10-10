@@ -371,31 +371,9 @@ img {
     width: 30px;
     height: 30px;
   }
-
-  .form-button,
-  .table-button {
-    display: flex;
-    color: #2a2826;
-    border: 1.5px solid bisque;
-    border-bottom: 3px solid bisque;
-    border-top: 1px solid bisque;
-    flex: 1;
-    max-width: 70px;
-    width: 50%;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-color: #2a2826;
-  }
-
-  .form-button:hover,
-  .table-button:hover,
-  .form-button:focus,
-  .table-button:focus {
-    background-color: beige;
-    color: #2a2826;
-    border-color: #2a2826;
+  .logo-container {
+    width: 20px;
+    height: 20px;
   }
 }
 </style>
