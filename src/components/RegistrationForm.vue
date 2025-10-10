@@ -790,6 +790,10 @@ select:focus {
   font-weight: 700;
 }
 
+.row-view {
+    flex-direction: row;
+  }
+
 @media (max-width: 900px) {
 
   .main-container {
@@ -800,9 +804,7 @@ select:focus {
     width: 100%;
   }
 
-  .row-view {
-    flex-direction: row;
-  }
+
 }
 
 @media (max-width: 767px){
