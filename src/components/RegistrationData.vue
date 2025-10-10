@@ -801,8 +801,8 @@ tbody tr:hover {
 @media (max-width: 820px) {
 
   .data-container {
-    padding: 2px;
-    margin: 10px;
+    padding: 9px;
+    margin: 32px 16px 0px;
   }
 
   .page-container {
