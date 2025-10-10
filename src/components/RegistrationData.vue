@@ -796,17 +796,25 @@ tbody tr:hover {
   background-color: #c7b27d;
 }
 
-@media (max-width: 1290px) {
+
+
+@media (max-width: 820px) {
+
   .data-container {
-    margin: 2% 2%;
+    padding: 2px;
+    margin: 10px;
+  }
+
+  .page-container {
+    width: 100%;
+  }
+
+  .table-view-container{
+    width: 100%;
+    margin: 2px;
   }
 }
 
-@media (max-width: 900px) {
-  .table-view-container {
-    width: 85%;
-  }
-}
 
 @media (max-width: 600px) {
   .table-header {

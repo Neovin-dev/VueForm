@@ -616,13 +616,6 @@ select {
   border-top-left-radius: 0;
 } */
 
-@media (min-width: 768px) {
-  .row-view {
-    flex-direction: row;
-    gap: 1rem;
-  }
-}
-
 .ele-container {
   display: flex;
   flex-direction: column;
@@ -646,7 +639,7 @@ select:focus {
   font-weight: 500;
 }
 
-.ele-container input:user-invalid {
+.ele-container input:user-invalid, .ele-container select:user-invalid {
   border: 2px solid red;
 }
 
@@ -797,9 +790,15 @@ select:focus {
   font-weight: 700;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 820px) {
+
   .main-container {
-    padding: 5px;
+    padding: 1px;
+  }
+
+  .page-container {
+    width: 100%;
   }
 }
+
 </style>
