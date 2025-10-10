@@ -549,8 +549,8 @@ select {
 .telenum-container span {
   background-color: white;
   display: flex;
-  width: 10%;
-  height: 100%;
+  width: 40px;
+  height: 40px;
   align-items: center;
   padding-left: 3px;
   padding-right: 2px;

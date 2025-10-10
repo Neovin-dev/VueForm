@@ -796,6 +796,17 @@ tbody tr:hover {
   background-color: #c7b27d;
 }
 
+.table-view-container {
+    margin-right: 20px
+  }
+
+@media (max-width: 1280px){
+  .data-container {
+    margin: 32px 16px;
+  }
+
+}
+
 
 
 @media (max-width: 900px) {
