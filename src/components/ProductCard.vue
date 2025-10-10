@@ -294,13 +294,19 @@ export default {
 }
 
 .image-container {
+  /* background-color: black; */
   margin-right: 10px;
   width: 30%;
+  aspect-ratio: 1 / 1;
   /* border: 4px solid white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-container img {
   width: 100%;
+  height: 100%;
 }
 
 .name-container {
