@@ -797,8 +797,13 @@ tbody tr:hover {
 }
 
 .table-view-container {
-    margin-right: 20px
-  }
+  margin-right: 20px
+}
+
+.text-container svg {
+  padding-left: 20px;
+}
+
 
 @media (max-width: 1280px){
   .data-container {
