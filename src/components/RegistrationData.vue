@@ -578,7 +578,7 @@ tbody tr:hover {
 }
 .dropdown-label {
   padding: 8px 16px;
-  background-color: #f7eb0280;
+  background-color: #f7eb024b;
   border: 1px solid var(--accent-color);
   border-radius: 5px;
   cursor: pointer;
@@ -587,7 +587,7 @@ tbody tr:hover {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 32px;
+  top: 40px;
   right: 0;
   background-color: whitesmoke;
   /* background-color: #aca40df1; */

@@ -764,7 +764,7 @@ select:focus {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 16px;
   transition: background-color 0.3s ease;
   margin-top: 1rem;
