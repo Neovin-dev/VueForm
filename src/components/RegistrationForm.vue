@@ -799,6 +799,17 @@ select:focus {
   .page-container {
     width: 100%;
   }
+
+  .row-view {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px){
+  .row-view {
+    flex-direction: column;
+
+  }
 }
 
 </style>
