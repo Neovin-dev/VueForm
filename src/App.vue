@@ -18,7 +18,6 @@
         :stateDataView="activeData"
         :registrations="displayedRegistration"
         :totalRegistrationsCount="registrationsList.length"
-
         @sort-data="handleSort"
         @delete-registration="deleteRegistration"
         @edit-registration="handleEdit"
@@ -113,8 +112,8 @@ export default {
     setView(view) {
       this.activeView = view
     },
-    setViewData(view){
-      this.activeData = view;
+    setViewData(view) {
+      this.activeData = view
     },
 
     handleSort(sortType) {
@@ -139,7 +138,7 @@ export default {
 
       console.log('handle Registration', submissionData)
       this.activeView = 'table'
-      this.clearAllFilters();
+      this.clearAllFilters()
     },
 
     deleteRegistration(idToDelete) {
@@ -159,8 +158,8 @@ export default {
       this.activeView = 'form'
     },
     filterApplyer(filtersData) {
-      this.activeFilters = filtersData;
-      this.isFilterCurrentlyActive = true;
+      this.activeFilters = filtersData
+      this.isFilterCurrentlyActive = true
       // console.log('this.activeFilters(FiltersData):', this.activeFilters)
       // // let selectedGenders = filtersData.gender
       // // let selectedSubjects = filtersData.subjects
@@ -173,9 +172,8 @@ export default {
         subjects: [],
         exam: [],
       }
-      this.activeSort = '';
-      this.isFilterCurrentlyActive = false;
-
+      this.activeSort = ''
+      this.isFilterCurrentlyActive = false
     },
   },
 }

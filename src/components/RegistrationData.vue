@@ -12,8 +12,10 @@
       <div class="table-header">
         <h3>Registration <span>Data</span></h3>
         <div v-if="!isMobileView && registrations.length > 1" class="controls">
-          <div class="dropdown">
-            <label @click="toggleSortDropdown" for="my-dropdown" class="dropdown-label">Sort By</label>
+          <div class="dropdown" ref="sortDropdown">
+            <label @click="toggleSortDropdown" for="my-dropdown" class="dropdown-label"
+              >Sort By</label
+            >
             <ul class="dropdown-menu" :class="{ 'is-active': isSortActive }">
               <li @click="sortData('A-Z')">Name (A-Z)</li>
               <li @click="sortData('Z-A')">Name (Z-A)</li>
@@ -246,17 +248,17 @@
   </div>
 
   <div v-if="isMobileView">
-  <div class="mobile-fixed-buttons">
-    <button @click="toggleOverlay('sort')" class="button-register">Sort</button>
-    <button @click="toggleOverlay('filters')" class="button-register filter-button-with-ping">
-      <!-- <div v-if="true" class="ping-indicator-container">
+    <div class="mobile-fixed-buttons">
+      <button @click="toggleOverlay('sort')" class="button-register">Sort</button>
+      <button @click="toggleOverlay('filters')" class="button-register filter-button-with-ping">
+        <!-- <div v-if="true" class="ping-indicator-container">
         <div class="ping-dot"></div>
       </div> -->
-      <span>Filter </span>
-    </button>
-  </div>
+        <span>Filter </span>
+      </button>
+    </div>
 
-  <!-- <div v-if="isMobileView">
+    <!-- <div v-if="isMobileView">
     <div class="mobile-fixed-buttons">
       <button @click="toggleOverlay('sort')" class="button-register">Sort</button>
       <button @click="toggleOverlay('filters')" class="button-register"><span>Filter </span><div class="container"><div class="ping"></div></div></button>
@@ -343,11 +345,24 @@ export default {
         document.body.style.overflow = ''
       }
     },
+    isSortActive(isActive) {
+      if (isActive) {
+        document.addEventListener('click', this.closeDropdownOutside)
+      } else {
+        document.removeEventListener('click', this.closeDropdownOutside)
+      }
+    },
   },
   methods: {
+    closeDropdownOutside(event) {
+      // ref is used at sortby to reference to sortby dom
+      if (this.$refs.sortDropdown && !this.$refs.sortDropdown.contains(event.target)) {
+        this.isSortActive = false
+      }
+    },
     sortData(sortType) {
-      this.$emit('sort-data', sortType);
-      this.isSortActive = false;
+      this.$emit('sort-data', sortType)
+      this.isSortActive = false
     },
 
     // to handle Responsivness
@@ -355,7 +370,7 @@ export default {
       this.isMobileView = window.innerWidth <= 900
     },
 
-    toggleSortDropdown(){
+    toggleSortDropdown() {
       this.isSortActive = !this.isSortActive
     },
 
@@ -386,16 +401,29 @@ export default {
   mounted() {
     this.handleResize()
     window.addEventListener('resize', this.handleResize)
+    document.removeEventListener('click', this.closeDropdownOutside)
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize)
+    document.removeEventListener('click', this.closeDropdownOutside)
   },
 }
 </script>
 
 <style scoped>
 * {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 
 .data-container {
@@ -433,7 +461,7 @@ export default {
 .table-view-container {
   background: whitesmoke;
   backdrop-filter: blur(10px);
-  padding: 10px 40px;
+  padding: 10px 40px 40px 40px;
   /* margin: 10px; */
   margin: 20px 10px;
   width: 72%;
@@ -465,7 +493,18 @@ export default {
   color: var(--text-color);
   font-weight: 500;
   font-size: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 
 .table-wrapper {
@@ -674,7 +713,7 @@ tbody tr:hover {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: calc(100% - 40px) ;
+  width: calc(100% - 40px);
   padding: 20px;
   /* border-top-left-radius: 16px;
   border-top-right-radius: 16px; */
@@ -699,6 +738,12 @@ tbody tr:hover {
   justify-content: center;
   margin-top: 20px;
   /* margin-bottom: 20px; */
+}
+
+.card-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 100%; */
 }
 
 .sort-panel ul {

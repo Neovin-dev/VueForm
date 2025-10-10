@@ -22,7 +22,18 @@
                 color: #333333;
                 font-weight: 500;
                 font-size: 20px;
-                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-family:
+                  system-ui,
+                  -apple-system,
+                  BlinkMacSystemFont,
+                  'Segoe UI',
+                  Roboto,
+                  Oxygen,
+                  Ubuntu,
+                  Cantarell,
+                  'Open Sans',
+                  'Helvetica Neue',
+                  sans-serif;
               "
               >Form</span
             >
@@ -112,7 +123,7 @@
                   </div>
                 </div>
               </div>
-              <div class="ele-container ">
+              <div class="ele-container">
                 <label for="telenum"
                   >Phone number
                   <span class="error-message" v-if="formErrors.telenum"
@@ -120,17 +131,16 @@
                   ></label
                 >
                 <div class="telenum-container">
-                <span>+91</span>
-                <input
-                  type="tel"
-                  id="telenum"
-                  name="telenum"
-                  placeholder="Enter your Phone Number"
-                  v-model="formData.telenum"
-                  required
-                />
-              </div>
-
+                  <span>+91</span>
+                  <input
+                    type="tel"
+                    id="telenum"
+                    name="telenum"
+                    placeholder="Enter your Phone Number"
+                    v-model="formData.telenum"
+                    required
+                  />
+                </div>
               </div>
             </div>
 
@@ -143,7 +153,7 @@
                   >
                 </h4>
                 <!-- Refactored Checkbox Group -->
-                <div class="subject-row-category">
+                <!-- <div class="subject-row-category">
                   <div class="custom-input-group">
                     <input type="checkbox" id="Maths" value="Maths" v-model="formData.subjects" />
                     <label for="Maths"><span class="custom-checkbox"></span>Maths</label>
@@ -170,6 +180,29 @@
                     />
                     <label for="History"><span class="custom-checkbox"></span>History</label>
                   </div>
+                </div> -->
+                <div class="subject-row-category">
+                  <div class="custom-input-group">
+                    <input type="checkbox" id="Cpp" value="C++" v-model="formData.subjects" />
+                    <label for="Cpp"><span class="custom-checkbox"></span>C++</label>
+                  </div>
+                  <div class="custom-input-group">
+                    <input
+                      type="checkbox"
+                      id="Javascript"
+                      value="Javascript"
+                      v-model="formData.subjects"
+                    />
+                    <label for="Javascript"><span class="custom-checkbox"></span>Javascript</label>
+                  </div>
+                  <div class="custom-input-group">
+                    <input type="checkbox" id="Java" value="Java" v-model="formData.subjects" />
+                    <label for="Java"><span class="custom-checkbox"></span>Java</label>
+                  </div>
+                  <div class="custom-input-group">
+                    <input type="checkbox" id="Vue" value="Vue" v-model="formData.subjects" />
+                    <label for="Vue"><span class="custom-checkbox"></span>Vue</label>
+                  </div>
                 </div>
               </div>
               <div class="ele-container">
@@ -177,13 +210,14 @@
                 <select name="exam" id="exam" v-model="formData.exam" required>
                   <option value="" disabled selected hidden>Choose an exam center</option>
                   <option value="Noida">Noida</option>
-                  <option value="Delhi">Delhi</option>
+                  <option value="Delhi-NCR">Delhi NCR</option>
                   <option value="Mumbai">Mumbai</option>
                 </select>
               </div>
             </div>
-
-            <button type="submit" class="submit-button">Register</button>
+            <button type="submit" class="submit-button" :class="{ 'update-mode': isEditMode }">
+              {{ isEditMode ? 'Update' : 'Register' }}
+            </button>
           </form>
         </div>
       </div>
@@ -225,6 +259,11 @@ export default {
       isMobileView: true,
     }
   },
+  computed: {
+    isEditMode() {
+      return this.formDataEdit
+    },
+  },
   methods: {
     handleSubmit() {
       this.formErrors = {
@@ -248,27 +287,26 @@ export default {
         isFormValid = false
       }
 
-      if (!this.formData.dob){
-        this.formErrors.dob = 'Date of Birth is required';
-        isFormValid = false;
+      if (!this.formData.dob) {
+        this.formErrors.dob = 'Date of Birth is required'
+        isFormValid = false
       } else {
-        let today = new Date();
-        let dob = new Date(this.formData.dob);
+        let today = new Date()
+        let dob = new Date(this.formData.dob)
 
-        let minimumAge = new Date();
-        minimumAge.setFullYear(today.getFullYear() - 18); // lower limit
+        let minimumAge = new Date()
+        minimumAge.setFullYear(today.getFullYear() - 18) // lower limit
 
-        let maximumAge = new Date();
-        maximumAge.setFullYear(today.getFullYear() - 120); // upper limit
+        let maximumAge = new Date()
+        maximumAge.setFullYear(today.getFullYear() - 120) // upper limit
 
-        if(dob > minimumAge){
-          this.formErrors.dob = 'You must be atleast 18 years old.';
-          isFormValid = false; // stop
-        }else if(dob < maximumAge){
+        if (dob > minimumAge) {
+          this.formErrors.dob = 'You must be atleast 18 years old.'
+          isFormValid = false // stop
+        } else if (dob < maximumAge) {
           this.formErrors.dob = 'Age must be less than 120 years old'
-          isFormValid = false;
+          isFormValid = false
         }
-
       }
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -292,9 +330,11 @@ export default {
         return
       }
 
-      this.formData.fname =this.formData.fname.charAt(0).toUpperCase() + this.formData.fname.slice(1).toLowerCase();
-      this.formData.lname = this.formData.lname.charAt(0).toUpperCase() + this.formData.lname.slice(1).toLowerCase();
-      this.formData.email = this.formData.email.toLowerCase();
+      this.formData.fname =
+        this.formData.fname.charAt(0).toUpperCase() + this.formData.fname.slice(1).toLowerCase()
+      this.formData.lname =
+        this.formData.lname.charAt(0).toUpperCase() + this.formData.lname.slice(1).toLowerCase()
+      this.formData.email = this.formData.email.toLowerCase()
       // this.formData.subjects = this.formData.subjects.map((subject) =>
       //   subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase()
       // );
@@ -360,7 +400,18 @@ export default {
 }
 
 * {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   color: var(--text-color);
   box-sizing: border-box;
 }
@@ -371,6 +422,9 @@ export default {
   padding: 2rem 1rem;
   background-color: var(--bg-color);
   /* min-height: 100vh; */
+}
+.submit-button.update-mode {
+  background-color: #47b474a1;
 }
 
 h4 {
@@ -507,9 +561,6 @@ select {
   color: var(--placeholder-color);
 }
 
-
-
-
 .ele-container {
   display: flex;
   flex-direction: column;
@@ -533,7 +584,8 @@ select {
   border-bottom-left-radius: 0px;
 } */
 
-.ele-container select {
+.ele-container select,
+.ele-container select:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -543,7 +595,8 @@ select {
   background-color: white;
   cursor: pointer;
 }
-.ele-container select::after {
+
+/* .ele-container select::after {
   content: 'v';
   position: absolute;
   top: 50%;
@@ -552,13 +605,12 @@ select {
   pointer-events: none;
   font-size: 16px;
   color: #ff0000;
-}
+} */
 
 /* .telenum-container input {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 } */
-
 
 @media (min-width: 768px) {
   .row-view {
@@ -585,7 +637,7 @@ select {
 }
 
 select:focus {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   color: black;
   font-weight: 500;
 }
@@ -606,6 +658,7 @@ select:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  margin-top: 10px;
   /* margin-top: 8px; */
 }
 

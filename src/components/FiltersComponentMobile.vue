@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="subject-filter-container">
+      <!-- <div class="subject-filter-container">
         <div class="row-filter-align">
           <h4>Subjects</h4>
           <div class="subject-row-category">
@@ -116,6 +116,60 @@
             </div>
           </div>
         </div>
+      </div> -->
+      <div class="subject-row-category">
+        <div class="categories subject-category">
+          <label for="subject-cpp">
+            <input
+              type="checkbox"
+              name="subject"
+              id="subject-cpp"
+              value="C++"
+              v-model="filtersData.subjects"
+            />
+            <span class="custom-checkbox"></span>
+            C++
+          </label>
+        </div>
+        <div class="categories subject-category">
+          <label for="subject-javascript">
+            <input
+              type="checkbox"
+              name="subject"
+              id="subject-javascript"
+              value="Javascript"
+              v-model="filtersData.subjects"
+            />
+            <span class="custom-checkbox"></span>
+            Javascript
+          </label>
+        </div>
+        <div class="categories subject-category">
+          <label for="subject-java">
+            <input
+              type="checkbox"
+              name="subject"
+              id="subject-java"
+              value="Java"
+              v-model="filtersData.subjects"
+            />
+            <span class="custom-checkbox"></span>
+            Java
+          </label>
+        </div>
+        <div class="categories subject-category">
+          <label for="subject-vue">
+            <input
+              type="checkbox"
+              name="subject"
+              id="subject-vue"
+              value="Vue"
+              v-model="filtersData.subjects"
+            />
+            <span class="custom-checkbox"></span>
+            Vue
+          </label>
+        </div>
       </div>
 
       <div class="subject-filter-container">
@@ -141,11 +195,11 @@
                   type="checkbox"
                   name="center"
                   id="center-delhi"
-                  value="Delhi"
+                  value="Delhi-NCR"
                   v-model="filtersData.exam"
                 />
                 <span class="custom-checkbox"></span>
-                Delhi
+                Delhi NCR
               </label>
             </div>
             <div class="categories subject-category">
@@ -232,7 +286,18 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   color: black;
 }
 

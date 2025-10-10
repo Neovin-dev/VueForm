@@ -1,6 +1,6 @@
 <template>
   <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
-    <h3 style="font-weight: 900; font-style: italic;">
+    <h3 style="font-weight: 900; font-style: italic">
       Filter
       <span style="font-weight: 500; font-size: 18px">Menu</span>
     </h3>
@@ -9,8 +9,7 @@
         <h4>Gender</h4>
         <div class="subject-row-category">
           <div class="categories subject-category">
-            <label for="gender-male"
-              >
+            <label for="gender-male">
               <input
                 type="checkbox"
                 name="gender"
@@ -23,8 +22,7 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="gender-female"
-              >
+            <label for="gender-female">
               <input
                 type="checkbox"
                 name="gender"
@@ -37,8 +35,7 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="gender-other"
-              >
+            <label for="gender-other">
               <input
                 type="checkbox"
                 name="gender"
@@ -57,10 +54,9 @@
     <div class="subject-filter-container">
       <div class="row-filter-align">
         <h4>Subjects</h4>
-        <div class="subject-row-category">
+        <!-- <div class="subject-row-category">
           <div class="categories subject-category">
-            <label for="subject-maths"
-              >
+            <label for="subject-maths">
               <input
                 type="checkbox"
                 name="subject"
@@ -73,8 +69,7 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="subject-english"
-              >
+            <label for="subject-english">
               <input
                 type="checkbox"
                 name="subject"
@@ -87,8 +82,7 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="subject-french"
-              >
+            <label for="subject-french">
               <input
                 type="checkbox"
                 name="subject"
@@ -101,8 +95,7 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="subject-history"
-              >
+            <label for="subject-history">
               <input
                 type="checkbox"
                 name="subject"
@@ -114,6 +107,60 @@
               History
             </label>
           </div>
+        </div> -->
+        <div class="subject-row-category">
+          <div class="categories subject-category">
+            <label for="subject-cpp">
+              <input
+                type="checkbox"
+                name="subject"
+                id="subject-cpp"
+                value="C++"
+                v-model="filtersData.subjects"
+              />
+              <span class="custom-checkbox"></span>
+              C++
+            </label>
+          </div>
+          <div class="categories subject-category">
+            <label for="subject-javascript">
+              <input
+                type="checkbox"
+                name="subject"
+                id="subject-javascript"
+                value="Javascript"
+                v-model="filtersData.subjects"
+              />
+              <span class="custom-checkbox"></span>
+              Javascript
+            </label>
+          </div>
+          <div class="categories subject-category">
+            <label for="subject-java">
+              <input
+                type="checkbox"
+                name="subject"
+                id="subject-java"
+                value="Java"
+                v-model="filtersData.subjects"
+              />
+              <span class="custom-checkbox"></span>
+              Java
+            </label>
+          </div>
+          <div class="categories subject-category">
+            <label for="subject-vue">
+              <input
+                type="checkbox"
+                name="subject"
+                id="subject-vue"
+                value="Vue"
+                v-model="filtersData.subjects"
+              />
+              <span class="custom-checkbox"></span>
+              Vue
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -123,8 +170,7 @@
         <h4>Exam Center</h4>
         <div class="subject-row-category">
           <div class="categories subject-category">
-            <label for="center-noida"
-              >
+            <label for="center-noida">
               <input
                 type="checkbox"
                 name="center"
@@ -137,22 +183,20 @@
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="center-delhi"
-              >
+            <label for="center-delhi">
               <input
                 type="checkbox"
                 name="center"
                 id="center-delhi"
-                value="Delhi"
+                value="Delhi-NCR"
                 v-model="filtersData.exam"
               />
               <span class="custom-checkbox"></span>
-              Delhi
+              Delhi NCR
             </label>
           </div>
           <div class="categories subject-category">
-            <label for="center-mumbai"
-              >
+            <label for="center-mumbai">
               <input
                 type="checkbox"
                 name="center"
@@ -168,7 +212,7 @@
       </div>
     </div>
 
-    <div class="apply-clear-bar" style="text-align: center; margin-top: 20px">
+    <div class="apply-clear-bar" style="text-align: center">
       <button
         id="apply-filter-button"
         @click="applyFilters"
@@ -206,7 +250,7 @@ export default {
     applyFilters() {
       // console.log('filtersData', this.filtersData.gender)
       // console.log('filtersData', this.filtersData)
-      this.$emit('filter-apply', { ...this.filtersData})
+      this.$emit('filter-apply', { ...this.filtersData })
       //object reference mutation
     },
     clearFilters() {
@@ -232,7 +276,18 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   color: black;
 }
 
@@ -258,7 +313,6 @@ h3 {
   font-size: 28px;
   padding: 15px 0px 10px 0px;
   font-weight: 800;
-
 }
 
 .row-filter-align h4 {
@@ -363,7 +417,7 @@ h3 {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  gap:5px;
+  gap: 5px;
 }
 
 .button-register {
@@ -382,7 +436,6 @@ h3 {
   border: 1.5px solid #f7eb0280;
   border-radius: 10px;
 }
-
 
 .button-register:hover {
   background: #f7eb0280;
