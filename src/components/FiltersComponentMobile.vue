@@ -520,10 +520,7 @@ h3 {
     font-size: 18px;
     font-style: italic;
   }
-  .subject-row-category {
-    width: 80vw;
-    align-items: center;
-  }
+
   .button-register {
     box-shadow: none;
   }
