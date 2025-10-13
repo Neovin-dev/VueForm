@@ -1,7 +1,7 @@
 <template>
   <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
     <div class="filters-header">
-      <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px">
+      <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 10px">
         Filter
         <span style="font-weight: 500; font-size: 18px">Menu</span>
       </h3>
@@ -327,7 +327,7 @@ body {
 
 .categories-container {
   width: 100%;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .form-container-form-1 {
