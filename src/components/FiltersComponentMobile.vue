@@ -327,6 +327,7 @@ body {
 
 .categories-container {
   width: 100%;
+  margin-left: 20px;
 }
 
 .form-container-form-1 {
@@ -351,7 +352,7 @@ h3 {
 
 .row-filter-align h4 {
   font-size: 18px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   padding-right: 4px;
   padding-bottom: 10px;
   padding-top: 20px;
@@ -378,7 +379,7 @@ h3 {
   flex-direction: row;
   justify-content: flex-start;
   flex: 1;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   padding-top: 20px;
   gap: 20px;
   margin: 4px 0px;
@@ -406,7 +407,7 @@ h3 {
 .subject-category {
   display: block;
   position: relative;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   padding-bottom: 2.5px;
   padding-top: 2.5px;
   cursor: pointer;
