@@ -1,5 +1,5 @@
 <template>
-  <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
+  <div id="filter-containers" class="filter-wrapper form-container-form-1 custom-scrollbar deactive-style">
     <div class="filters-header">
       <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 10px">
         Filter
@@ -503,6 +503,11 @@ h3 {
 .button-register:active {
   background: var(--bg-color);
   box-shadow: 5px 5px 10px var(--caution-yellow);
+}
+
+.filter-wrapper {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 /* @media (max-width: 900px) {
