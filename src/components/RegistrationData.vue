@@ -757,6 +757,7 @@ tbody tr:hover {
 .card-list-container {
   display: flex;
   flex-wrap: wrap;
+  margin: -10px;
   /* width: 100%; */
 }
 

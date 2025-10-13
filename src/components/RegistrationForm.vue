@@ -431,6 +431,7 @@ h4 {
   font-size: 14px;
   margin-top: 0px;
   margin-bottom: 5px;
+  font-weight: 600;
 }
 
 label {
