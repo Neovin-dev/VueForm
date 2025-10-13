@@ -104,7 +104,7 @@
             <div class="dob-container">
               <div class="dob-title">D.O.B</div>
               <div class="dob">
-                {{ user.dob }}
+                {{ formatDate(user.dob) }}
               </div>
             </div>
           </div>
@@ -191,6 +191,18 @@ export default {
     },
     handleResize() {
       this.isMobileView = window.innerWidth < 768
+    },
+    formatDate(dateString){
+      // we recieve the data from date input in form of string
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      const date = new Date(dateString);
+      const day = date.getDate();
+      const monthIndex = date.getMonth(); // o Jan 11 Dec
+      const year = date.getFullYear();
+
+      return `${day}-${months[monthIndex]}-${year}`;
+
     },
   },
   // TODO:

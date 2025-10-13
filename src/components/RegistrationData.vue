@@ -46,7 +46,7 @@
             <tr v-for="user in registrations" :key="user.id">
               <td>{{ user.fname }}</td>
               <td>{{ user.lname }}</td>
-              <td>{{ user.dob }}</td>
+              <td>{{ formatDate(user.dob) }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.telenum }}</td>
               <td>{{ user.exam }}</td>
@@ -359,6 +359,18 @@ export default {
       if (this.$refs.sortDropdown && !this.$refs.sortDropdown.contains(event.target)) {
         this.isSortActive = false
       }
+    },
+    formatDate(dateString){
+      // we recieve the data from date input in form of string
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      const date = new Date(dateString);
+      const day = date.getDate();
+      const monthIndex = date.getMonth(); // o Jan 11 Dec
+      const year = date.getFullYear();
+
+      return `${day}-${months[monthIndex]}-${year}`;
+
     },
     sortData(sortType) {
       this.$emit('sort-data', sortType)
