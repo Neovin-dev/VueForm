@@ -632,13 +632,14 @@ tbody tr:hover {
   width: 100%;
   max-height: 60vh;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .product-card-grid {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow-x: hidden;
+
   margin-bottom: 50px;
 }
 
