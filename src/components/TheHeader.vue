@@ -368,11 +368,15 @@ img {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 767px){
   .toggle-container {
     width: 25px;
     height: 25px;
   }
+
+}
+
+@media (max-width: 450px) {
 
   .header-container {
     padding: 10px
