@@ -250,11 +250,12 @@ img {
   border-top: 1px solid bisque; */
   flex: 1;
   max-width: 100px;
-  width: 80%;
+  width: 100%;
   height: 30px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding-bottom: 2px;
 }
 
 .form-button {

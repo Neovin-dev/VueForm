@@ -2,8 +2,8 @@
   <div id="filter-containers" class="filter-wrapper form-container-form-1 custom-scrollbar deactive-style">
     <div class="filters-header">
       <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 10px">
-        Filter
-        <span style="font-weight: 500; font-size: 18px">Menu</span>
+        Filters
+        <!-- <span style="font-weight: 500; font-size: 18px">Menu</span> -->
       </h3>
       <button @click="closeOverlayMobile" class="close-btn">
         <!-- Close -->
@@ -315,7 +315,7 @@ body {
   /* align-items: center; */
   /* justify-content: center; */
   /* border: 1px solid black; */
-  max-width: 300px;
+  max-width: 320px;
   margin: 10px;
 }
 
@@ -339,7 +339,7 @@ body {
   align-content: center;
   /* margin: 5px 2.5px 2.5px 2.5px;
   padding: 20px 20px 30px 20px; */
-  border-radius: 20px;
+  border-radius: 0px;
   box-shadow: 5px 5px 10px var(--warning-red);
   /* border: 0.5px solid #f4c644; */
 }
@@ -472,8 +472,8 @@ h3 {
 
 .apply-clear-bar {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between;
+  width: 90%;
 }
 
 .button-register {
@@ -506,7 +506,7 @@ h3 {
 }
 
 .filter-wrapper {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

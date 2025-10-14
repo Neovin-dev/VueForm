@@ -1,8 +1,8 @@
 <template>
   <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
     <h3 style="font-weight: 900; font-style: italic">
-      Filter
-      <span style="font-weight: 500; font-size: 18px">Menu</span>
+      Filters
+      <!-- <span style="font-weight: 500; font-size: 18px">Menu</span> -->
     </h3>
     <div class="subject-filter-container">
       <div class="row-filter-align">
@@ -366,6 +366,11 @@ h3 {
   user-select: none;
 }
 
+.subject-category label {
+  cursor: pointer;
+  width: 50%;
+}
+
 .subject-category input {
   position: absolute;
   opacity: 0;
@@ -380,7 +385,7 @@ h3 {
 
 .custom-checkbox {
   position: absolute;
-  top: 0px;
+  top: 5px;
   left: 0px;
   height: 20px;
   width: 20px;

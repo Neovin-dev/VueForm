@@ -44,7 +44,7 @@
             <div class="row-view">
               <div class="ele-container">
                 <label for="fname"
-                  >First Name
+                  >First Name <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.fname"
                     ><br /><span>*{{ formErrors.fname }}</span></span
                   ></label
@@ -53,6 +53,7 @@
                   type="text"
                   id="fname"
                   name="fname"
+                  maxlength="20"
                   placeholder="Enter your first name"
                   v-model="formData.fname"
                   required
@@ -60,7 +61,7 @@
               </div>
               <div class="ele-container">
                 <label for="lname"
-                  >Last Name
+                  >Last Name <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.lname"
                     ><br /><span>*{{ formErrors.lname }}</span></span
                   ></label
@@ -69,6 +70,7 @@
                   type="text"
                   id="lname"
                   name="lname"
+                  maxlength="20"
                   placeholder="Enter your last name"
                   v-model="formData.lname"
                   required
@@ -79,16 +81,16 @@
             <div class="row-view">
               <div class="ele-container">
                 <label for="dob"
-                  >Date of Birth
+                  >Date of Birth <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.dob"
                     ><br /><span>*{{ formErrors.dob }}</span></span
                   ></label
                 >
-                <input type="date" id="dob" name="dob" v-model="formData.dob" placeholder="dd/mm/yyyy" required />
+                <input type="date" id="dob" name="dob" v-model="formData.dob" placeholder="date" onclick="showPicker()" required />
               </div>
               <div class="ele-container">
                 <label for="email"
-                  >Email Address
+                  >Email Address <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.email"
                     ><br /><span>*{{ formErrors.email }}</span></span
                   ></label
@@ -106,7 +108,7 @@
 
             <div class="row-view">
               <div class="gender-container">
-                <h4>Gender</h4>
+                <h4>Gender <span style="color: red;">*</span></h4>
                 <!-- Refactored Radio Button Group -->
                 <div class="gender-row-category">
                   <div class="custom-input-group">
@@ -125,7 +127,7 @@
               </div>
               <div class="ele-container">
                 <label for="telenum"
-                  >Phone number
+                  >Phone number <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.telenum"
                     ><br /><span>*{{ formErrors.telenum }}</span></span
                   ></label
@@ -133,10 +135,11 @@
                 <div class="telenum-container">
                   <span>+91</span>
                   <input
-                    type="tel"
+                    type="text" inputmode="numeric" pattern="\d*" min="0" maxlength="10"
                     id="telenum"
                     name="telenum"
                     placeholder="Enter your Phone Number"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                     v-model="formData.telenum"
                     required
                   />
@@ -147,7 +150,7 @@
             <div class="row-view">
               <div class="subject-container">
                 <h4>
-                  Subjects
+                  Subjects <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.subjects"
                     ><br /><span>*{{ formErrors.subjects }}</span></span
                   >
@@ -206,7 +209,7 @@
                 </div>
               </div>
               <div class="ele-container">
-                <label for="exam">Exam Center</label>
+                <label for="exam">Exam Center <span style="color: red;">*</span></label>
                 <select name="exam" id="exam" v-model="formData.exam" required>
                   <option value="" disabled selected hidden>Choose an exam center</option>
                   <option value="Noida">Noida</option>
@@ -587,6 +590,7 @@ select {
   font-size: 14px;
   text-align: start;
   height: 40px;
+  cursor: text;
 }
 
 .ele-container select,

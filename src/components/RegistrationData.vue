@@ -527,7 +527,7 @@ export default {
   max-height: 60vh;
   max-width: 100%;
   overflow-x: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
 
 }
 
@@ -643,7 +643,7 @@ tbody tr:hover {
 .product-card-wrapper {
   width: 100%;
   max-height: 60vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -726,7 +726,7 @@ tbody tr:hover {
   height: 100%;
   /* justify-content: center; */
   width: 90vw;
-  max-width: 380px;
+  max-width: 400px;
   transform: translateX(-100%);
 }
 
