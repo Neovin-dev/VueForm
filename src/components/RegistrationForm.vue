@@ -819,4 +819,11 @@ select:focus {
   }
 }
 
+@media (max-width: 432px){
+  .page-container {
+    padding: 5px;
+    padding-top: 10px;
+  }
+}
+
 </style>

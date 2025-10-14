@@ -375,6 +375,12 @@ img {
     height: 25px;
   }
 
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
 }
 
 @media (max-width: 450px) {
