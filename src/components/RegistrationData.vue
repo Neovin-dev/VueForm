@@ -861,11 +861,7 @@ tbody tr:hover {
     border: none;
   }
 
-  .data-container {
-    padding: 9px;
-    margin-top: 10px;
-    /* margin: 32px 16px 0px; */
-  }
+
 
   .page-container {
     width: 100%;
@@ -918,4 +914,12 @@ tbody tr:hover {
     max-height: 68vh;
   }
 }
+
+@media (max-width: 432px){
+  .data-container {
+    margin: 5px;
+    margin-top: 10px;
+  }
+}
+
 </style>

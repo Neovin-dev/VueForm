@@ -519,6 +519,7 @@ label {
 
 .form-container-Mform h3 {
   text-align: center;
+  margin-top: 10px;
   /* margin-bottom: 30px; */
   color: var(--text-color);
 }
@@ -823,6 +824,10 @@ select:focus {
   .page-container {
     padding: 5px;
     padding-top: 10px;
+  }
+
+  .submit-button {
+    margin-bottom: 20px;
   }
 }
 
