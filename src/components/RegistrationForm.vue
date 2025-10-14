@@ -108,7 +108,7 @@
 
             <div class="row-view">
               <div class="gender-container">
-                <h4>Gender <span style="color: red;">*</span></h4>
+                <h4>Gender <span style="color: red; font-weight: 400;">*</span></h4>
                 <!-- Refactored Radio Button Group -->
                 <div class="gender-row-category">
                   <div class="custom-input-group">
@@ -127,7 +127,7 @@
               </div>
               <div class="ele-container">
                 <label for="telenum"
-                  >Phone number <span style="color: red;">*</span>
+                  >Phone number <span style="color: red; font-weight: 400;">*</span>
                   <span class="error-message" v-if="formErrors.telenum"
                     ><br /><span>*{{ formErrors.telenum }}</span></span
                   ></label
@@ -150,7 +150,7 @@
             <div class="row-view">
               <div class="subject-container">
                 <h4>
-                  Subjects <span style="color: red;">*</span>
+                  Subjects <span style="color: red; font-weight: 400;">*</span>
                   <span class="error-message" v-if="formErrors.subjects"
                     ><br /><span>*{{ formErrors.subjects }}</span></span
                   >
@@ -209,7 +209,7 @@
                 </div>
               </div>
               <div class="ele-container">
-                <label for="exam">Exam Center <span style="color: red;">*</span></label>
+                <label for="exam">Exam Center <span style="color: red; font-weight: 400;">*</span></label>
                 <select name="exam" id="exam" v-model="formData.exam" required>
                   <option value="" disabled selected hidden>Choose an exam center</option>
                   <option value="Noida">Noida</option>
@@ -824,7 +824,8 @@ select:focus {
 }
 .error-message span {
   color: #ff0000;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 .row-view {
