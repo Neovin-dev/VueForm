@@ -230,7 +230,7 @@
           @click="applyFilters"
           class="button-register"
           type="button"
-          style="min-width: 60px"
+          style="min-width: 50px"
         >
           Apply
         </button>
@@ -239,7 +239,7 @@
           @click="clearFilters"
           class="button-register"
           type="button"
-          style="min-width: 60px"
+          style="min-width: 50px"
         >
           Clear
         </button>
@@ -479,7 +479,7 @@ h3 {
 .button-register {
   display: inline-block;
   height: 35px;
-  width: 140px;
+  width: 120px;
   font-weight: 600;
   border: 2px solid rgba(255, 255, 255, 0.668);
   cursor: pointer;

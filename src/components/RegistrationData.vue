@@ -678,7 +678,7 @@ tbody tr:hover {
 
 .mobile-fixed-buttons button {
   width: 45%;
-  padding: 12px;
+  /* padding: 12px; */
   font-size: 16px;
   margin: 0;
   color: white;
@@ -686,6 +686,7 @@ tbody tr:hover {
   border: 0.5px solid rgba(0, 0, 0, 0.365);
   background-color: #47b474a1;
   border-radius: 10px;
+  height: 35px;
 }
 
 .mobile-overlay {
