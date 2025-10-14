@@ -30,8 +30,9 @@
         <table v-if="registrations.length > 0">
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <!-- <th>First Name</th>
+              <th>Last Name</th> -->
+              <th>Name</th>
               <th>D.O.B</th>
               <th>Email</th>
               <th>Mobile No.</th>
@@ -44,8 +45,7 @@
           </thead>
           <tbody>
             <tr v-for="user in registrations" :key="user.id">
-              <td>{{ user.fname }}</td>
-              <td>{{ user.lname }}</td>
+              <td> {{ user.fname }} {{ user.lname }}</td>
               <td>{{ formatDate(user.dob) }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.telenum }}</td>
@@ -541,6 +541,7 @@ th,
 td {
   padding: 12px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.418);
+
 }
 
 thead {
@@ -550,7 +551,13 @@ thead {
 th {
   font-weight: 600;
   color: var(--accent-color);
+  /* text-align: center; */
 }
+
+/* td {
+  border-left: 1px solid #1312135a;
+  border-right: 1px solid #1312135a;
+} */
 
 tbody tr:hover {
   background-color: #f0f0f0;

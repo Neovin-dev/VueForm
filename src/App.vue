@@ -11,6 +11,8 @@
         :formDataEdit="formDataToEdit"
         v-if="activeView === 'form'"
         @form-submitted="handleFormSubmit"
+        :exisitingEmails ="allUserEmails"
+        :exisitingPhone = "allUserPhone"
       />
       <!-- Total registrations count needs to be sended to compare between the absence of data and the no data satisfying the filtered condition -->
       <RegistrationData
@@ -62,6 +64,14 @@ export default {
     }
   },
   computed: {
+    allUserEmails(){
+      const validEmaild = this.registrationsList.map(user => user.email.toLowerCase());
+      return validEmaild;
+    },
+    allUserPhone(){
+      const validPhone = this.registrationsList.map(user => user.telenum);
+      return validPhone;
+    },
     // this will handle the displayed data on the registrationForm
     // this will be passed in the RegistrationData component.
 

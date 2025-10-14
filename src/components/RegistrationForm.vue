@@ -235,6 +235,13 @@ export default {
     formDataEdit: {
       type: Object,
     },
+    exisitingEmails: {
+      type: Array,
+    },
+    exisitingPhone: {
+      type: Array,
+    },
+
   },
   data() {
     return {
@@ -278,6 +285,8 @@ export default {
         subjects: '',
       }
 
+
+
       let isFormValid = true
 
       if (this.formData.fname.trim().length < 2) {
@@ -318,10 +327,32 @@ export default {
         isFormValid = false
       }
 
+      if(this.formData.email){
+        const currentEmail = this.formData.email.toLowerCase().trim();
+
+        const emailChecker = this.exisitingEmails.includes(currentEmail);
+
+        if(emailChecker){
+          this.formErrors.email = "This Email Already Exists";
+          isFormValid = false
+        }
+      }
+
       const phonePattern = /^[0-9]{10}$/
       if (!phonePattern.test(this.formData.telenum)) {
         this.formErrors.telenum = 'Phone number must be 10 digits.'
         isFormValid = false
+      }
+
+      if(this.formData.telenum){
+        const currentPhone = this.formData.telenum;
+
+        const phoneChecker = this.exisitingPhone.includes(currentPhone);
+
+        if(phoneChecker){
+          this.formErrors.telenum = "This Phone Number Already Exists";
+          isFormValid = false
+        }
       }
 
       if (this.formData.subjects.length === 0) {
