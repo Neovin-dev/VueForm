@@ -46,7 +46,7 @@
                 <label for="fname"
                   >First Name <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.fname"
-                    ><br /><span>*{{ formErrors.fname }}</span></span
+                    ><span>{{ formErrors.fname }}</span></span
                   ></label
                 >
                 <input
@@ -63,7 +63,7 @@
                 <label for="lname"
                   >Last Name <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.lname"
-                    ><br /><span>*{{ formErrors.lname }}</span></span
+                    ><span>{{ formErrors.lname }}</span></span
                   ></label
                 >
                 <input
@@ -77,13 +77,13 @@
                 />
               </div>
             </div>
-
+            <!-- onclick="event.preventDefault(); event.stopPropagation() is used to stop the bubbling up of the dob as it is associated with the dob -->
             <div class="row-view">
               <div class="ele-container">
-                <label for="dob"
+                <label for="dob" onclick="event.preventDefault(); event.stopPropagation();"
                   >Date of Birth <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.dob"
-                    ><br /><span>*{{ formErrors.dob }}</span></span
+                    ><span>{{ formErrors.dob }}</span></span
                   ></label
                 >
                 <input type="date" id="dob" name="dob" v-model="formData.dob" placeholder="date" onclick="showPicker()" required />
@@ -92,7 +92,7 @@
                 <label for="email"
                   >Email Address <span style="color: red;">*</span>
                   <span class="error-message" v-if="formErrors.email"
-                    ><br /><span>*{{ formErrors.email }}</span></span
+                    ><span>{{ formErrors.email }}</span></span
                   ></label
                 >
                 <input
@@ -129,7 +129,7 @@
                 <label for="telenum"
                   >Phone number <span style="color: red; font-weight: 400;">*</span>
                   <span class="error-message" v-if="formErrors.telenum"
-                    ><br /><span>*{{ formErrors.telenum }}</span></span
+                    ><span>{{ formErrors.telenum }}</span></span
                   ></label
                 >
                 <div class="telenum-container">
@@ -152,7 +152,7 @@
                 <h4>
                   Subjects <span style="color: red; font-weight: 400;">*</span>
                   <span class="error-message" v-if="formErrors.subjects"
-                    ><br /><span>*{{ formErrors.subjects }}</span></span
+                    ><span>{{ formErrors.subjects }}</span></span
                   >
                 </h4>
                 <!-- Refactored Checkbox Group -->
@@ -676,9 +676,9 @@ select:focus {
   font-weight: 500;
 }
 
-.ele-container input:user-invalid, .ele-container select:user-invalid {
-  border: 2px solid red;
-}
+/* .ele-container input:user-invalid, .ele-container select:user-invalid {
+  border: 1px solid red;
+} */
 
 .ele-container > label {
   font-size: 14px;
