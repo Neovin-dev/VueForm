@@ -44,7 +44,7 @@
             <div class="row-view">
               <div class="ele-container">
                 <label for="fname"
-                  >First Name <span style="color: red;">*</span>
+                  >First Name <span style="color: red">*</span>
                   <span class="error-message" v-if="formErrors.fname"
                     ><span>{{ formErrors.fname }}</span></span
                   ></label
@@ -61,7 +61,7 @@
               </div>
               <div class="ele-container">
                 <label for="lname"
-                  >Last Name <span style="color: red;">*</span>
+                  >Last Name <span style="color: red">*</span>
                   <span class="error-message" v-if="formErrors.lname"
                     ><span>{{ formErrors.lname }}</span></span
                   ></label
@@ -81,16 +81,24 @@
             <div class="row-view">
               <div class="ele-container">
                 <label for="dob" onclick="event.preventDefault(); event.stopPropagation();"
-                  >Date of Birth <span style="color: red;">*</span>
+                  >Date of Birth <span style="color: red">*</span>
                   <span class="error-message" v-if="formErrors.dob"
                     ><span>{{ formErrors.dob }}</span></span
                   ></label
                 >
-                <input type="date" id="dob" name="dob" v-model="formData.dob" placeholder="date" onclick="showPicker()" required />
+                <input
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  v-model="formData.dob"
+                  placeholder="date"
+                  onclick="showPicker()"
+                  required
+                />
               </div>
               <div class="ele-container">
                 <label for="email"
-                  >Email Address <span style="color: red;">*</span>
+                  >Email Address <span style="color: red">*</span>
                   <span class="error-message" v-if="formErrors.email"
                     ><span>{{ formErrors.email }}</span></span
                   ></label
@@ -108,8 +116,13 @@
 
             <div class="row-view">
               <div class="gender-container">
-                <h4>Gender <span style="color: red; font-weight: 400;">*</span></h4>
-                <!-- Refactored Radio Button Group -->
+                <h4>
+                  Gender <span style="color: red; font-weight: 400">*</span
+                  ><span class="error-message" v-if="formErrors.gender"
+                    ><span>{{ formErrors.gender }}</span></span
+                  >
+                </h4>
+
                 <div class="gender-row-category">
                   <div class="custom-input-group">
                     <input type="radio" id="male" value="male" v-model="formData.gender" required />
@@ -127,7 +140,7 @@
               </div>
               <div class="ele-container">
                 <label for="telenum"
-                  >Phone number <span style="color: red; font-weight: 400;">*</span>
+                  >Phone number <span style="color: red; font-weight: 400">*</span>
                   <span class="error-message" v-if="formErrors.telenum"
                     ><span>{{ formErrors.telenum }}</span></span
                   ></label
@@ -135,7 +148,11 @@
                 <div class="telenum-container">
                   <span>+91</span>
                   <input
-                    type="text" inputmode="numeric" pattern="\d*" min="0" maxlength="10"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="\d*"
+                    min="0"
+                    maxlength="10"
                     id="telenum"
                     name="telenum"
                     placeholder="Enter your Phone Number"
@@ -150,40 +167,11 @@
             <div class="row-view">
               <div class="subject-container">
                 <h4>
-                  Subjects <span style="color: red; font-weight: 400;">*</span>
+                  Subjects <span style="color: red; font-weight: 400">*</span>
                   <span class="error-message" v-if="formErrors.subjects"
                     ><span>{{ formErrors.subjects }}</span></span
                   >
                 </h4>
-                <!-- Refactored Checkbox Group -->
-                <!-- <div class="subject-row-category">
-                  <div class="custom-input-group">
-                    <input type="checkbox" id="Maths" value="Maths" v-model="formData.subjects" />
-                    <label for="Maths"><span class="custom-checkbox"></span>Maths</label>
-                  </div>
-                  <div class="custom-input-group">
-                    <input
-                      type="checkbox"
-                      id="English"
-                      value="English"
-                      v-model="formData.subjects"
-                    />
-                    <label for="English"><span class="custom-checkbox"></span>English</label>
-                  </div>
-                  <div class="custom-input-group">
-                    <input type="checkbox" id="French" value="French" v-model="formData.subjects" />
-                    <label for="French"><span class="custom-checkbox"></span>French</label>
-                  </div>
-                  <div class="custom-input-group">
-                    <input
-                      type="checkbox"
-                      id="History"
-                      value="History"
-                      v-model="formData.subjects"
-                    />
-                    <label for="History"><span class="custom-checkbox"></span>History</label>
-                  </div>
-                </div> -->
                 <div class="subject-row-category">
                   <div class="custom-input-group">
                     <input type="checkbox" id="Cpp" value="C++" v-model="formData.subjects" />
@@ -209,7 +197,9 @@
                 </div>
               </div>
               <div class="ele-container">
-                <label for="exam">Exam Center <span style="color: red; font-weight: 400;">*</span></label>
+                <label for="exam"
+                  >Exam Center <span style="color: red; font-weight: 400">*</span></label
+                >
                 <select name="exam" id="exam" v-model="formData.exam" required>
                   <option value="" disabled selected hidden>Choose an exam center</option>
                   <option value="Noida">Noida</option>
@@ -241,7 +231,6 @@ export default {
     exisitingPhone: {
       type: Array,
     },
-
   },
   data() {
     return {
@@ -263,6 +252,7 @@ export default {
         lname: '',
         email: '',
         telenum: '',
+        gender: '',
         subjects: '',
       },
 
@@ -282,10 +272,9 @@ export default {
         dob: '',
         email: '',
         telenum: '',
+        gender: '',
         subjects: '',
       }
-
-
 
       let isFormValid = true
 
@@ -327,15 +316,20 @@ export default {
         isFormValid = false
       }
 
-      if(this.formData.email){
-        const currentEmail = this.formData.email.toLowerCase().trim();
+      if (this.formData.email) {
+        const currentEmail = this.formData.email.toLowerCase().trim()
 
-        const emailChecker = this.exisitingEmails.includes(currentEmail);
+        const emailChecker = this.exisitingEmails.includes(currentEmail)
 
-        if(emailChecker){
-          this.formErrors.email = "This Email Already Exists";
+        if (emailChecker) {
+          this.formErrors.email = 'This Email Already Exists'
           isFormValid = false
         }
+      }
+
+      if (!this.formData.gender) {
+        this.formErrors.gender = 'Please select a gender'
+        isFormValid = false
       }
 
       const phonePattern = /^[0-9]{10}$/
@@ -344,13 +338,13 @@ export default {
         isFormValid = false
       }
 
-      if(this.formData.telenum){
-        const currentPhone = this.formData.telenum;
+      if (this.formData.telenum) {
+        const currentPhone = this.formData.telenum
 
-        const phoneChecker = this.exisitingPhone.includes(currentPhone);
+        const phoneChecker = this.exisitingPhone.includes(currentPhone)
 
-        if(phoneChecker){
-          this.formErrors.telenum = "This Phone Number Already Exists";
+        if (phoneChecker) {
+          this.formErrors.telenum = 'This Phone Number Already Exists'
           isFormValid = false
         }
       }
@@ -829,11 +823,10 @@ select:focus {
 }
 
 .row-view {
-    flex-direction: row;
-  }
+  flex-direction: row;
+}
 
 @media (max-width: 900px) {
-
   .main-container {
     padding: 1px;
   }
@@ -841,18 +834,15 @@ select:focus {
   .page-container {
     width: 100%;
   }
-
-
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
   .row-view {
     flex-direction: column;
-
   }
 }
 
-@media (max-width: 432px){
+@media (max-width: 432px) {
   .page-container {
     padding: 5px;
     padding-top: 10px;
@@ -862,5 +852,4 @@ select:focus {
     margin-bottom: 20px;
   }
 }
-
 </style>
